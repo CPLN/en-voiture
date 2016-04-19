@@ -30,7 +30,7 @@
 4. Choisir *Clone Existing Repository* et coller l'URL de clonage dans le premier champ.
 5. **Ajouter son nom d'utilisateur entre https:// et github. Exemple : https://MonPseudo@github.com/MonPseudo/mon-depot.git** Sans cette action, git demandera un nom d'utilisateur en plus du mot de passe à chaque connexion à GitHub.
 6. Choisir un emplacement local où stocker le projet. Cet emplacement ne doit pas encore exister.
-7. Dans la fenêtre qui apparait après validation, chosir le menu *Remote -> Add* et ajouter le repository principal. Son nom est **upstream** et son adresse est **https://github.com/CPLN/enigmos.git**
+7. Dans la fenêtre qui apparait après validation, chosir le menu *Remote -> Add* et ajouter le repository principal. Son nom est **upstream** et son adresse est **https://github.com/CPLN/en-voiture.git**
 8. Choisir l'option dans le menu *Edit -> Options...* et ajouter son nom et son adresse e-mail de l'école dans la colonne de droite.
 
 **NOTE :** Si vous travaillez sur un disque réseau et que le projet existe déjà, ces manipulations sont inutiles.
