@@ -3,7 +3,8 @@
 ## Développer une fonctionalité
 
 Étapes de développement d'une fonctionalité :
-1. Choisir une [issue](https://github.com/CPLN/en-voiture/issues) possédant l'étiquette **à développer**.
+
+1. Choisir une [issue possédant l'étiquette **à développer**](https://github.com/CPLN/en-voiture/issues?q=is%3Aissue+is%3Aopen+label%3A%22%C3%A0+d%C3%A9velopper%22).
 2. Se répartir les tâches dans le groupe pour avoir :
   - Un développeur front-end.
   - Un développeur back-end.
@@ -36,6 +37,7 @@
 **NOTE :** Si vous travaillez sur un disque réseau et que le projet existe déjà, ces manipulations sont inutiles.
 
 ## À effectuer à chaque session de travail
+
 1. En début de session, choisir l'option dans le menu *Remote -> Fetch from -> all* afin de récupérer les modifications faites par les collègues.
 2. Choisir l'option dans le menu *Merge -> Local merge* afin de fusionner les données acquises avec celles déjà présentes.
 3. Travailler normalement en effectuant **de nombreux et fréquents commit**. Un commit fonctionne comme le piton de l'alpiniste : il permet de se rattraper à un point précis du parcours déjà effectué.
