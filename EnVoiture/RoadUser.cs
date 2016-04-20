@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace en_voiture
+namespace EnVoiture
 {
     /// <summary>
     /// Classe représentant un élément mobile de l'application, comme une voiture ou un piéton, par exemple.

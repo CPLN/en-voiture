@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
-using en_voiture;
+using EnVoiture;
 
-namespace en_voiture_unit_test
+namespace EnVoitureUnitTest
 {
     [TestClass]
     public class TestRoadUser

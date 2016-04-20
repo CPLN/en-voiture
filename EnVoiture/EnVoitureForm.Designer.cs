@@ -1,6 +1,6 @@
-﻿namespace en_voiture
+﻿namespace EnVoiture
 {
-    partial class EnVoiture
+    partial class EnVoitureForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // EnVoiture
+            // EnVoitureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "EnVoiture";
-            this.Text = "Form1";
+            this.Name = "EnVoitureForm";
+            this.Text = "En Voiture !";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
             this.ResumeLayout(false);
 

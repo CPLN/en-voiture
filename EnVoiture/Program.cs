@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace en_voiture
+namespace EnVoiture
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace en_voiture
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EnVoiture());
+            Application.Run(new EnVoitureForm());
         }
     }
 }

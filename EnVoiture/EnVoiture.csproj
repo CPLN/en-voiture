@@ -7,7 +7,7 @@
     <ProjectGuid>{5291BCEE-D481-4D97-8B97-DEAE20AFF882}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>en_voiture</RootNamespace>
+    <RootNamespace>EnVoiture</RootNamespace>
     <AssemblyName>en-voiture</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,18 +46,18 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="CarWidget.cs" />
-    <Compile Include="EnVoiture.cs">
+    <Compile Include="EnVoitureForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnVoiture.Designer.cs">
-      <DependentUpon>EnVoiture.cs</DependentUpon>
+    <Compile Include="EnVoitureForm.Designer.cs">
+      <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoadUser.cs" />
     <Compile Include="RoadUserWidget.cs" />
-    <EmbeddedResource Include="EnVoiture.resx">
-      <DependentUpon>EnVoiture.cs</DependentUpon>
+    <EmbeddedResource Include="EnVoitureForm.resx">
+      <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

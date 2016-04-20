@@ -2,19 +2,19 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace en_voiture
+namespace EnVoiture
 {
     /// <summary>
     /// Classe principale du projet.
     /// </summary>
-    public partial class EnVoiture : Form
+    public partial class EnVoitureForm : Form
     {
         private List<RoadUserWidget> roadUsers;
 
         /// <summary>
         /// Constructeur par défaut.
         /// </summary>
-        public EnVoiture()
+        public EnVoitureForm()
         {
             InitializeComponent();
 

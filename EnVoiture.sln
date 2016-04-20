@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "en-voiture", "en-voiture\en-voiture.csproj", "{5291BCEE-D481-4D97-8B97-DEAE20AFF882}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnVoiture", "EnVoiture\EnVoiture.csproj", "{5291BCEE-D481-4D97-8B97-DEAE20AFF882}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "en-voiture-unit-test", "en-voiture-unit-test\en-voiture-unit-test.csproj", "{A1B04A11-94AB-4049-AE47-D78818ACA065}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnVoitureUnitTest", "EnVoitureUnitTest\EnVoitureUnitTest.csproj", "{A1B04A11-94AB-4049-AE47-D78818ACA065}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
