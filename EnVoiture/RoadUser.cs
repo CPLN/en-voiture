@@ -165,9 +165,11 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(Rectangle bounds)
+        public RoadUser(Rectangle bounds,double v,double vMax)
         {
             this.bounds = bounds;
+            VitesseMax = vMax;
+            Vitesse = v;
         }
 
         /// <summary>
@@ -180,10 +182,9 @@ namespace EnVoiture
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
         public RoadUser(int x, int y, int width, int height, double v, double vMax)
-            : this(new Rectangle(x, y, width, height))
+            : this(new Rectangle(x, y, width, height),v,vMax)
         {
-            VitesseMax = vMax;
-            Vitesse = v;
+           
         }
 
         /// <summary>

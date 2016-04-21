@@ -23,7 +23,11 @@ namespace EnVoiture
         {
             
         }
-       
+       public Pieton(Rectangle rectangle,double v, double vMax)
+           :base(rectangle,v,vMax)
+        {
+
+        }
     }
 }
 

@@ -11,7 +11,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
-        public Car(Rectangle rectangle) : base(rectangle) { }
+        public Car(Rectangle rectangle, double vMax) : base(rectangle,0.0,vMax) { }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture en donnant directement les valeurs.
