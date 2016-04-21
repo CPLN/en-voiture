@@ -10,6 +10,7 @@ namespace EnVoiture
     public partial class EnVoitureForm : Form
     {
         private List<RoadUserWidget> roadUsers;
+        bool TouchPressed;
 
         /// <summary>
         /// Constructeur par défaut.
@@ -28,6 +29,34 @@ namespace EnVoiture
             {
                 user.Paint(g);
             }
+        }
+
+        private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            TouchPressed = true;
+            if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
+            {
+                Avancer();
+            }
+            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+            {
+                TournerGauche();
+            }
+            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+            {
+                Reculer();
+            }
+            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+            {
+                TournerDroite();
+            }
+        }
+
+        private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            TouchPressed = false;
+
+            StopDeplacement();
         }
     }
 }

@@ -38,6 +38,8 @@
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.ResumeLayout(false);
 
         }
