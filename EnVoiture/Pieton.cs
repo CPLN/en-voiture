@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    class Pieton : RoadUser
+    public class Pieton : RoadUser
     {
         
         public Pieton(int x, int y, int x1, int y1, double v, double vMax)
