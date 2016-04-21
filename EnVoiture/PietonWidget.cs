@@ -9,18 +9,23 @@ namespace EnVoiture
 {
     class PietonWidget : RoadUserWidget
     {
-        public override void Paint(Graphics g)
-        {
-            g.FillEllipse(Brushes.Azure);
-        }
+
         private pieton p1;
 
         public Pieton Pieton { get; private set; }
+
+        public PietonWidget(Rectangle ractangle)
+        {
+            this.pieton = new Pieton(rectangle);
+        }
 
         public PietonWidget(int x,int y,int width, int height)
         {
             this.pieton = new Pieton(x, y, width, height);
         }
-
+        public override void Paint(Graphics g)
+        {
+            g.FillEllipse(Brushes.Azure, pieton.Bounds);
+        }
     }
 }
