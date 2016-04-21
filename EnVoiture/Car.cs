@@ -20,7 +20,10 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public Car(int x, int y, int width, int height) : base(x, y, width, height) { }
+        public Car(int x, int y, int width, int height,double vMax) 
+            : base(x, y, width, height,0.0,vMax) 
+        {
+        }
 
     }
 }

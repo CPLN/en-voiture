@@ -30,9 +30,9 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public CarWidget(int x, int y, int width, int height)
+        public CarWidget(int x, int y, int width, int height, double vMax)
         {
-            this.car = new Car(x, y, width, height);
+            this.car = new Car(x, y, width, height,vMax);
         }
 
         public override void Paint(Graphics g)
