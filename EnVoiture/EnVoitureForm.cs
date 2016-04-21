@@ -10,6 +10,10 @@ namespace EnVoiture
     public partial class EnVoitureForm : Form
     {
         private List<RoadUserWidget> roadUsers;
+        /// <summary>
+        /// Faire un foreach pour l'affichage
+        /// </summary>
+        private List<Way> Ways;
 
         /// <summary>
         /// Constructeur par défaut.
@@ -20,6 +24,9 @@ namespace EnVoiture
 
             this.roadUsers = new List<RoadUserWidget>();
             roadUsers.Add(new CarWidget(10, 10, 30, 20));
+
+            this.Ways = new List<Way>();
+          Way w1 = new Way(10, 10, 10, 10, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH});
         }
 
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
@@ -28,7 +35,9 @@ namespace EnVoiture
 
             // route
 
+            g.FillRectangle(Brushes.Gray, 0, 0, 10, 10);
 
+            
 
             foreach (RoadUserWidget user in roadUsers)
             {
