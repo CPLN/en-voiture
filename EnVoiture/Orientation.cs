@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    enum Orientation
+    public enum Orientation
     {
         NORTH,
         EAST,

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    class Way
+    public class Way
     {
         /// <summary>
         /// Location of the way
