@@ -20,7 +20,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public CarWidget(Rectangle rectangle)
         {
-            this.car = new Car(rectangle);
+            this.car = new Car(rectangle,0.0);
         }
 
         /// <summary>
