@@ -8,7 +8,36 @@ namespace EnVoiture
     public abstract class RoadUser
     {
         private Rectangle bounds;
+        private double dblVitesse;
+        private double dblVitesseMax;
 
+
+        public double Vitesse
+        {
+            get
+            {
+                return dblVitesse;
+            }
+            set
+            {
+                if (value <= dblVitesseMax)
+                {
+                    dblVitesse = value;
+                }
+            }
+        }
+
+        public double VitesseMax
+        {
+            get
+            {
+                return dblVitesseMax;
+            }
+            set
+            {
+                dblVitesseMax = value;
+            }
+        }
         public Rectangle Bounds
         {
             get
@@ -143,9 +172,11 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public RoadUser(int x, int y, int width, int height)
+        public RoadUser(int x, int y, int width, int height, double v, double vMax)
             : this(new Rectangle(x, y, width, height))
         {
+            VitesseMax = vMax;
+            Vitesse = v;
         }
 
         /// <summary>
