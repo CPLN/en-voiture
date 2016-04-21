@@ -9,23 +9,33 @@ namespace EnVoiture
 {
     class Way
     {
+        /// <summary>
+        /// Location of the way
+        /// </summary>
         public Point Location
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Size of the way
+        /// </summary>
         public Size Size
         {
             get;
             private set;
         }
 
+        /// <summary>
+        /// Orientations of the way
+        /// </summary>
         public List<Orientation> Orientations
         {
             get;
             private set;
         }
+
         public Way(int x, int y, int width, int height, List<Orientation> orientations)
         {
             this.Location = new Point(x, y);
@@ -38,11 +48,6 @@ namespace EnVoiture
             this.Location = location;
             this.Size = size;
             this.Orientations = orientations;
-        }
-
-        public bool canGo(Orientation orientation)
-        {
-            return Orientations.Contains(orientation);
         }
     }
 }
