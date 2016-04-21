@@ -11,7 +11,9 @@ namespace EnVoiture
         private double dblVitesse;
         private double dblVitesseMax;
 
-
+        /// <summary>
+        /// propriété règlant la vitesse
+        /// </summary>
         public double Vitesse
         {
             get
@@ -27,6 +29,9 @@ namespace EnVoiture
             }
         }
 
+        /// <summary>
+        /// propriété règéant la vitesse maximum 
+        /// </summary>
         public double VitesseMax
         {
             get
@@ -172,6 +177,8 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
+        /// <param name="v"> vitesse de base </param>
+        /// <param name="vMax">vitesse Max</param>
         public RoadUser(int x, int y, int width, int height, double v, double vMax)
             : this(new Rectangle(x, y, width, height))
         {
