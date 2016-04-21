@@ -11,7 +11,8 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestCreatePieton()
         {
-            
+            RoadUser pieton1 = new Pieton(30, 30, 10, 10);
+            Assert.IsNull(pieton1);
         }
     }
 }
