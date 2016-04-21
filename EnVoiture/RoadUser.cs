@@ -157,5 +157,26 @@ namespace EnVoiture
         {
             return bounds.IntersectsWith(other.bounds);
         }
+        int x, y;
+        public void Avancer()
+        {
+            Point p = new Point(x++, ys);
+
+            Location = p;
+        }
+        public void Gauche()
+        {
+
+        }
+        public void Droite()
+        {
+
+        }
+        /*
+        public bool Reculer()
+        {
+
+        }
+         * */
     }
 }
