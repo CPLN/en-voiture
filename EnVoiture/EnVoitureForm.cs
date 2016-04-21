@@ -36,27 +36,26 @@ namespace EnVoiture
             TouchPressed = true;
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
             {
-                Avancer();
+                Avancer(TouchPressed);
             }
             else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
             {
-                TournerGauche();
+                Gauche(TouchPressed);
             }
             else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
             {
-                Reculer();
+                Reculer(TouchPressed);
             }
             else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
-                TournerDroite();
+                Droite(TouchPressed);
             }
         }
 
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
             TouchPressed = false;
-
-            StopDeplacement();
+            StopDeplacement(TouchPressed);
         }
     }
 }
