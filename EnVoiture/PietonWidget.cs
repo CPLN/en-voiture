@@ -10,22 +10,22 @@ namespace EnVoiture
     class PietonWidget : RoadUserWidget
     {
 
-        private pieton p1;
+        private Pieton p1;
 
         public Pieton Pieton { get; private set; }
 
-        public PietonWidget(Rectangle ractangle)
+        public PietonWidget(Rectangle rectangle)
         {
-            this.pieton = new Pieton(rectangle);
+            this.Pieton = new Pieton(rectangle);
         }
 
-        public PietonWidget(int x,int y,int width, int height)
+        public PietonWidget(int x,int y,int width, int height, double v, double vmax)
         {
-            this.pieton = new Pieton(x, y, width, height);
+            this.Pieton = new Pieton(x, y, width, height, 15, 30);
         }
         public override void Paint(Graphics g)
         {
-            g.FillEllipse(Brushes.Azure, pieton.Bounds);
+            g.FillEllipse(Brushes.Azure, Pieton.Bounds);
         }
     }
 }

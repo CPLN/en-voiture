@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    class Pieton : RoadUser
+    public class Pieton : RoadUser
     {
         
-        public Pieton(int x, int y, int x1, int y1, double v, double vMax)
-            : base(x,y,x1,y1,v,vMax)
+        public Pieton(int x, int y, int width, int height, double v, double vMax)
+            : base(x,y,width,height,v,vMax)
         {
             
         }
