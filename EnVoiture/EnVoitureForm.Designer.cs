@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 372);
+            this.ClientSize = new System.Drawing.Size(762, 537);
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
