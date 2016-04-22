@@ -61,5 +61,10 @@ namespace EnVoiture
             this.Size = size;
             this.Orientations = orientations;
         }
+
+        public  void Paint(Graphics g)
+        {
+            g.FillRectangle(Brushes.Gray,Location.X, Location.Y, Size.Width, Size.Height);
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace EnVoiture
     {
         private List<RoadUserWidget> roadUsers;
         /// <summary>
-        /// Faire un foreach pour l'affichage
+        /// 
         /// </summary>
         private List<Way> Ways;
 
@@ -26,18 +26,21 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(10, 10, 30, 20));
 
             this.Ways = new List<Way>();
-          Way w1 = new Way(10, 10, 10, 10, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH});
+            
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            // route
-
-            g.FillRectangle(Brushes.Gray, 0, 0, 10, 10);
-
-            
+            foreach (Way way in Ways)
+            {
+                way.Paint(g);
+            }
 
             foreach (RoadUserWidget user in roadUsers)
             {
