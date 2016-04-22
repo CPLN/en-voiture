@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timerDirection = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timerDirection
+            // 
+            this.timerDirection.Enabled = true;
+            this.timerDirection.Interval = 10;
+            this.timerDirection.Tick += new System.EventHandler(this.timerDirection_Tick);
             // 
             // EnVoitureForm
             // 
@@ -38,11 +46,15 @@
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timerDirection;
     }
 }
 
