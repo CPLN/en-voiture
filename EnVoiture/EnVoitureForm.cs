@@ -30,7 +30,6 @@ namespace EnVoiture
             voiture = (roadUsers[0] as CarWidget).Car;
 
             this.Ways = new List<Way>();
-            
         }
         /// <summary>
         /// 
@@ -51,11 +50,8 @@ namespace EnVoiture
                 user.Paint(g);
             }
         }
-
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
         {
-            
-
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
             {
                 bAvancer = true;
@@ -75,7 +71,6 @@ namespace EnVoiture
                 bDroite = true;
             }
         }
-
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
