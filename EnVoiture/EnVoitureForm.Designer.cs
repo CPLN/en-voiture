@@ -28,19 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pToolsBox = new System.Windows.Forms.Panel();
             this.pLevelDesigner = new System.Windows.Forms.Panel();
             this.lblToolsBox = new System.Windows.Forms.Label();
-            this.pToolsBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pToolsBox
-            // 
-            this.pToolsBox.Controls.Add(this.lblToolsBox);
-            this.pToolsBox.Location = new System.Drawing.Point(0, 0);
-            this.pToolsBox.Name = "pToolsBox";
-            this.pToolsBox.Size = new System.Drawing.Size(200, 540);
-            this.pToolsBox.TabIndex = 0;
             // 
             // pLevelDesigner
             // 
@@ -64,20 +54,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 537);
+            this.Controls.Add(this.lblToolsBox);
             this.Controls.Add(this.pLevelDesigner);
-            this.Controls.Add(this.pToolsBox);
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
-            this.pToolsBox.ResumeLayout(false);
-            this.pToolsBox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pToolsBox;
         private System.Windows.Forms.Panel pLevelDesigner;
         private System.Windows.Forms.Label lblToolsBox;
     }

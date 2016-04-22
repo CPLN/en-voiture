@@ -22,19 +22,17 @@ namespace EnVoiture
         {
             InitializeComponent();
             List<WayWidget> ww = new List<WayWidget>();
-            ww.Add(new WayWidget(new Way(0, 0, 0, 0, new List<Orientation>() { Orientation.NORTH } )));
+            ww.Add(new WayWidget(new Way(0, 0, 0, 0, new List<Orientation>() { Orientation.NORTH })));
             _toolBox = new ToolsBox(ww);
-
         }
 
-       public Way creatWay(int x, int y) {
-
-           Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH});
-
-           return RouteBase;
+        public Way CreateWay(int x, int y)
+        {
+            Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
+            return RouteBase;
         }
         /// <summary>
-        /// 
+        /// Est apellé beaucoup de fois par seconde 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -46,6 +44,8 @@ namespace EnVoiture
             {
                 user.Paint(g);
             }
+
+            
         }
     }
 }
