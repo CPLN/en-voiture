@@ -24,5 +24,17 @@ namespace EnVoitureUnitTest
             Way w = new Way(new Point(0,0), new Size(20, 30), o);
             Assert.AreEqual(w.Size, new Size(20, 30));
         }
+
+        [TestMethod]
+        public void TestOppositeOrientationNS()
+        {
+            Assert.AreEqual(Orientation.NORTH.getOpposite(), Orientation.SOUTH);
+        }
+
+        [TestMethod]
+        public void TestOppositeOrientationWE()
+        {
+            Assert.AreEqual(Orientation.WEST.getOpposite(), Orientation.EAST);
+        }
     }
 }
