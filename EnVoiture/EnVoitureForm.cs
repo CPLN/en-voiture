@@ -23,6 +23,13 @@ namespace EnVoiture
         {
             InitializeComponent();
         }
+
+       public Way creatWay(int x, int y) {
+
+           Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH});
+
+           return RouteBase;
+        }
         /// <summary>
         /// 
         /// </summary>
