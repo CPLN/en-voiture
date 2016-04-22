@@ -21,7 +21,7 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new CarWidget(50, 50, 10, 20));
+            roadUsers.Add(new CarWidget(0, 0, 10, 20));
             voiture = (roadUsers[0] as CarWidget).Car;
         }
 
