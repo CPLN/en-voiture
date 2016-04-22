@@ -8,7 +8,41 @@ namespace EnVoiture
     public abstract class RoadUser
     {
         private Rectangle bounds;
+        private double dblVitesse;
+        private double dblVitesseMax;
 
+        /// <summary>
+        /// propriété règlant la vitesse
+        /// </summary>
+        public double Vitesse
+        {
+            get
+            {
+                return dblVitesse;
+            }
+            set
+            {
+                if (value <= dblVitesseMax)
+                {
+                    dblVitesse = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// propriété règéant la vitesse maximum 
+        /// </summary>
+        public double VitesseMax
+        {
+            get
+            {
+                return dblVitesseMax;
+            }
+            set
+            {
+                dblVitesseMax = value;
+            }
+        }
         public Rectangle Bounds
         {
             get
@@ -130,9 +164,11 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(Rectangle bounds)
+        public RoadUser(Rectangle bounds,double v,double vMax)
         {
             this.bounds = bounds;
+            VitesseMax = vMax;
+            Vitesse = v;
         }
 
         /// <summary>
@@ -142,9 +178,12 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public RoadUser(int x, int y, int width, int height)
-            : this(new Rectangle(x, y, width, height))
+        /// <param name="v"> vitesse de base </param>
+        /// <param name="vMax">vitesse Max</param>
+        public RoadUser(int x, int y, int width, int height, double v, double vMax)
+            : this(new Rectangle(x, y, width, height),v,vMax)
         {
+           
         }
 
         /// <summary>
