@@ -54,8 +54,12 @@ namespace EnVoiture
 
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
-            TouchPressed = false;
-            StopDeplacement(TouchPressed);
+            if (e.KeyCode == Keys.W && e.KeyCode == Keys.A && e.KeyCode == Keys.S && e.KeyCode == Keys.D ||
+                e.KeyCode == Keys.Up && e.KeyCode == Keys.Down && e.KeyCode == Keys.Left && e.KeyCode == Keys.Right)
+            {
+                TouchPressed = false;
+                StopDeplacement(TouchPressed);
+            }
         }
     }
 }
