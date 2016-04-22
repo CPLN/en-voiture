@@ -10,6 +10,10 @@ namespace EnVoiture
     public partial class EnVoitureForm : Form
     {
         private List<RoadUserWidget> roadUsers;
+        /// <summary>
+        /// 
+        /// </summary>
+        private List<Way> Ways;
 
         /// <summary>
         /// Constructeur par défaut.
@@ -19,12 +23,24 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new PietonWidget(50, 50, 50, 50, 10, 100));
-        }
 
+            this.Ways = new List<Way>();
+            
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+
+            foreach (Way way in Ways)
+            {
+                way.Paint(g);
+            }
+
             foreach (RoadUserWidget user in roadUsers)
             {
                 user.Paint(g);

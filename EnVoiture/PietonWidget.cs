@@ -9,9 +9,6 @@ namespace EnVoiture
 {
     class PietonWidget : RoadUserWidget
     {
-
-        private Pieton p1;
-
         public Pieton Pieton { get; private set; }
 
         public PietonWidget(Rectangle rectangle, double v,double vmax)
