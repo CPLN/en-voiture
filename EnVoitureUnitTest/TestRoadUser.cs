@@ -108,5 +108,21 @@ namespace EnVoitureUnitTest
             Assert.IsFalse(car1.Collide(car2));
             Assert.IsFalse(car2.Collide(car1));
         }
+        [TestMethod]
+        public void TestAvance()
+        {
+            RoadUser car = new Car( 0, 0, 10, 10);
+            car.Avancer();
+            Assert.AreEqual(1, car.Location.Y); //teste si la position sur l'axe x a bien été incrémenté
+            Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe y est restée la même
+        }
+        [TestMethod]
+        public void Test()
+        {
+            RoadUser car = new Car(0, 0, 10, 10);
+            car.Avancer();
+            Assert.AreEqual(1, car.Location.Y); //teste si la position sur l'axe x a bien été incrémenté
+            Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe y est restée la même
+        }
     }
 }
