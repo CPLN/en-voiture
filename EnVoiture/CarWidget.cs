@@ -18,7 +18,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public CarWidget(Rectangle rectangle)
         {
-            this.Car = new Car(rectangle);
+            this.Car = new Car(rectangle,0.0);
         }
 
         /// <summary>
@@ -28,9 +28,9 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public CarWidget(int x, int y, int width, int height)
+        public CarWidget(int x, int y, int width, int height, double vMax)
         {
-            this.Car = new Car(x, y, width, height);
+            this.Car = new Car(x, y, width, height,vMax);
         }
 
         public override void Paint(Graphics g)

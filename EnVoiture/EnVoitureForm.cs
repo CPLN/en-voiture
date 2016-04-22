@@ -14,6 +14,11 @@ namespace EnVoiture
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
 
         /// <summary>
+        /// 
+        /// </summary>
+        private List<Way> Ways;
+
+        /// <summary>
         /// Constructeur par défaut.
         /// </summary>
         public EnVoitureForm()
@@ -21,13 +26,26 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new CarWidget(0, 0, 10, 20));
+            roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
-        }
 
+            this.Ways = new List<Way>();
+            
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+
+            foreach (Way way in Ways)
+            {
+                way.Paint(g);
+            }
+
             foreach (RoadUserWidget user in roadUsers)
             {
                 user.Paint(g);
