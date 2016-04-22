@@ -157,7 +157,6 @@ namespace EnVoiture
             return bounds.IntersectsWith(other.bounds);
         }
 
-      
         public void Avancer()
         {
             Location = new Point(Location.X + 1, Location.Y);
@@ -178,6 +177,5 @@ namespace EnVoiture
         {
             Location = new Point(Location.X, Location.Y);
         }
-
     }
 }

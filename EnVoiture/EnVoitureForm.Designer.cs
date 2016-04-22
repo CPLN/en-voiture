@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timerDirection = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timerDirection
+            // 
+            this.timerDirection.Enabled = true;
+            this.timerDirection.Interval = 10;
+            this.timerDirection.Tick += new System.EventHandler(this.timerDirection_Tick);
             // 
             // EnVoitureForm
             // 
@@ -45,6 +53,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timerDirection;
     }
 }
 

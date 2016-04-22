@@ -9,9 +9,9 @@ namespace EnVoiture
     /// </summary>
     public partial class EnVoitureForm : Form
     {
-        Car voiture = new Car(0,0,20,9);
+        Car voiture;
         private List<RoadUserWidget> roadUsers;
-        bool TouchPressed;
+        bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
 
         /// <summary>
         /// Constructeur par défaut.
@@ -21,6 +21,8 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
+            roadUsers.Add(new CarWidget(50, 50, 10, 20));
+            voiture = (roadUsers[0] as CarWidget).Car;
         }
 
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
@@ -34,33 +36,72 @@ namespace EnVoiture
 
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
         {
-            //TouchPressed = true;
+            
+
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
             {
-                voiture.Avancer();
-            }
-            else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
-            {
-                voiture.Gauche();
+                bAvancer = true;
             }
             else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
             {
-                voiture.Reculer();
+                bReculer = true;
             }
-            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
             {
-                voiture.Droite();
+                bGauche = true;
+            }
+
+            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+            {
+                bDroite = true;
             }
         }
 
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W && e.KeyCode == Keys.S ||
-                e.KeyCode == Keys.Up && e.KeyCode == Keys.Down)
+            if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
             {
-
-                voiture.StopDeplacement();
+                bAvancer = false;
             }
+            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+            {
+                bReculer = false;
+            }
+
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+            {
+                bGauche = false;
+            }
+
+            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+            {
+                bDroite = false;
+            }
+        }
+
+        private void timerDirection_Tick(object sender, System.EventArgs e)
+        {
+            if (bAvancer)
+            {
+                voiture.Avancer();
+            }
+
+            if (bReculer)
+            {
+                voiture.Reculer();
+            }
+
+            if (bGauche)
+            {
+                voiture.Gauche();
+            }
+
+            if (bDroite)
+            {
+                voiture.Droite();
+            }
+            Invalidate();
         }
     }
 }
