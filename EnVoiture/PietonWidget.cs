@@ -16,7 +16,7 @@ namespace EnVoiture
 
         public PietonWidget(Rectangle rectangle)
         {
-            this.Pieton = new Pieton(rectangle);
+            this.Pieton = new Pieton(rectangle,0.0,100.0);
         }
 
         public PietonWidget(int x,int y,int width, int height, double v, double vmax)
