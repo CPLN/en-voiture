@@ -36,7 +36,7 @@ namespace EnVoiture
             private set;
         }
         /// <summary>
-        /// 
+        /// Constructeur utilisant un x, y, width et height en paramètre
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -50,10 +50,10 @@ namespace EnVoiture
             this.Orientations = orientations;
         }
         /// <summary>
-        /// 
+        /// constructeur utilsant un point et un size en paramètre
         /// </summary>
-        /// <param name="location"></param>
-        /// <param name="size"></param>
+        /// <param name="location">Contient x et y</param>
+        /// <param name="size">contient Widht et height</param>
         /// <param name="orientations"></param>
         public Way(Point location, Size size, List<Orientation> orientations)
         {
