@@ -174,6 +174,10 @@ namespace EnVoiture
         {
             Location = new Point(Location.X - 1, Location.Y);
         }
+        public void StopDeplacement()
+        {
+            Location = new Point(Location.X, Location.Y);
+        }
 
     }
 }
