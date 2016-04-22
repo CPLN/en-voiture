@@ -25,6 +25,7 @@ namespace EnVoiture
             this.roadUsers = new List<RoadUserWidget>();
             this.Ways = new List<Way>();
             Ways.Add(new Way(10,10,100,100,new List<Orientation>()));
+            Ways.Add(new Way(120, 120, 100, 100, new List<Orientation>()));
             
         }
         /// <summary>
@@ -39,8 +40,8 @@ namespace EnVoiture
             foreach (Way way in Ways)
             {
                 Pen BlackPen = new Pen(Color.Black, 20);
-                Point point1 = new Point((way.Location.X+way.Size.Width)/2, way.Location.X);
-                Point point2 = new Point((way.Location.Y+way.Size.Width)/2,way.Location.Y+way.Size.Height);
+                Point point1 = new Point(way.Location.X+way.Size.Width/2, way.Location.X);
+                Point point2 = new Point(way.Location.Y+way.Size.Width/2,way.Location.Y+way.Size.Height);
                 way.Paint(g);
                 g.DrawLine(BlackPen, point1, point2);
             }
