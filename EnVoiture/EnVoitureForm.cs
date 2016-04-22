@@ -23,7 +23,6 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new CarWidget(10, 10, 30, 20));
 
             this.Ways = new List<Way>();
             
