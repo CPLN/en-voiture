@@ -160,19 +160,23 @@ namespace EnVoiture
       
         public void Avancer()
         {
-            Location = new Point(Location.X + 1, Location.Y);
+            Location = new Point(Location.X, Location.Y + 1);
         }
         public void Gauche()
         {
-            Location = new Point(Location.X, Location.Y - 1);
+            Location = new Point(Location.X - 1, Location.Y);
         }
         public void Droite()
         {
-            Location = new Point(Location.X, Location.Y + 1);
+            Location = new Point(Location.X + 1, Location.Y);
         }
         public void Reculer()
         {
-            Location = new Point(Location.X - 1, Location.Y);
+            Location = new Point(Location.X, Location.Y - 1);
+        }
+        public void StopDeplacement()
+        {
+            Location = new Point(Location.X, Location.Y);
         }
 
     }
