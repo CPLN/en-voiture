@@ -24,6 +24,7 @@ namespace EnVoitureUnitTest
         public void TestGeometry()
         {
             RoadUser car = new Car(16, 42, 120, 910, 80);
+
             Assert.AreEqual(new Point(16, 42), car.Location);
             Assert.AreEqual(new Size(120, 910), car.Size);
             Assert.AreEqual(120, car.Width);
@@ -38,6 +39,7 @@ namespace EnVoitureUnitTest
         public void TestAngle()
         {
             RoadUser car = new Car(0, 0, 10, 10, 80);
+
             car.Angle = 42;
             Assert.AreEqual(42, car.Angle);
         }
@@ -51,60 +53,70 @@ namespace EnVoitureUnitTest
             // Contact
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(5, 5, 10, 10, 80);
+
             Assert.IsTrue(car1.Collide(car2));
             Assert.IsTrue(car2.Collide(car1));
 
             // Pas de contact
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(15, 15, 10, 10, 80);
+
             Assert.IsFalse(car1.Collide(car2));
             Assert.IsFalse(car2.Collide(car1));
 
             // Léger contact par le côté horizontal
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(9, 0, 10, 10, 80);
+
             Assert.IsTrue(car1.Collide(car2));
             Assert.IsTrue(car2.Collide(car1));
 
             // Presque en contact par le côté horizontal
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(10, 0, 10, 10, 80);
+
             Assert.IsFalse(car1.Collide(car2));
             Assert.IsFalse(car2.Collide(car1));
 
             // Léger contact par le côté vertical
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(0, 9, 10, 10, 80);
+
             Assert.IsTrue(car1.Collide(car2));
             Assert.IsTrue(car2.Collide(car1));
 
             // Presque en contact par le côté vertical
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(0, 10, 10, 10, 80);
+
             Assert.IsFalse(car1.Collide(car2));
             Assert.IsFalse(car2.Collide(car1));
 
             // Léger contact par l'angle
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(9, 9, 10, 10, 80);
+
             Assert.IsTrue(car1.Collide(car2));
             Assert.IsTrue(car2.Collide(car1));
 
             // Presque en contact par l'angle
             car1 = new Car(0, 0, 10, 10, 80);
             car2 = new Car(10, 10, 10, 10, 80);
+
             Assert.IsFalse(car1.Collide(car2));
             Assert.IsFalse(car2.Collide(car1));
 
             // Léger contact par l'autre angle
             car1 = new Car(10, 10, 10, 10, 80);
             car2 = new Car(19, 1, 10, 10, 80);
+
             Assert.IsTrue(car1.Collide(car2));
             Assert.IsTrue(car2.Collide(car1));
 
             // Presque en contact par l'autre angle
             car1 = new Car(10, 10, 10, 10, 80);
             car2 = new Car(20, 0, 10, 10, 80);
+
             Assert.IsFalse(car1.Collide(car2));
             Assert.IsFalse(car2.Collide(car1));
         }
