@@ -48,6 +48,7 @@ namespace EnVoiture
             this.Location = new Point(x, y);
             this.Size = new Size(width, height);
             this.Orientations = orientations;
+            WaysGenerator(3, 3);
         }
         /// <summary>
         /// 
@@ -60,6 +61,22 @@ namespace EnVoiture
             this.Location = location;
             this.Size = size;
             this.Orientations = orientations;
+        }
+
+        public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
+        {
+            int nbWays = largeurVille * hauteurVille;
+            List<Way> _waysVille = new List<Way>();
+
+            for (int i = 1; i <= largeurVille; i++)
+			{
+                for (int j = 0; j < hauteurVille; j++)
+                {
+                _waysVille.Add(new Way(new Point(25 * j, 25*i), new Size(25, 25), new List<Orientation>()));
+                    
+                }
+			}
+            return _waysVille;
         }
 
         public  void Paint(Graphics g)

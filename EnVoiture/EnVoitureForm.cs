@@ -23,8 +23,9 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
-
+            
             this.Ways = new List<Way>();
+            this.Ways = Way.WaysGenerator(3, 3);
             
         }
         /// <summary>
