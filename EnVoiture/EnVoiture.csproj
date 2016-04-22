@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoiteOutil.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Car.cs" />
     <Compile Include="CarWidget.cs" />
     <Compile Include="EnVoitureForm.cs">
