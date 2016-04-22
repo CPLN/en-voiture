@@ -35,14 +35,26 @@ namespace EnVoiture
             get;
             private set;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="orientations"></param>
         public Way(int x, int y, int width, int height, List<Orientation> orientations)
         {
             this.Location = new Point(x, y);
             this.Size = new Size(width, height);
             this.Orientations = orientations;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="size"></param>
+        /// <param name="orientations"></param>
         public Way(Point location, Size size, List<Orientation> orientations)
         {
             this.Location = location;
