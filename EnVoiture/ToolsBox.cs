@@ -9,15 +9,15 @@ namespace EnVoiture
 {
     class ToolsBox : Panel
     {
-        public List<Way> Ways
+        public List<WayWidget> WayWidgets
         {
             get;
             private set;
         }
 
-        public ToolsBox(List<Way> ways)
+        public ToolsBox(List<WayWidget> wayWidgets)
         {
-            Ways = ways;
+            WayWidgets = wayWidgets;
         }
     }
 }

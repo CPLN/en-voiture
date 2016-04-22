@@ -10,11 +10,10 @@ namespace EnVoiture
     /// </summary>
     public partial class EnVoitureForm : Form
     {
-        private List<RoadUserWidget> roadUsers = new List<RoadUserWidget>();
-        /// <summary>
-        /// Liste des routes qui seront affichées
-        /// </summary>
-        private List<WayWidget> Ways = new List<WayWidget>();
+        // Liste des elements qui seront affichés
+        private List<RoadUserWidget> _roadUsers = new List<RoadUserWidget>();
+        private ToolsBox _toolBox;
+
 
         /// <summary>
         /// Constructeur par défaut.
@@ -22,6 +21,10 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
+            List<WayWidget> ww = new List<WayWidget>();
+            ww.Add(new WayWidget(new Way(0, 0, 0, 0, new List<Orientation>() { Orientation.NORTH } )));
+            _toolBox = new ToolsBox(ww);
+
         }
         /// <summary>
         /// 
@@ -32,12 +35,7 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (WayWidget way in Ways)
-            {
-                way.Paint(g);
-            }
-
-            foreach (RoadUserWidget user in roadUsers)
+            foreach (RoadUserWidget user in _roadUsers)
             {
                 user.Paint(g);
             }
