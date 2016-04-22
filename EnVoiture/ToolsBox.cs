@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace EnVoiture
 {
-    class BoiteOutil : Panel
+    class ToolsBox : Panel
     {
         public List<Way> Ways
         {
@@ -15,10 +15,9 @@ namespace EnVoiture
             private set;
         }
 
-        BoiteOutil( List<Way> ways) {
-
+        public ToolsBox(List<Way> ways)
+        {
             Ways = ways;
-        
         }
     }
 }
