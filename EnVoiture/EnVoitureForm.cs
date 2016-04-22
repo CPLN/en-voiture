@@ -9,6 +9,7 @@ namespace EnVoiture
     /// </summary>
     public partial class EnVoitureForm : Form
     {
+        Car voiture = new Car(0,0,20,9);
         private List<RoadUserWidget> roadUsers;
         bool TouchPressed;
 
@@ -33,32 +34,32 @@ namespace EnVoiture
 
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
         {
-            TouchPressed = true;
+            //TouchPressed = true;
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
             {
-                Avancer(TouchPressed);
+                voiture.Avancer();
             }
             else if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
             {
-                Gauche(TouchPressed);
+                voiture.Gauche();
             }
             else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
             {
-                Reculer(TouchPressed);
+                voiture.Reculer();
             }
             else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
             {
-                Droite(TouchPressed);
+                voiture.Droite();
             }
         }
 
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W && e.KeyCode == Keys.A && e.KeyCode == Keys.S && e.KeyCode == Keys.D ||
-                e.KeyCode == Keys.Up && e.KeyCode == Keys.Down && e.KeyCode == Keys.Left && e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.W && e.KeyCode == Keys.S ||
+                e.KeyCode == Keys.Up && e.KeyCode == Keys.Down)
             {
-                TouchPressed = false;
-                StopDeplacement(TouchPressed);
+
+                voiture.StopDeplacement();
             }
         }
     }
