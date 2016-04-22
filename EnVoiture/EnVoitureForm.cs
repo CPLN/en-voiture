@@ -14,7 +14,7 @@ namespace EnVoiture
         /// <summary>
         /// Liste des routes qui seront affichées
         /// </summary>
-        private List<Way> Ways = new List<Way>();
+        private List<WayWidget> Ways = new List<WayWidget>();
 
         /// <summary>
         /// Constructeur par défaut.
@@ -32,7 +32,7 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (Way way in Ways)
+            foreach (WayWidget way in Ways)
             {
                 way.Paint(g);
             }
