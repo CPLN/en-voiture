@@ -19,7 +19,6 @@ namespace EnVoiture
             InitializeComponent();
 
             this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new PietonWidget(50, 50, 50, 50, 10, 100));
         }
 
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
