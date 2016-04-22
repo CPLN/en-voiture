@@ -14,7 +14,7 @@ namespace EnVoitureUnitTest
             RoadUser car1 = new Car(10, 20, 30, 40, 80);
 
             Rectangle rect = new Rectangle(10, 20, 30, 40);
-            RoadUser car2 = new Car(rect);
+            RoadUser car2 = new Car(rect,80);
 
             Assert.AreEqual(car1.Bounds, car2.Bounds);
             Assert.AreNotEqual(car1, car2);
