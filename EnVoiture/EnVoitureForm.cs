@@ -26,9 +26,7 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(10, 10, 30, 20));
 
             this.Ways = new List<Way>();
-          
-            Way w1 = new Way(100, 100, 75, 150, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH});
-            Ways.Add(w1);
+            
         }
         /// <summary>
         /// 
@@ -39,9 +37,9 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (Way ways in Ways)
+            foreach (Way way in Ways)
             {
-                ways.Paint(g);
+                way.Paint(g);
             }
 
             foreach (RoadUserWidget user in roadUsers)
