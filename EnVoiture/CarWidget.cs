@@ -7,8 +7,6 @@ namespace EnVoiture
     /// </summary>
     public class CarWidget : RoadUserWidget
     {
-        private Car car;
-
         /// <summary>
         /// La voiture liée à cet afficheur.
         /// </summary>
@@ -20,7 +18,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public CarWidget(Rectangle rectangle)
         {
-            this.car = new Car(rectangle);
+            this.Car = new Car(rectangle);
         }
 
         /// <summary>
@@ -32,12 +30,12 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         public CarWidget(int x, int y, int width, int height)
         {
-            this.car = new Car(x, y, width, height);
+            this.Car = new Car(x, y, width, height);
         }
 
         public override void Paint(Graphics g)
         {
-            g.FillRectangle(Brushes.Red, car.Bounds);
+            g.FillRectangle(Brushes.Red, Car.Bounds);
         }
     }
 }

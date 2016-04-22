@@ -157,10 +157,9 @@ namespace EnVoiture
             return bounds.IntersectsWith(other.bounds);
         }
 
-      
         public void Avancer()
         {
-            Location = new Point(Location.X, Location.Y + 1);
+            Location = new Point(Location.X, Location.Y - 1);
         }
         public void Gauche()
         {
@@ -172,12 +171,11 @@ namespace EnVoiture
         }
         public void Reculer()
         {
-            Location = new Point(Location.X, Location.Y - 1);
+            Location = new Point(Location.X, Location.Y + 1);
         }
         public void StopDeplacement()
         {
             Location = new Point(Location.X, Location.Y);
         }
-
     }
 }
