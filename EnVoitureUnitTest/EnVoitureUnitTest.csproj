@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="TestRoadUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestPieton.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnVoiture\EnVoiture.csproj">
