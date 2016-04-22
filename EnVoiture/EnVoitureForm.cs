@@ -10,11 +10,11 @@ namespace EnVoiture
     /// </summary>
     public partial class EnVoitureForm : Form
     {
-        private List<RoadUserWidget> roadUsers;
+        private List<RoadUserWidget> roadUsers = new List<RoadUserWidget>();
         /// <summary>
-        /// 
+        /// Liste des routes qui seront affichées
         /// </summary>
-        private List<Way> Ways;
+        private List<Way> Ways = new List<Way>();
 
         /// <summary>
         /// Constructeur par défaut.
@@ -22,11 +22,6 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
-
-            this.roadUsers = new List<RoadUserWidget>();
-
-            this.Ways = new List<Way>();
-            
         }
         /// <summary>
         /// 

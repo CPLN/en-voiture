@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoiteOutil.cs">
+    <Compile Include="ToolsBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Car.cs" />
@@ -63,6 +63,7 @@
     <Compile Include="RoadUserWidget.cs" />
     <Compile Include="Way.cs" />
     <Compile Include="Orientation.cs" />
+    <Compile Include="WayWidget.cs" />
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </EmbeddedResource>
