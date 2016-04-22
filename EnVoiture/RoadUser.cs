@@ -35,7 +35,6 @@ namespace EnVoiture
                 bounds.Location = value;
             }
         }
-
         public Size Size
         {
             get
@@ -157,5 +156,24 @@ namespace EnVoiture
         {
             return bounds.IntersectsWith(other.bounds);
         }
+
+      
+        public void Avancer()
+        {
+            Location = new Point(Location.X + 1, Location.Y);
+        }
+        public void Gauche()
+        {
+            Location = new Point(Location.X, Location.Y - 1);
+        }
+        public void Droite()
+        {
+            Location = new Point(Location.X, Location.Y + 1);
+        }
+        public void Reculer()
+        {
+            Location = new Point(Location.X - 1, Location.Y);
+        }
+
     }
 }
