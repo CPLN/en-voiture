@@ -109,6 +109,8 @@ namespace EnVoiture
                     {
                         bool sortieN = rand.Next(1) == 0;
                         bool sortieE = rand.Next(1) == 0;
+                        bool sortieS = rand.Next(1) == 0;
+                        bool sortieW = rand.Next(1) == 0;
                         //_orientsWays.Add(Orientation.EAST, sortie);
                     }
                     _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
