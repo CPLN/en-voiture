@@ -37,8 +37,9 @@ namespace EnVoiture
             this._toolBox = new ToolsBox(ww);
             this._roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
             this.voiture = (_roadUsers[0] as CarWidget).Car;
-            tlpEnVoiture.Location = this.Location;
+            tlpEnVoiture.Location = new Point(0, 0);
             tlpEnVoiture.Size = this.Size;
+            pToolsBox.Visible = false;
         }
 
         public Way CreateWay(int x, int y)
@@ -62,11 +63,6 @@ namespace EnVoiture
                 {
                     if (!(user is CarWidget))
                         user.Paint(g);
-                }
-
-                foreach (WayWidget w in _toolBox.WayWidgets)
-                {
-                    w.Paint(g);
                 }
             }
             else
@@ -107,6 +103,7 @@ namespace EnVoiture
             {
                 bCtrl = false;
                 bEditing = !bEditing;
+                pToolsBox.Visible = bEditing;
             }
         }
 
@@ -157,11 +154,6 @@ namespace EnVoiture
                 voiture.Droite();
             }
             Invalidate();
-        }
-
-        private void EnVoitureForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

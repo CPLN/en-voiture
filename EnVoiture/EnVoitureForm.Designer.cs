@@ -44,30 +44,43 @@
             // 
             // tlpEnVoiture
             // 
+            this.tlpEnVoiture.AutoSize = true;
+            this.tlpEnVoiture.BackColor = System.Drawing.SystemColors.GrayText;
             this.tlpEnVoiture.ColumnCount = 2;
-            this.tlpEnVoiture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.56266F));
-            this.tlpEnVoiture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.43734F));
+            this.tlpEnVoiture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpEnVoiture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpEnVoiture.Controls.Add(this.pEditor, 1, 0);
             this.tlpEnVoiture.Controls.Add(this.pToolsBox, 0, 0);
             this.tlpEnVoiture.Location = new System.Drawing.Point(12, 12);
+            this.tlpEnVoiture.Margin = new System.Windows.Forms.Padding(0);
             this.tlpEnVoiture.Name = "tlpEnVoiture";
             this.tlpEnVoiture.RowCount = 1;
-            this.tlpEnVoiture.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.07407F));
+            this.tlpEnVoiture.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpEnVoiture.Size = new System.Drawing.Size(760, 513);
             this.tlpEnVoiture.TabIndex = 0;
             // 
             // pEditor
             // 
-            this.pEditor.Location = new System.Drawing.Point(235, 3);
+            this.pEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pEditor.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.pEditor.Location = new System.Drawing.Point(226, 0);
+            this.pEditor.Margin = new System.Windows.Forms.Padding(0);
             this.pEditor.Name = "pEditor";
-            this.pEditor.Size = new System.Drawing.Size(522, 507);
+            this.pEditor.Size = new System.Drawing.Size(534, 513);
             this.pEditor.TabIndex = 0;
             // 
             // pToolsBox
             // 
-            this.pToolsBox.Location = new System.Drawing.Point(3, 3);
+            this.pToolsBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pToolsBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pToolsBox.Location = new System.Drawing.Point(0, 0);
+            this.pToolsBox.Margin = new System.Windows.Forms.Padding(0);
             this.pToolsBox.Name = "pToolsBox";
-            this.pToolsBox.Size = new System.Drawing.Size(226, 507);
+            this.pToolsBox.Size = new System.Drawing.Size(226, 513);
             this.pToolsBox.TabIndex = 1;
             // 
             // EnVoitureForm
@@ -78,12 +91,12 @@
             this.Controls.Add(this.tlpEnVoiture);
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
-            this.Load += new System.EventHandler(this.EnVoitureForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.tlpEnVoiture.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
