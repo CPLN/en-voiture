@@ -48,6 +48,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EnVoitureForm_MouseDown);
             this.ResumeLayout(false);
 
         }
