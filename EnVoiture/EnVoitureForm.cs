@@ -12,7 +12,6 @@ namespace EnVoiture
         Car voiture;
         private List<RoadUserWidget> roadUsers;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
-
         /// <summary>
         /// 
         /// </summary>
@@ -24,13 +23,14 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
+            DoubleBuffered = true;
 
             this.roadUsers = new List<RoadUserWidget>();
             roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
 
             this.Ways = new List<Way>();
-            
+            this.Ways = Way.WaysGenerator(2, 12);
         }
         /// <summary>
         /// 
@@ -43,9 +43,12 @@ namespace EnVoiture
 
             foreach (Way way in Ways)
             {
+                way.Left = way.Location.X * 10;
+                way.Top = way.Location.Y * 10;
+                way.TailleX = 100;
+                way.TailleY = 100;
                 way.Paint(g);
             }
-
             foreach (RoadUserWidget user in roadUsers)
             {
                 user.Paint(g);
