@@ -20,9 +20,7 @@ namespace EnVoiture
         bool bEditing = false;
         bool bCtrl = false;
 
-        /// <summary>
-        /// 
-        /// </summary>
+        // ?
         private List<Way> Ways = new List<Way>();
 
         /// <summary>
@@ -35,11 +33,13 @@ namespace EnVoiture
             ww.Add(new WayWidget(new Way(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
             ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
             this._toolBox = new ToolsBox(ww);
-            this._roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
-            this.voiture = (_roadUsers[0] as CarWidget).Car;
+            CarWidget v = new CarWidget(0, 0, 10, 20, 80);
+            this._roadUsers.Add(v);
+            this.voiture = v.Car;
             tlpEnVoiture.Location = new Point(0, 0);
             tlpEnVoiture.Size = this.Size;
             pToolsBox.Visible = false;
+            
         }
 
         public Way CreateWay(int x, int y)
@@ -79,23 +79,13 @@ namespace EnVoiture
             
 
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
-            {
                 bAvancer = true;
-            }
             else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
-            {
                 bReculer = true;
-            }
-
             if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
-            {
                 bGauche = true;
-            }
-
-            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
-            {
+            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
                 bDroite = true;
-            }
 
             if (e.KeyCode == Keys.ControlKey)
                 bCtrl = true;
