@@ -63,6 +63,12 @@ namespace EnVoiture
             this.Orientations = orientations;
         }
 
+        /// <summary>
+        /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
+        /// </summary>
+        /// <param name="largeurVille"></param>
+        /// <param name="hauteurVille"></param>
+        /// <returns>Liste de Ways</returns>
         public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
         {
             int nbWays = largeurVille * hauteurVille;
@@ -72,8 +78,7 @@ namespace EnVoiture
 			{
                 for (int j = 0; j < hauteurVille; j++)
                 {
-                _waysVille.Add(new Way(new Point(25 * j, 25*i), new Size(25, 25), new List<Orientation>()));
-                    
+                _waysVille.Add(new Way(new Point(25*j, 25*i), new Size(25, 25), new List<Orientation>()));
                 }
 			}
             return _waysVille;
