@@ -195,6 +195,15 @@ namespace EnVoiture
         {
             return bounds.IntersectsWith(other.bounds);
         }
+        /// <summary>
+        /// Vérifie si le clique de souris est en contact avec un usager.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Si le clique de souris à la même position que l'usager</returns>
+        public bool IsClicked(Point cursorPosition)
+        {
+            return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
+        }
 
         public void Avancer()
         {
