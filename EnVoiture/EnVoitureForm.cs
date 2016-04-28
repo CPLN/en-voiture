@@ -11,10 +11,10 @@ namespace EnVoiture
     {
         Car voiture;
         private List<RoadUserWidget> roadUsers;
-        bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
-        /// <summary>
-        /// 
-        /// </summary>
+        private bool bAvancer = false;
+        private bool bReculer = false;
+        private bool bDroite = false;
+        private bool bGauche = false;
         private List<Way> Ways;
 
         /// <summary>
