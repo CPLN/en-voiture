@@ -18,7 +18,7 @@ namespace EnVoiture
 
         public override void Paint(Graphics g)
         {
-            g.FillEllipse(Brushes.Black, new Rectangle(_way.Location, _way.Size));
+            g.FillRectangle(Brushes.Black, new Rectangle(_way.Location, _way.Size));
         }
     }
 }

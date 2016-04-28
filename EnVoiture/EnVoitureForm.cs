@@ -15,13 +15,14 @@ namespace EnVoiture
         private ToolsBox _toolBox;
 
         Car voiture;
-        private List<RoadUserWidget> roadUsers;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
+        bool bEditing = false;
+        bool bCtrl = false;
 
         /// <summary>
         /// 
         /// </summary>
-        private List<Way> Ways;
+        private List<Way> Ways = new List<Way>();
 
         /// <summary>
         /// Constructeur par défaut.
@@ -30,13 +31,10 @@ namespace EnVoiture
         {
             InitializeComponent();
             List<WayWidget> ww = new List<WayWidget>();
-            ww.Add(new WayWidget(new Way(0, 0, 0, 0, new List<Orientation>() { Orientation.NORTH })));
-            _toolBox = new ToolsBox(ww);
-			this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
-            voiture = (roadUsers[0] as CarWidget).Car;
-
-            this.Ways = new List<Way>();
+            ww.Add(new WayWidget(new Way(50, 100, 100, 100, new List<Orientation>() { Orientation.NORTH })));
+            this._toolBox = new ToolsBox(ww);
+            this._roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
+            this.voiture = (_roadUsers[0] as CarWidget).Car;
         }
 
         public Way CreateWay(int x, int y)
@@ -53,12 +51,27 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (RoadUserWidget user in _roadUsers)
+            if (bEditing)
             {
-                user.Paint(g);
-            }
+                // mode edition
+                foreach (RoadUserWidget user in _roadUsers)
+                {
+                    if (!(user is CarWidget))
+                        user.Paint(g);
+                }
 
-            
+                foreach (WayWidget w in _toolBox.WayWidgets)
+                {
+                    w.Paint(g);
+                }
+            }
+            else
+            {
+                foreach (RoadUserWidget user in _roadUsers)
+                {
+                    user.Paint(g);
+                }
+            }
         }
 
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
@@ -83,6 +96,14 @@ namespace EnVoiture
             {
                 bDroite = true;
             }
+
+            if (e.KeyCode == Keys.ControlKey)
+                bCtrl = true;
+            if (bCtrl && e.KeyCode == Keys.E)
+            {
+                bCtrl = false;
+                bEditing = !bEditing;
+            }
         }
 
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
@@ -105,6 +126,9 @@ namespace EnVoiture
             {
                 bDroite = false;
             }
+
+            if (e.KeyCode == Keys.ControlKey)
+                bCtrl = false;
         }
 
         private void timerDirection_Tick(object sender, System.EventArgs e)
