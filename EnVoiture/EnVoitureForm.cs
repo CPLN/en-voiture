@@ -12,6 +12,7 @@ namespace EnVoiture
         Car voiture;
         private List<RoadUserWidget> roadUsers;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
+        string strOrientation;
 
         /// <summary>
         /// 
@@ -24,6 +25,7 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
+            DoubleBuffered = true;
 
             this.roadUsers = new List<RoadUserWidget>();
             roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
@@ -32,7 +34,7 @@ namespace EnVoiture
             this.Ways = new List<Way>();
             Ways.Add(new Way(10,10,100,100,new List<Orientation>()));
             Ways.Add(new Way(120, 120, 100, 100, new List<Orientation>()));
-            
+            strOrientation = "haut_bas";
         }
         /// <summary>
         /// 
@@ -42,14 +44,32 @@ namespace EnVoiture
         private void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
             foreach (Way way in Ways)
             {
                 Pen BlackPen = new Pen(Color.Black, 20);
-                Point point1 = new Point(way.Location.X+way.Size.Width/2, way.Location.X);
-                Point point2 = new Point(way.Location.Y+way.Size.Width/2,way.Location.Y+way.Size.Height);
+                Point point2 = new Point(way.Location.X + way.Size.Width / 2, way.Location.Y + way.Size.Height/2);
                 way.Paint(g);
-                g.DrawLine(BlackPen, point1, point2);
+                if(way.getDictionnaire.North)
+                {
+                 Point point1 = new Point(way.Location.X + way.Size.Width / 2, way.Location.X);
+                 g.DrawLine(BlackPen, point1, point2);
+
+                }
+                if(way.getDictionnaire.South)
+                {
+                    Point point1 = new Point(way.Location.X + way.Size.Width / 2, way.Location.Y+way.Size.Height);
+                    g.DrawLine(BlackPen, point1, point2);
+                }
+                if(way.getDictionnaire.East)
+                {
+                    Point point1 = new Point(way.Location.X, way.Location.Y + way.Size.Height/2);
+                    g.DrawLine(BlackPen, point1, point2);
+                }
+                if(way.getDictionnaire.West)
+                {
+                    Point point1 = new Point(way.Location.X+way.Size.Width, way.Location.Y + way.Size.Height / 2);
+                    g.DrawLine(BlackPen, point1, point2);
+                }
             }
             foreach (RoadUserWidget user in roadUsers)
             {
