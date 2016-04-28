@@ -52,6 +52,9 @@
     <Compile Include="EnVoitureForm.Designer.cs">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnVoiturePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PietonWidget.cs" />
     <Compile Include="Pieton.cs" />
     <Compile Include="Program.cs" />
