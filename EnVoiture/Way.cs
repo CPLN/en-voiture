@@ -9,6 +9,9 @@ namespace EnVoiture
 {
     public class Way
     {
+        private Point point;
+        private Dictionary<Orientation, bool> _orientsWays;
+
         /// <summary>
         /// Location of the way
         /// </summary>
@@ -62,6 +65,36 @@ namespace EnVoiture
             this.Size = size;
             this.Orientations = orientations;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="size"></param>
+        /// <param name="_orientsWays"></param>
+        public Way(Point location, Size size, Dictionary<Orientation, bool> _orientsWays)
+        {
+            this.Location = location;
+            this.Size = size;
+            this._orientsWays = _orientsWays;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="size"></param>
+        /// <param name="orientations"></param>
+        public Way(Point point, System.Drawing.Size size, List<Orientation> orientations)
+        {
+            // TODO: Complete member initialization
+            this.point = point;
+            this.Size = size;
+            this.Orientations = orientations;
+        }
+        /// <summary>
+        /// Get sur Dictionaire
+        /// </summary>
+        public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } private set; }
 
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
@@ -73,12 +106,13 @@ namespace EnVoiture
         {
             int nbWays = largeurVille * hauteurVille;
             List<Way> _waysVille = new List<Way>();
+            Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation,bool>();
 
             for (int i = 1; i <= largeurVille; i++)
 			{
                 for (int j = 0; j < hauteurVille; j++)
                 {
-                _waysVille.Add(new Way(new Point(25*j, 25*i), new Size(25, 25), new List<Orientation>()));
+                _waysVille.Add(new Way(new Point(25*j, 25*i), new Size(25, 25), _orientsWays));
                 }
 			}
             return _waysVille;
