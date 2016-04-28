@@ -12,8 +12,6 @@ namespace EnVoiture
         Car voiture;
         private List<RoadUserWidget> roadUsers;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
-        string strOrientation;
-
         /// <summary>
         /// 
         /// </summary>
@@ -34,7 +32,6 @@ namespace EnVoiture
             this.Ways = new List<Way>();
             Ways.Add(new Way(10,10,100,100,new List<Orientation>()));
             Ways.Add(new Way(120, 120, 100, 100, new List<Orientation>()));
-            strOrientation = "haut_bas";
         }
         /// <summary>
         /// 
@@ -48,26 +45,27 @@ namespace EnVoiture
             {
                 Pen BlackPen = new Pen(Color.Black, 20);
                 Point point2 = new Point(way.Location.X + way.Size.Width / 2, way.Location.Y + way.Size.Height/2);
+                Point point1;
                 way.Paint(g);
                 if(way.getDictionnaire.North)
                 {
-                 Point point1 = new Point(way.Location.X + way.Size.Width / 2, way.Location.X);
+                 point1 = new Point(way.Location.X + way.Size.Width / 2, way.Location.X);
                  g.DrawLine(BlackPen, point1, point2);
 
                 }
                 if(way.getDictionnaire.South)
                 {
-                    Point point1 = new Point(way.Location.X + way.Size.Width / 2, way.Location.Y+way.Size.Height);
+                    point1 = new Point(way.Location.X + way.Size.Width / 2, way.Location.Y+way.Size.Height);
                     g.DrawLine(BlackPen, point1, point2);
                 }
                 if(way.getDictionnaire.East)
                 {
-                    Point point1 = new Point(way.Location.X, way.Location.Y + way.Size.Height/2);
+                    point1 = new Point(way.Location.X, way.Location.Y + way.Size.Height/2);
                     g.DrawLine(BlackPen, point1, point2);
                 }
                 if(way.getDictionnaire.West)
                 {
-                    Point point1 = new Point(way.Location.X+way.Size.Width, way.Location.Y + way.Size.Height / 2);
+                    point1 = new Point(way.Location.X+way.Size.Width, way.Location.Y + way.Size.Height / 2);
                     g.DrawLine(BlackPen, point1, point2);
                 }
             }
