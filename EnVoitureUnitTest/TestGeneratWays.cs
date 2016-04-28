@@ -16,7 +16,6 @@ namespace EnVoitureUnitTest
          {
              List<Way> Ways= new List<Way>();
              Ways = Way.WaysGenerator(3, 6);
-
              Assert.AreEqual(18, Ways.Count);
          }
     }

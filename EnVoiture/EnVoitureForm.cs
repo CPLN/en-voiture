@@ -45,8 +45,8 @@ namespace EnVoiture
             {
                 way.Left = way.Location.X * 10;
                 way.Top = way.Location.Y * 10;
-                way.Size.Width = way.Size.Width * 100;
-                way.Size.Height = way.Size.Height * 100;
+                way.TailleX = 100;
+                way.TailleY = 100;
                 Pen BlackPen = new Pen(Color.Black, 20);
                 Point point2 = new Point(way.Location.X + way.Size.Width / 2, way.Location.Y + way.Size.Height/2);
                 Point point1;
