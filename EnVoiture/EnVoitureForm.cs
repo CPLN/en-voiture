@@ -54,23 +54,24 @@ namespace EnVoiture
 
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
         {
-            
 
-            if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
+
+            if (e.KeyCode == Keys.W && bReculer == false || e.KeyCode == Keys.Up && bReculer == false)
             {
                 bAvancer = true;
             }
-            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+            
+            if (e.KeyCode == Keys.S && bAvancer == false || e.KeyCode == Keys.Down && bAvancer == false)
             {
                 bReculer = true;
             }
 
-            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A && bDroite == false || e.KeyCode == Keys.Left && bDroite == false)
             {
                 bGauche = true;
             }
 
-            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.D && bGauche == false || e.KeyCode == Keys.Right && bGauche == false)
             {
                 bDroite = true;
             }
@@ -82,7 +83,8 @@ namespace EnVoiture
             {
                 bAvancer = false;
             }
-            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+            
+            if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
             {
                 bReculer = false;
             }
