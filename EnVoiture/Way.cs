@@ -157,9 +157,41 @@ namespace EnVoiture
             return _waysVille;
         }
 
-        public  void Paint(Graphics g)
+        public void Paint(Graphics g)
         {
-            g.FillRectangle(Brushes.Gray,Location.X, Location.Y, Size.Width, Size.Height);
+            if (Location.X < 0 || Location.X >= g.VisibleClipBounds.Width)
+            {
+                return;
+            }
+            if (Location.Y < 0 || Location.Y >= g.VisibleClipBounds.Height)
+            {
+                return;
+            }
+            g.FillRectangle(Brushes.Gray, Location.X, Location.Y, Size.Width, Size.Height);
+            Pen BlackPen = new Pen(Color.Black, 20);
+            Point point2 = new Point(Location.X + Size.Width / 2, Location.Y + Size.Height / 2);
+            Point point1;
+            if (GetDictionaire.ContainsKey(Orientation.NORTH) && GetDictionaire[Orientation.NORTH])
+            {
+                point1 = new Point(Location.X + Size.Width / 2, Location.X);
+                g.DrawLine(BlackPen, point1, point2);
+
+            }
+            if (GetDictionaire.ContainsKey(Orientation.SOUTH) && GetDictionaire[Orientation.SOUTH])
+            {
+                point1 = new Point(Location.X + Size.Width / 2, Location.Y + Size.Height);
+                g.DrawLine(BlackPen, point1, point2);
+            }
+            if (GetDictionaire.ContainsKey(Orientation.EAST) && GetDictionaire[Orientation.EAST])
+            {
+                point1 = new Point(Location.X, Location.Y + Size.Height / 2);
+                g.DrawLine(BlackPen, point1, point2);
+            }
+            if (GetDictionaire.ContainsKey(Orientation.WEST) && GetDictionaire[Orientation.WEST])
+            {
+                point1 = new Point(Location.X + Size.Width, Location.Y + Size.Height / 2);
+                g.DrawLine(BlackPen, point1, point2);
+            }
         }
     }
 }
