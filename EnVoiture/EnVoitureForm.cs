@@ -143,6 +143,7 @@ namespace EnVoiture
                     if (!(user is CarWidget))
                         user.Paint(g);
                 }
+
             }
             else
             {
