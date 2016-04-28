@@ -14,7 +14,7 @@ namespace EnVoitureUnitTest
             RoadUser car1 = new Car(10, 20, 30, 40, 80);
 
             Rectangle rect = new Rectangle(10, 20, 30, 40);
-            RoadUser car2 = new Car(rect,80);
+            RoadUser car2 = new Car(rect, 80);
 
             Assert.AreEqual(car1.Bounds, car2.Bounds);
             Assert.AreNotEqual(car1, car2);
@@ -111,7 +111,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestAvance()
         {
-            RoadUser car = new Car( 0, 0, 10, 10, 80);
+            RoadUser car = new Car(0, 0, 10, 10, 80);
             car.Avancer();
             Assert.AreEqual(-1, car.Location.Y); //teste si la position sur l'axe y a bien été incrémenté
             Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe x est restée la même
