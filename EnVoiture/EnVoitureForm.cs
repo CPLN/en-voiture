@@ -10,6 +10,7 @@ namespace EnVoiture
     /// </summary>
     public partial class EnVoitureForm : Form
     {
+        const int _waysSize = 100;
         // Liste des elements qui seront affichés
         private List<RoadUserWidget> _roadUsers = new List<RoadUserWidget>();
         private ToolsBox _toolBox;
@@ -31,10 +32,13 @@ namespace EnVoiture
         {
             InitializeComponent();
             List<WayWidget> ww = new List<WayWidget>();
-            ww.Add(new WayWidget(new Way(50, 100, 100, 100, new List<Orientation>() { Orientation.NORTH })));
+            ww.Add(new WayWidget(new Way(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
+            ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
             this._toolBox = new ToolsBox(ww);
             this._roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
             this.voiture = (_roadUsers[0] as CarWidget).Car;
+            tlpEnVoiture.Location = this.Location;
+            tlpEnVoiture.Size = this.Size;
         }
 
         public Way CreateWay(int x, int y)
@@ -153,6 +157,11 @@ namespace EnVoiture
                 voiture.Droite();
             }
             Invalidate();
+        }
+
+        private void EnVoitureForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
