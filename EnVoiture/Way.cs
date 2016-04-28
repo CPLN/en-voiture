@@ -51,7 +51,6 @@ namespace EnVoiture
             this.Location = new Point(x, y);
             this.Size = new Size(width, height);
             this.Orientations = orientations;
-            WaysGenerator(3, 3);
         }
         /// <summary>
         /// 
@@ -79,22 +78,12 @@ namespace EnVoiture
         }
 
         /// <summary>
-        /// 
+        /// Get sur Dictionaire d'orientations
         /// </summary>
-        /// <param name="point"></param>
-        /// <param name="size"></param>
-        /// <param name="orientations"></param>
-        public Way(Point point, System.Drawing.Size size, List<Orientation> orientations)
-        {
-            // TODO: Complete member initialization
-            this.point = point;
-            this.Size = size;
-            this.Orientations = orientations;
+        public Dictionary<Orientation, bool> GetDictionaire 
+        { 
+            get { return _orientsWays; }
         }
-        /// <summary>
-        /// Get sur Dictionaire
-        /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } private set; }
 
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
@@ -104,17 +93,27 @@ namespace EnVoiture
         /// <returns>Liste de Ways</returns>
         public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
         {
+            Random rand = new Random();
             int nbWays = largeurVille * hauteurVille;
             List<Way> _waysVille = new List<Way>();
-            Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation,bool>();
 
-            for (int i = 1; i <= largeurVille; i++)
-			{
+            for (int i = 0; i < largeurVille; i++)
+            {
                 for (int j = 0; j < hauteurVille; j++)
                 {
-                _waysVille.Add(new Way(new Point(25*j, 25*i), new Size(25, 25), _orientsWays));
+                    int x = i % largeurVille;
+                    int y = i / largeurVille;
+
+                    Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation, bool>();
+                    if (i == 0 && j == 0)
+                    {
+                        bool sortieN = rand.Next(1) == 0;
+                        bool sortieE = rand.Next(1) == 0;
+                        //_orientsWays.Add(Orientation.EAST, sortie);
+                    }
+                    _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
                 }
-			}
+            }
             return _waysVille;
         }
 
