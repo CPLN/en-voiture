@@ -9,6 +9,7 @@ namespace EnVoiture
 {
     public class Way
     {
+        private int  x, y;
         /// <summary>
         /// Location of the way
         /// </summary>
@@ -48,6 +49,32 @@ namespace EnVoiture
             this.Location = new Point(x, y);
             this.Size = new Size(width, height);
             this.Orientations = orientations;
+            this.X = x;
+            this.Y = y;
+        }
+
+        public int X
+        {
+            get
+            {
+                return x;
+            }
+            set
+            {
+                 x = value;
+            }
+        }
+
+        public int Y
+        {
+            get
+            {
+                return y;
+            }
+            set
+            {
+                y = value;
+            }
         }
         /// <summary>
         /// 

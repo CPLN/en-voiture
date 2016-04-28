@@ -11,6 +11,14 @@ namespace EnVoiture
     {
         private Way _way;
 
+        public Way Way
+        {
+            get
+            {
+                return _way;
+            }
+        }
+
         public WayWidget(Way way)
         {
             this._way = way;

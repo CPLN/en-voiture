@@ -19,6 +19,8 @@ namespace EnVoiture
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
         bool bEditing = false;
         bool bCtrl = false;
+        private WayWidget dragAndDropSource;
+
 
         /// <summary>
         /// 
@@ -78,38 +80,6 @@ namespace EnVoiture
             }
         }
 
-        private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-
-            if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
-            {
-                bAvancer = true;
-            }
-            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
-            {
-                bReculer = true;
-            }
-
-            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
-            {
-                bGauche = true;
-            }
-
-            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
-            {
-                bDroite = true;
-            }
-
-            if (e.KeyCode == Keys.ControlKey)
-                bCtrl = true;
-            if (bCtrl && e.KeyCode == Keys.E)
-            {
-                bCtrl = false;
-                bEditing = !bEditing;
-            }
-        }
-
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
@@ -135,6 +105,8 @@ namespace EnVoiture
                 bCtrl = false;
         }
 
+
+
         private void timerDirection_Tick(object sender, System.EventArgs e)
         {
             if (bAvancer)
@@ -159,9 +131,27 @@ namespace EnVoiture
             Invalidate();
         }
 
-        private void EnVoitureForm_Load(object sender, EventArgs e)
+        private void pToolsBox_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragAndDropSource = sender as WayWidget;
+                Invalidate();
+            }
+        }
 
+        private void pEditor_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && dragAndDropSource != null)
+            {
+                Way thenewway = new Way(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH });
+                /*thenewway.Size.Width = e.X - thenewway.Size.Width;
+                thenewway.Size.Height = e.Y - thenewway.Size.Height;*/
+                thenewway.X = e.X - thenewway.X;
+                thenewway.Y = e.Y - thenewway.Y;
+                Invalidate();
+                dragAndDropSource = null;
+            }
         }
     }
 }

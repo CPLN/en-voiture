@@ -62,6 +62,7 @@
             this.pEditor.Name = "pEditor";
             this.pEditor.Size = new System.Drawing.Size(522, 507);
             this.pEditor.TabIndex = 0;
+            this.pEditor.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pEditor_MouseUp);
             // 
             // pToolsBox
             // 
@@ -69,6 +70,7 @@
             this.pToolsBox.Name = "pToolsBox";
             this.pToolsBox.Size = new System.Drawing.Size(226, 507);
             this.pToolsBox.TabIndex = 1;
+            this.pToolsBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pToolsBox_MouseDown);
             // 
             // EnVoitureForm
             // 
@@ -78,9 +80,8 @@
             this.Controls.Add(this.tlpEnVoiture);
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
-            this.Load += new System.EventHandler(this.EnVoitureForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.tlpEnVoiture.ResumeLayout(false);
             this.ResumeLayout(false);
