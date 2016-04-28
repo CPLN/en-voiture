@@ -31,6 +31,9 @@
             this.pLevelDesigner = new System.Windows.Forms.Panel();
             this.lblToolsBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
+			this.components = new System.ComponentModel.Container();
+            this.timerDirection = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
             // 
             // pLevelDesigner
             // 
@@ -49,6 +52,12 @@
             this.lblToolsBox.TabIndex = 0;
             this.lblToolsBox.Text = "Boîte à outils";
             // 
+            // timerDirection
+            // 
+            this.timerDirection.Enabled = true;
+            this.timerDirection.Interval = 10;
+            this.timerDirection.Tick += new System.EventHandler(this.timerDirection_Tick);
+            // 
             // EnVoitureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -59,6 +68,8 @@
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -68,6 +79,7 @@
 
         private System.Windows.Forms.Panel pLevelDesigner;
         private System.Windows.Forms.Label lblToolsBox;
+        private System.Windows.Forms.Timer timerDirection;
     }
 }
 
