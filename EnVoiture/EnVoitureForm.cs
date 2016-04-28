@@ -10,15 +10,15 @@ namespace EnVoiture
     /// </summary>
     public partial class EnVoitureForm : Form
     {
-        const int _waysSize = 100;
+        private const int _waysSize = 100;
         // Liste des elements qui seront affichés
         private List<RoadUserWidget> _roadUsers = new List<RoadUserWidget>();
         private ToolsBox _toolBox;
 
         Car voiture;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
-        bool bEditing = false;
-        bool bCtrl = false;
+        private bool bEditing = false;
+        private bool bCtrl = false;
 
         // ?
         private List<Way> Ways = new List<Way>();
@@ -47,37 +47,9 @@ namespace EnVoiture
             Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
             return RouteBase;
         }
-        /// <summary>
-        /// Est apellé beaucoup de fois par seconde 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void EnVoiture_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-
-            if (bEditing)
-            {
-                // mode edition
-                foreach (RoadUserWidget user in _roadUsers)
-                {
-                    if (!(user is CarWidget))
-                        user.Paint(g);
-                }
-            }
-            else
-            {
-                foreach (RoadUserWidget user in _roadUsers)
-                {
-                    user.Paint(g);
-                }
-            }
-        }
 
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
         {
-            
-
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
                 bAvancer = true;
             else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
@@ -100,50 +72,57 @@ namespace EnVoiture
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
-            {
                 bAvancer = false;
-            }
             else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
-            {
                 bReculer = false;
-            }
-
             if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
-            {
                 bGauche = false;
-            }
-
-            if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
-            {
+            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
                 bDroite = false;
-            }
-
             if (e.KeyCode == Keys.ControlKey)
                 bCtrl = false;
+            if (e.KeyCode == Keys.Escape)
+                this.Close();
         }
 
         private void timerDirection_Tick(object sender, System.EventArgs e)
         {
             if (bAvancer)
-            {
                 voiture.Avancer();
-            }
-
             if (bReculer)
-            {
                 voiture.Reculer();
-            }
-
             if (bGauche)
-            {
                 voiture.Gauche();
-            }
-
             if (bDroite)
-            {
                 voiture.Droite();
+            pEnVoiture.Invalidate();
+        }
+
+        /// <summary>
+        /// est appelé quand on fait: pEnVoiture.Invalidate();
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void pEnVoiture_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            if (bEditing)
+            {
+                // mode edition
+                foreach (RoadUserWidget user in _roadUsers)
+                {
+                    if (!(user is CarWidget))
+                        user.Paint(g);
+                }
             }
-            Invalidate();
+            else
+            {
+                foreach (RoadUserWidget user in _roadUsers)
+                {
+                    user.Paint(g);
+                }
+            }
         }
     }
 }
