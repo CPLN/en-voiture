@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace EnVoiture
@@ -12,6 +14,10 @@ namespace EnVoiture
         Car voiture;
         private List<RoadUserWidget> roadUsers;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
+
+        //Variables de détection de la voiture
+        private GraphicsPath _graphicsPath;
+        private Region _region;
 
         /// <summary>
         /// 
@@ -27,6 +33,8 @@ namespace EnVoiture
 
             this.roadUsers = new List<RoadUserWidget>();
             roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
+            roadUsers.Add(new CarWidget(150, 150, 10, 20, 80));
+            roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
 
             this.Ways = new List<Way>();
@@ -115,6 +123,20 @@ namespace EnVoiture
                 voiture.Droite();
             }
             Invalidate();
+        }
+
+        private void EnVoitureForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            foreach (RoadUserWidget roaduser in roadUsers)
+            {
+                CarWidget voitureCourante = roaduser as CarWidget;
+                if (voitureCourante.Car.IsClicked(e.Location))
+                {
+                    voiture = voitureCourante.Car;
+                    return;
+                }
+            }
+            
         }
     }
 }
