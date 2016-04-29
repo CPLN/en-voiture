@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace EnVoiture
 {
-    class ToolsBox : Panel
+    class ToolsBox
     {
         public List<WayWidget> WayWidgets
         {
@@ -19,9 +19,6 @@ namespace EnVoiture
         public ToolsBox(List<WayWidget> wayWidgets)
         {
             WayWidgets = wayWidgets;
-            this.Size = new Size(200, 540);
-            this.Location = new Point(0, 0);
-            this.ForeColor = Color.Green;
         }
     }
 }
