@@ -49,6 +49,7 @@ namespace EnVoiture
                 {
                     WayButton wb = sender as WayButton;
                     Way w = wb.WayWidget.Way;
+                    // TODO
                 }
                 Invalidate();
             }
