@@ -141,7 +141,7 @@ namespace EnVoiture
         /// <returns>Liste de Ways</returns>
         public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
         {
-            Random rand = new Random();
+            
             int nbWays = largeurVille * hauteurVille;
             List<Way> _waysVille = new List<Way>();
 
@@ -154,17 +154,12 @@ namespace EnVoiture
 
                     if (n == 0)
                     {
-                        bool sortieN = rand.Next(2) == 0;
-                        bool sortieE = rand.Next(2) == 0;
-                        bool sortieS = rand.Next(2) == 0;
-                        bool sortieW = rand.Next(2) == 0;
-                        _orientsWays.Add(Orientation.NORTH, sortieN);
-                        _orientsWays.Add(Orientation.EAST, sortieE);
-                        _orientsWays.Add(Orientation.SOUTH, sortieS);
-                        _orientsWays.Add(Orientation.WEST, sortieW);
+                        
+                         _orientsWays = GenerateOrientations();
                     }
                     else if (y == 0)
                     {
+                        /*
                         bool sortieE = rand.Next(2) == 0;
                         bool sortieN = rand.Next(2) == 0;
                         bool sortieS = rand.Next(2) == 0;
@@ -173,6 +168,7 @@ namespace EnVoiture
                         _orientsWays.Add(Orientation.EAST, sortieE);
                         _orientsWays.Add(Orientation.SOUTH, sortieS);
                         _orientsWays.Add(Orientation.WEST, sortieW);
+                         */
                     }
                     else
                     {
@@ -181,6 +177,47 @@ namespace EnVoiture
                     _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
             }
             return _waysVille;
+        }
+        public static Dictionary<Orientation, bool> GenerateOrientations()
+        {
+            Random rand = new Random();
+            bool sortieN;
+            bool sortieE;
+            bool sortieS;
+            bool sortieW;
+            int icpt;
+            List<bool> _bList = new List<bool>();
+            do
+            {
+
+                icpt = 0;
+                sortieN = rand.Next(2) == 0;
+                sortieE = rand.Next(2) == 0;
+                sortieS = rand.Next(2) == 0;
+                sortieW = rand.Next(2) == 0;
+                if (sortieE)
+                {
+                    icpt++;
+                }
+                if (sortieN)
+                {
+                    icpt++;
+                }
+                if (sortieS)
+                {
+                    icpt++;
+                }
+                if (sortieW)
+                {
+                    icpt++;
+                }
+
+            } while (icpt < 2);
+            _bList.Add(sortieN);
+            _bList.Add(sortieE);
+            _bList.Add(sortieS);
+            _bList.Add(sortieW);
+            return new Dictionary<Orientation,bool>();
         }
     }
 }
