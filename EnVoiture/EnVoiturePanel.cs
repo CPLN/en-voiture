@@ -52,14 +52,13 @@ namespace EnVoiture
         public void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
+            int mult = 0;
             foreach (Way way in Ways)
             {
-                way.Left = way.Location.X * 10;
-                way.Top = way.Location.Y * 10;
+                WayWidget w = new WayWidget(way);
                 way.TailleX = 100;
                 way.TailleY = 100;
-                way.Paint(g);
+                w.Paint(g);
             }
             foreach (RoadUserWidget user in roadUsers)
             {

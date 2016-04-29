@@ -9,7 +9,6 @@ namespace EnVoiture
 {
     public class Way
     {
-        private Point point;
         private Dictionary<Orientation, bool> _orientsWays;
 
         /// <summary>
