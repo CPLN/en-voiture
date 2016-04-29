@@ -69,7 +69,6 @@ namespace EnVoiture
                 bounds.Location = value;
             }
         }
-
         public Size Size
         {
             get
@@ -195,6 +194,36 @@ namespace EnVoiture
         public bool Collide(RoadUser other)
         {
             return bounds.IntersectsWith(other.bounds);
+        }
+        /// <summary>
+        /// Vérifie si le clique de souris est en contact avec un usager.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Si le clique de souris à la même position que l'usager</returns>
+        public bool IsClicked(Point cursorPosition)
+        {
+            return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
+        }
+
+        public void Avancer()
+        {
+            Location = new Point(Location.X, Location.Y - 1);
+        }
+        public void Gauche()
+        {
+            Location = new Point(Location.X - 1, Location.Y);
+        }
+        public void Droite()
+        {
+            Location = new Point(Location.X + 1, Location.Y);
+        }
+        public void Reculer()
+        {
+            Location = new Point(Location.X, Location.Y + 1);
+        }
+        public void StopDeplacement()
+        {
+            Location = new Point(Location.X, Location.Y);
         }
     }
 }

@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ToolsBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Car.cs" />
     <Compile Include="CarWidget.cs" />
@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="EnVoitureForm.Designer.cs">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnVoiturePanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PietonWidget.cs" />
     <Compile Include="Pieton.cs" />
@@ -77,6 +80,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ToolsBox.resx">
+      <DependentUpon>ToolsBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

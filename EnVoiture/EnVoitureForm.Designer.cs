@@ -28,58 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pToolsBox = new System.Windows.Forms.Panel();
-            this.pLevelDesigner = new System.Windows.Forms.Panel();
-            this.lblToolsBox = new System.Windows.Forms.Label();
-            this.pToolsBox.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.alignment = new System.Windows.Forms.TableLayoutPanel();
+            this.enVoiturePanel = new EnVoiture.EnVoiturePanel();
+            this.toolsBox = new EnVoiture.ToolsBox();
+            this.alignment.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pToolsBox
+            // timer
             // 
-            this.pToolsBox.Controls.Add(this.lblToolsBox);
-            this.pToolsBox.Location = new System.Drawing.Point(0, 0);
-            this.pToolsBox.Name = "pToolsBox";
-            this.pToolsBox.Size = new System.Drawing.Size(200, 540);
-            this.pToolsBox.TabIndex = 0;
+            this.timer.Enabled = true;
+            this.timer.Interval = 10;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // pLevelDesigner
+            // alignment
             // 
-            this.pLevelDesigner.Location = new System.Drawing.Point(200, 0);
-            this.pLevelDesigner.Name = "pLevelDesigner";
-            this.pLevelDesigner.Size = new System.Drawing.Size(585, 540);
-            this.pLevelDesigner.TabIndex = 1;
+            this.alignment.ColumnCount = 2;
+            this.alignment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.alignment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.alignment.Controls.Add(this.enVoiturePanel, 1, 0);
+            this.alignment.Controls.Add(this.toolsBox, 0, 0);
+            this.alignment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.alignment.Location = new System.Drawing.Point(0, 0);
+            this.alignment.Name = "alignment";
+            this.alignment.RowCount = 1;
+            this.alignment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.alignment.Size = new System.Drawing.Size(762, 537);
+            this.alignment.TabIndex = 0;
             // 
-            // lblToolsBox
+            // enVoiturePanel
             // 
-            this.lblToolsBox.AutoSize = true;
-            this.lblToolsBox.Font = new System.Drawing.Font("Segoe Marker", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblToolsBox.Location = new System.Drawing.Point(12, 9);
-            this.lblToolsBox.Name = "lblToolsBox";
-            this.lblToolsBox.Size = new System.Drawing.Size(109, 24);
-            this.lblToolsBox.TabIndex = 0;
-            this.lblToolsBox.Text = "Boîte à outils";
+            this.enVoiturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enVoiturePanel.Location = new System.Drawing.Point(183, 3);
+            this.enVoiturePanel.Name = "enVoiturePanel";
+            this.enVoiturePanel.Size = new System.Drawing.Size(576, 531);
+            this.enVoiturePanel.TabIndex = 0;
+            this.enVoiturePanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.enVoiturePanel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
+            // 
+            // toolsBox
+            // 
+            this.toolsBox.BackColor = System.Drawing.Color.Silver;
+            this.toolsBox.Location = new System.Drawing.Point(0, 0);
+            this.toolsBox.Margin = new System.Windows.Forms.Padding(0);
+            this.toolsBox.Name = "toolsBox";
+            this.toolsBox.Size = new System.Drawing.Size(180, 537);
+            this.toolsBox.TabIndex = 1;
+            this.toolsBox.Visible = false;
             // 
             // EnVoitureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 537);
-            this.Controls.Add(this.pLevelDesigner);
-            this.Controls.Add(this.pToolsBox);
+            this.ClientSize = new System.Drawing.Size(762, 537);
+            this.Controls.Add(this.alignment);
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.EnVoiture_Paint);
-            this.pToolsBox.ResumeLayout(false);
-            this.pToolsBox.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EnVoitureForm_MouseDown);
+            this.alignment.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pToolsBox;
-        private System.Windows.Forms.Panel pLevelDesigner;
-        private System.Windows.Forms.Label lblToolsBox;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TableLayoutPanel alignment;
+        private EnVoiturePanel enVoiturePanel;
+        private ToolsBox toolsBox;
     }
 }
 
