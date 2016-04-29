@@ -29,85 +29,76 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timerDirection = new System.Windows.Forms.Timer(this.components);
-            this.tlpEnVoiture = new System.Windows.Forms.TableLayoutPanel();
-            this.pEnVoiture = new System.Windows.Forms.Panel();
-            this.pToolsBox = new System.Windows.Forms.Panel();
-            this.tlpEnVoiture.SuspendLayout();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.alignment = new System.Windows.Forms.TableLayoutPanel();
+            this.enVoiturePanel = new EnVoiture.EnVoiturePanel();
+            this.toolsBox = new EnVoiture.ToolsBox();
+            this.alignment.SuspendLayout();
             this.SuspendLayout();
             // 
-            // timerDirection
+            // timer
             // 
-            this.timerDirection.Enabled = true;
-            this.timerDirection.Interval = 10;
-            this.timerDirection.Tick += new System.EventHandler(this.timerDirection_Tick);
+            this.timer.Enabled = true;
+            this.timer.Interval = 10;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // tlpEnVoiture
+            // alignment
             // 
-            this.tlpEnVoiture.AutoSize = true;
-            this.tlpEnVoiture.BackColor = System.Drawing.SystemColors.GrayText;
-            this.tlpEnVoiture.ColumnCount = 2;
-            this.tlpEnVoiture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpEnVoiture.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpEnVoiture.Controls.Add(this.pEnVoiture, 1, 0);
-            this.tlpEnVoiture.Controls.Add(this.pToolsBox, 0, 0);
-            this.tlpEnVoiture.Location = new System.Drawing.Point(12, 12);
-            this.tlpEnVoiture.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpEnVoiture.Name = "tlpEnVoiture";
-            this.tlpEnVoiture.RowCount = 1;
-            this.tlpEnVoiture.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpEnVoiture.Size = new System.Drawing.Size(760, 513);
-            this.tlpEnVoiture.TabIndex = 0;
+            this.alignment.ColumnCount = 2;
+            this.alignment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.alignment.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.alignment.Controls.Add(this.enVoiturePanel, 1, 0);
+            this.alignment.Controls.Add(this.toolsBox, 0, 0);
+            this.alignment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.alignment.Location = new System.Drawing.Point(0, 0);
+            this.alignment.Name = "alignment";
+            this.alignment.RowCount = 1;
+            this.alignment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.alignment.Size = new System.Drawing.Size(762, 537);
+            this.alignment.TabIndex = 0;
             // 
-            // pEnVoiture
+            // enVoiturePanel
             // 
-            this.pEnVoiture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pEnVoiture.BackColor = System.Drawing.Color.DimGray;
-            this.pEnVoiture.Location = new System.Drawing.Point(226, 0);
-            this.pEnVoiture.Margin = new System.Windows.Forms.Padding(0);
-            this.pEnVoiture.Name = "pEnVoiture";
-            this.pEnVoiture.Size = new System.Drawing.Size(534, 513);
-            this.pEnVoiture.TabIndex = 0;
-            this.pEnVoiture.Paint += new System.Windows.Forms.PaintEventHandler(this.pEnVoiture_Paint);
+            this.enVoiturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enVoiturePanel.Location = new System.Drawing.Point(183, 3);
+            this.enVoiturePanel.Name = "enVoiturePanel";
+            this.enVoiturePanel.Size = new System.Drawing.Size(576, 531);
+            this.enVoiturePanel.TabIndex = 0;
+            this.enVoiturePanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
+            this.enVoiturePanel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             // 
-            // pToolsBox
+            // toolsBox
             // 
-            this.pToolsBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pToolsBox.BackColor = System.Drawing.Color.Green;
-            this.pToolsBox.Location = new System.Drawing.Point(0, 0);
-            this.pToolsBox.Margin = new System.Windows.Forms.Padding(0);
-            this.pToolsBox.Name = "pToolsBox";
-            this.pToolsBox.Size = new System.Drawing.Size(226, 513);
-            this.pToolsBox.TabIndex = 1;
-            this.pToolsBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pToolsBox_MouseDown);
+            this.toolsBox.BackColor = System.Drawing.Color.Silver;
+            this.toolsBox.Location = new System.Drawing.Point(0, 0);
+            this.toolsBox.Margin = new System.Windows.Forms.Padding(0);
+            this.toolsBox.Name = "toolsBox";
+            this.toolsBox.Size = new System.Drawing.Size(180, 537);
+            this.toolsBox.TabIndex = 1;
+            this.toolsBox.Visible = false;
             // 
             // EnVoitureForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 537);
-            this.Controls.Add(this.tlpEnVoiture);
+            this.ClientSize = new System.Drawing.Size(762, 537);
+            this.Controls.Add(this.alignment);
             this.Name = "EnVoitureForm";
             this.Text = "En Voiture !";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
-            this.tlpEnVoiture.ResumeLayout(false);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EnVoitureForm_MouseDown);
+            this.alignment.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer timerDirection;
-        private System.Windows.Forms.TableLayoutPanel tlpEnVoiture;
-        private System.Windows.Forms.Panel pEnVoiture;
-        private System.Windows.Forms.Panel pToolsBox;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TableLayoutPanel alignment;
+        private EnVoiturePanel enVoiturePanel;
+        private ToolsBox toolsBox;
     }
 }
 

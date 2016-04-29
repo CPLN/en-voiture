@@ -148,5 +148,13 @@ namespace EnVoitureUnitTest
             Assert.AreEqual(0, car.Location.Y); //teste si la position su l'axe y est restée la même
             Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe x est restée la même
         }
+        [TestMethod]
+        public void TestIsClicked()
+        {
+            Point pnt = new Point(50, 50);
+            RoadUser car = new Car(50,50,10,10,80);
+            Assert.IsTrue(car.IsClicked(pnt));
+
+        }
     }
 }
