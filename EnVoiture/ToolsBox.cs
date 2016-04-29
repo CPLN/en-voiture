@@ -23,17 +23,6 @@ namespace EnVoiture
             }
         }
 
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // ToolsBox
-            // 
-            this.Name = "ToolsBox";
-            this.Size = new System.Drawing.Size(122, 150);
-            this.ResumeLayout(false);
-        }
-
         /*
         private void MouseDown(object sender, MouseEventArgs e)
         {
