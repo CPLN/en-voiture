@@ -18,7 +18,7 @@ namespace EnVoiture
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
         private WayWidget dragAndDropSource;
 
-        // ?
+        // Liste des routes
         private List<Way> Ways = new List<Way>();
 
         /// <summary>
@@ -32,20 +32,34 @@ namespace EnVoiture
             this.voiture = v.Car;
         }
 
+        /// <summary>
+        /// On crée une route en fonction des cordonnées reçu en paramètre
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public Way CreateWay(int x, int y)
         {
             Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
             return RouteBase;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnVoitureForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.E && e.Control)
                 toolsBox.Visible = !toolsBox.Visible;
             enVoiturePanel.OnKeyDown(sender, e);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnVoitureForm_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -54,7 +68,11 @@ namespace EnVoiture
         }
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timerDirection_Tick(object sender, System.EventArgs e)
         {
             if (bAvancer)
@@ -94,12 +112,20 @@ namespace EnVoiture
                 }
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer_Tick(object sender, System.EventArgs e)
         {
             enVoiturePanel.Tick(sender, e);
         }
-
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnVoitureForm_MouseDown(object sender, MouseEventArgs e)
         {
             enVoiturePanel.OnMouseDown(sender, e);

@@ -85,6 +85,22 @@ namespace EnVoiture
             get;
             private set;
         }
+        public int X { get; set; }
+
+        public int Y { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="size"></param>
+        /// <param name="orientations"></param>
+        public Way(Point location, Size size, List<Orientation> orientations)
+        {
+            this.Location = location;
+            this.Size = size;
+            this.Orientations = orientations;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -100,22 +116,6 @@ namespace EnVoiture
             this.Orientations = orientations;
             this.X = x;
             this.Y = y;
-        }
-
-        public int X { get; set; }
-
-        public int Y { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="location"></param>
-        /// <param name="size"></param>
-        /// <param name="orientations"></param>
-        public Way(Point location, Size size, List<Orientation> orientations)
-        {
-            this.Location = location;
-            this.Size = size;
-            this.Orientations = orientations;
         }
 
         /// <summary>
@@ -141,6 +141,18 @@ namespace EnVoiture
         /// </summary>
         public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } }
 
+        /// <summary>
+        /// Création de la route qui sera crée dans EnvoitureVoiturePanel ("Drag and Drop") 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static Way NewWays(int x, int y, Way way)
+        {
+            way = new Way(x, y, 100, 100, way.Orientations);
+         // way.Location = new Point(x, y);
+            return way;
+        }
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
         /// </summary>

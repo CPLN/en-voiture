@@ -11,7 +11,9 @@ namespace EnVoiture
     class ToolsBox : UserControl
     {
         private int _waysSize = 100;
-
+        /// <summary>
+        /// propriété WayWidgets permetant d'ajouter des WayWidget dans la liste ww
+        /// </summary>
         public List<WayWidget> WayWidgets
         {
             get
@@ -22,7 +24,9 @@ namespace EnVoiture
                 return ww;
             }
         }
-
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
         public ToolsBox()
         {
 
