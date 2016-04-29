@@ -31,10 +31,26 @@ namespace EnVoiture
 
             foreach (WayWidget w in WayWidgets)
             {
-                Panel panel = new Panel();
-                panel.Paint += new PaintEventHandler((source, e) => { w.PaintOnOrigin(e.Graphics); });
-                panel.Size = w.Way.Size;
-                tableLayoutPanel.Controls.Add(panel);
+                WayButton wb = new WayButton();
+                wb.WayWidget = w;
+                wb.Paint += new PaintEventHandler((source, e) => { w.PaintOnOrigin(e.Graphics); });
+                wb.MouseClick += new MouseEventHandler(this.WayButton_MouseClick);
+                wb.Size = w.Way.Size;
+                //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
+                tableLayoutPanel.Controls.Add(wb);
+            }
+        }
+
+        private void WayButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (sender is WayButton)
+                {
+                    WayButton wb = sender as WayButton;
+                    Way w = wb.WayWidget.Way;
+                }
+                Invalidate();
             }
         }
 
@@ -43,13 +59,13 @@ namespace EnVoiture
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
             this.tableLayoutPanel.AutoSize = true;
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 2;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -66,17 +82,7 @@ namespace EnVoiture
             this.PerformLayout();
 
         }
-
         /*
-        private void MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                dragAndDropSource = sender as WayWidget;
-                Invalidate();
-            }
-        }
-
         private void MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && dragAndDropSource != null)
@@ -90,6 +96,6 @@ namespace EnVoiture
                 dragAndDropSource = null;
             }
         }
-*/
+        */
     }
 }
