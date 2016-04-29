@@ -38,7 +38,7 @@ namespace EnVoitureUnitTest
         }
 
         [TestMethod]
-        public void TestCreatWay()
+        public void TestCreatWayPosition()
         {
             List<Orientation> o = new List<Orientation>();
             Way w1 = new Way(2, 1, 20, 30, o);
