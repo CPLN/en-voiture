@@ -143,29 +143,44 @@ namespace EnVoiture
         {
             Random rand = new Random();
             int nbWays = largeurVille * hauteurVille;
-            List<Way> _waysVille = new List<Way>();        
-            for (int i = 0; i < largeurVille; i++)
+            List<Way> _waysVille = new List<Way>();
+
+            for (int n = 0; n < nbWays; n++)
             {
-                for (int j = 0; j < hauteurVille; j++)
-                {
-                    int x = i % largeurVille;
-                    int y = i / largeurVille;
+                    int x = n % largeurVille;
+                    int y = n / largeurVille;
 
                     Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation, bool>();
-                    if (i == 0 && j == 0)
+
+                    if (n == 0)
                     {
-                        bool sortieN = rand.Next(1) == 0;
-                        bool sortieE = rand.Next(1) == 0;
-                        bool sortieS = rand.Next(1) == 0;
-                        bool sortieW = rand.Next(1) == 0;
-                        //_orientsWays.Add(Orientation.EAST, sortie);
+                        bool sortieN = rand.Next(2) == 0;
+                        bool sortieE = rand.Next(2) == 0;
+                        bool sortieS = rand.Next(2) == 0;
+                        bool sortieW = rand.Next(2) == 0;
+                        _orientsWays.Add(Orientation.NORTH, sortieN);
+                        _orientsWays.Add(Orientation.EAST, sortieE);
+                        _orientsWays.Add(Orientation.SOUTH, sortieS);
+                        _orientsWays.Add(Orientation.WEST, sortieW);
+                    }
+                    else if (y == 0)
+                    {
+                        bool sortieE = rand.Next(2) == 0;
+                        bool sortieN = rand.Next(2) == 0;
+                        bool sortieS = rand.Next(2) == 0;
+                        bool sortieW = _waysVille[n - 1]._orientsWays[Orientation.EAST] == true;
+                        _orientsWays.Add(Orientation.NORTH, sortieN);
+                        _orientsWays.Add(Orientation.EAST, sortieE);
+                        _orientsWays.Add(Orientation.SOUTH, sortieS);
+                        _orientsWays.Add(Orientation.WEST, sortieW);
+                    }
+                    else
+                    {
+                            
                     }
                     _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
-                }
             }
             return _waysVille;
         }
-
-      
     }
 }

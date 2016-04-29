@@ -45,7 +45,6 @@ namespace EnVoiture
             {
                 this.Ways.Add(new WayWidget(way));
             }
-
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
 
