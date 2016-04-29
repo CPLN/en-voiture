@@ -39,7 +39,7 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
 
-            this.Ways = Way.WaysGenerator(1, 1);
+            this.Ways = Way.WaysGenerator(5, 12);
 
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
