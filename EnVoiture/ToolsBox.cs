@@ -23,6 +23,23 @@ namespace EnVoiture
             }
         }
 
+        public ToolsBox()
+        {
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // ToolsBox
+            // 
+            this.AutoScroll = true;
+            this.Name = "ToolsBox";
+            this.ResumeLayout(false);
+
+        }
+
         /*
         private void MouseDown(object sender, MouseEventArgs e)
         {

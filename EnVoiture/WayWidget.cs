@@ -7,26 +7,23 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class WayWidget : RoadUserWidget
+    public class WayWidget
     {
-        private Way _way;
-
-        public Way Way
-        {
-            get
-            {
-                return _way;
-            }
-        }
+        public Way Way { get; set; }
 
         public WayWidget(Way way)
         {
-            this._way = way;
+            this.Way = way;
         }
 
-        public override void Paint(Graphics g)
+        public void Paint(Graphics g)
         {
-            g.FillRectangle(Brushes.Black, new Rectangle(_way.Location, _way.Size));
+            g.FillRectangle(Brushes.Black, new Rectangle(Way.Left * 100, Way.Top * 100, 100, 100));
+        }
+
+        public void PaintOnOrigin(Graphics g)
+        {
+            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, 100, 100));
         }
     }
 }
