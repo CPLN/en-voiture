@@ -144,25 +144,42 @@ namespace EnVoiture
         {
             Random rand = new Random();
             int nbWays = largeurVille * hauteurVille;
-            List<Way> _waysVille = new List<Way>();        
-            for (int i = 0; i < largeurVille; i++)
+            List<Way> _waysVille = new List<Way>();
+
+            for (int n = 0; n < nbWays; n++)
             {
-                for (int j = 0; j < hauteurVille; j++)
-                {
-                    int x = i % largeurVille;
-                    int y = i / largeurVille;
+                    int x = n % largeurVille;
+                    int y = n / largeurVille;
 
                     Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation, bool>();
-                    if (i == 0 && j == 0)
+
+                    if (n == 0)
                     {
-                        bool sortieN = rand.Next(1) == 0;
-                        bool sortieE = rand.Next(1) == 0;
-                        bool sortieS = rand.Next(1) == 0;
-                        bool sortieW = rand.Next(1) == 0;
-                        //_orientsWays.Add(Orientation.EAST, sortie);
+                        bool sortieN = rand.Next(2) == 0;
+                        bool sortieE = rand.Next(2) == 0;
+                        bool sortieS = rand.Next(2) == 0;
+                        bool sortieW = rand.Next(2) == 0;
+                        _orientsWays.Add(Orientation.NORTH, sortieN);
+                        _orientsWays.Add(Orientation.EAST, sortieE);
+                        _orientsWays.Add(Orientation.SOUTH, sortieS);
+                        _orientsWays.Add(Orientation.WEST, sortieW);
+                    }
+                    else if (y == 0)
+                    {
+                        bool sortieE = rand.Next(2) == 0;
+                        bool sortieN = rand.Next(2) == 0;
+                        bool sortieS = rand.Next(2) == 0;
+                        bool sortieW = _waysVille[n - 1]._orientsWays[Orientation.EAST] == true;
+                        _orientsWays.Add(Orientation.NORTH, sortieN);
+                        _orientsWays.Add(Orientation.EAST, sortieE);
+                        _orientsWays.Add(Orientation.SOUTH, sortieS);
+                        _orientsWays.Add(Orientation.WEST, sortieW);
+                    }
+                    else
+                    {
+                            
                     }
                     _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
-                }
             }
             return _waysVille;
         }
@@ -177,7 +194,7 @@ namespace EnVoiture
             {
                 return;
             }
-            g.FillRectangle(Brushes.Gray, Location.X, Location.Y, Size.Width, Size.Height);
+            g.FillRectangle(Brushes.Gray, 100*Location.X, 100*Location.Y, Size.Width, Size.Height);
             Pen BlackPen = new Pen(Color.Black, 20);
             Point point2 = new Point(Location.X + Size.Width / 2, Location.Y + Size.Height / 2);
             Point point1;
