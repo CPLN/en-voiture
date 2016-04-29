@@ -18,41 +18,34 @@ namespace EnVoiture
         }
         public void Paint(Graphics g)
         {
-            Way.Left = Way.Location.X * SIZE;
-            Way.Top = Way.Location.Y * SIZE;
-            Way.TailleX = SIZE;
-            Way.TailleY = SIZE;
-            if (Way.Location.X < 0 || Way.Location.X >= g.VisibleClipBounds.Width)
-            {
-                return;
-            }
-            if (Way.Location.Y < 0 || Way.Location.Y >= g.VisibleClipBounds.Height)
-            {
-                return;
-            }
-            g.FillRectangle(Brushes.Gray, Way.Location.X, Way.Location.Y, Way.Size.Width, Way.Size.Height);
+            int Left = Way.Location.X * SIZE;
+            int Top = Way.Location.Y * SIZE;
+            int TailleX = Way.Size.Width * SIZE;
+            int TailleY = Way.Size.Height * SIZE;
+
+            g.FillRectangle(Brushes.Gray, Left, Top,TailleX, TailleY);
             Pen BlackPen = new Pen(Color.Black, 20);
-            Point point2 = new Point(Way.Location.X + Way.Size.Width / 2, Way.Location.Y + Way.Size.Height / 2);
+            Point point2 = new Point(Left + TailleY / 2, Top + TailleY / 2);
             Point point1;
             if (Way.GetDictionaire.ContainsKey(Orientation.NORTH) && Way.GetDictionaire[Orientation.NORTH])
             {
-                point1 = new Point(Way.Location.X + Way.Size.Width / 2, Way.Location.X);
+                point1 = new Point(Left + TailleX / 2,Top);
                 g.DrawLine(BlackPen, point1, point2);
 
             }
             if (Way.GetDictionaire.ContainsKey(Orientation.SOUTH) && Way.GetDictionaire[Orientation.SOUTH])
             {
-                point1 = new Point(Way.Location.X + Way.Size.Width / 2, Way.Location.Y + Way.Size.Height);
+                point1 = new Point(Left + TailleX / 2, Top + TailleY);
                 g.DrawLine(BlackPen, point1, point2);
             }
             if (Way.GetDictionaire.ContainsKey(Orientation.EAST) && Way.GetDictionaire[Orientation.EAST])
             {
-                point1 = new Point(Way.Location.X, Way.Location.Y + Way.Size.Height / 2);
+                point1 = new Point(Left + TailleX, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);
             }
             if (Way.GetDictionaire.ContainsKey(Orientation.WEST) && Way.GetDictionaire[Orientation.WEST])
             {
-                point1 = new Point(Way.Location.X + Way.Size.Width, Way.Location.Y + Way.Size.Height / 2);
+                point1 = new Point(Left, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);
             }
         }

@@ -41,7 +41,7 @@ namespace EnVoiture
 
             this.Ways = new List<WayWidget>();
 
-            foreach(Way way in Way.WaysGenerator(2, 12))
+            foreach(Way way in Way.WaysGenerator(1, 2))
             {
                 this.Ways.Add(new WayWidget(way));
             }
@@ -56,7 +56,6 @@ namespace EnVoiture
         public void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            int mult = 0;
             foreach (WayWidget way in Ways)
             {
                 way.Paint(g);
