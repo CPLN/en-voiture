@@ -22,7 +22,7 @@ namespace EnVoiture
         private GraphicsPath _graphicsPath;
         private Region _region;
 
-        private List<Way> Ways;
+        private List<WayWidget> Ways;
 
         /// <summary>
         /// Constructeur par défaut.
@@ -39,7 +39,12 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
 
-            this.Ways = Way.WaysGenerator(2, 12);
+            this.Ways = new List<WayWidget>();
+
+            foreach(Way way in Way.WaysGenerator(2, 12))
+            {
+                this.Ways.Add(new WayWidget(way));
+            }
 
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
@@ -53,12 +58,9 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
             int mult = 0;
-            foreach (Way way in Ways)
+            foreach (WayWidget way in Ways)
             {
-                WayWidget w = new WayWidget(way);
-                way.TailleX = 100;
-                way.TailleY = 100;
-                w.Paint(g);
+                way.Paint(g);
             }
             foreach (RoadUserWidget user in roadUsers)
             {

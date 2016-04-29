@@ -9,17 +9,19 @@ namespace EnVoiture
 {
     class WayWidget
     {
-        private Way Way;
+        public static int SIZE = 100;
+        public Way Way { get; set; }
+
         public WayWidget(Way w)
         {
             Way = w;
         }
         public void Paint(Graphics g)
         {
-            Way.Left = Way.Location.X * 100;
-            Way.Top = Way.Location.Y * 100;
-            Way.TailleX = 100;
-            Way.TailleY = 100;
+            Way.Left = Way.Location.X * SIZE;
+            Way.Top = Way.Location.Y * SIZE;
+            Way.TailleX = SIZE;
+            Way.TailleY = SIZE;
             if (Way.Location.X < 0 || Way.Location.X >= g.VisibleClipBounds.Width)
             {
                 return;
