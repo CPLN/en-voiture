@@ -33,6 +33,14 @@ namespace EnVoitureUnitTest
             car.Avancer();
             Assert.AreEqual(5, car.Vitesse);
 
+        }
+
+        [TestMethod]
+        public void Testralentir()
+        {
+            Car car = new Car(new Rectangle(0, 0, 0, 0), 5);
+
+            car.Vitesse = 5;
 
             car.Ralentir();
             Assert.AreEqual(4, car.Vitesse);
@@ -55,14 +63,13 @@ namespace EnVoitureUnitTest
         {
             Car car = new Car(new Rectangle(0, 0, 0, 0), 5);
 
-            car.Avancer();
-            car.Avancer();
-            car.Avancer();
-            car.Avancer();
-            car.Avancer();
+            car.Vitesse = 5;
 
             car.Freiner();
             Assert.AreEqual(2, car.Vitesse);
+
+            car.Freiner();
+            Assert.AreEqual(0, car.Vitesse);
 
             car.Freiner();
             Assert.AreEqual(0, car.Vitesse);
