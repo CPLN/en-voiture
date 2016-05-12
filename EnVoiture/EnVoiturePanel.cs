@@ -40,7 +40,7 @@ namespace EnVoiture
             voiture = (roadUsers[0] as CarWidget).Car;
             this.Ways = new List<WayWidget>();
 
-            foreach(Way way in Way.WaysGenerator(5, 4))
+            foreach(Way way in Way.WaysGenerator(6, 6))
             {
                 this.Ways.Add(new WayWidget(way));
             }
