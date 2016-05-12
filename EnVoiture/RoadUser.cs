@@ -225,5 +225,21 @@ namespace EnVoiture
         {
             Location = new Point(Location.X, Location.Y);
         }
+        public void Ralentir()
+        {
+
+        }
+        public void Accelerer()
+        {
+
+        }
+        public void Freiner()
+        {
+
+        }
+        public void FreinageUrgence()
+        {
+
+        }
     }
 }
