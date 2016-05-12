@@ -53,30 +53,6 @@ namespace EnVoiture
             private set;
         }
 
-        public int TailleX
-        {
-            get
-            {
-                return Size.Width;
-            }
-            set
-            {
-                Size = new Size(value, Size.Height);
-            }
-
-        }
-        public int TailleY
-        {
-            get
-            {
-                return Size.Height;
-            }
-            set
-            {
-                Size = new Size(Size.Width, value);
-            }
-        }
-
         /// <summary>
         /// Orientations of the way
         /// </summary>
