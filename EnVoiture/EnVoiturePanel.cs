@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace EnVoiture
 {
-    class EnVoiturePanel : Panel
+    public class EnVoiturePanel : UserControl
     {
         private Car voiture;
         private List<RoadUserWidget> roadUsers;
@@ -17,12 +17,19 @@ namespace EnVoiture
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
+        private WayWidget _hoverWayWidget = new WayWidget(new Way(0, 0, 100, 100, new List<Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
         private Region _region;
 
         private List<WayWidget> Ways;
+
+        public ToolsBox ToolsBox
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// Constructeur par défaut.
@@ -40,12 +47,9 @@ namespace EnVoiture
             voiture = (roadUsers[0] as CarWidget).Car;
             this.Ways = new List<WayWidget>();
 
-            foreach(Way way in Way.WaysGenerator(5, 4))
-            {
-                this.Ways.Add(new WayWidget(way));
-            }
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
+
 
         /// <summary>
         /// 
@@ -55,6 +59,7 @@ namespace EnVoiture
         public void EnVoiture_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+
             foreach (WayWidget way in Ways)
             {
                 way.Paint(g);
@@ -130,6 +135,14 @@ namespace EnVoiture
             {
                 voiture.Droite();
             }
+
+
+            if (ToolsBox.Visible && _hoverWayWidget != null)
+            {
+                Point p = PointToClient(Cursor.Position);
+                _hoverWayWidget.Way.Location = new Point(p.X / 100, p.Y / 100);
+            }
+
             Invalidate();
         }
 
@@ -144,7 +157,24 @@ namespace EnVoiture
                     return;
                 }
             }
-            
+
+            // creation de la route si en mode edition
+            if (ToolsBox.Visible)
+            {
+                Way w = Way.NewWays(e.X, e.Y, ToolsBox.SelectedWay);
+                if (w != null)
+                    Ways.Add(new WayWidget(w));
+            }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // EnVoiturePanel
+            // 
+            this.Name = "EnVoiturePanel";
+            this.ResumeLayout(false);
         }
     }    
 }

@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ToolsBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Car.cs" />
     <Compile Include="CarWidget.cs" />
     <Compile Include="EnVoitureForm.cs">
@@ -54,7 +57,7 @@
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EnVoiturePanel.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PietonWidget.cs" />
     <Compile Include="Pieton.cs" />
@@ -64,9 +67,15 @@
     <Compile Include="RoadUserWidget.cs" />
     <Compile Include="Way.cs" />
     <Compile Include="Orientation.cs" />
+    <Compile Include="WayButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="WayWidget.cs" />
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnVoiturePanel.resx">
+      <DependentUpon>EnVoiturePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +87,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ToolsBox.resx">
+      <DependentUpon>ToolsBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
