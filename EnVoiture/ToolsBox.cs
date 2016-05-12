@@ -12,6 +12,7 @@ namespace EnVoiture
     {
         private TableLayoutPanel tableLayoutPanel;
         private int _waysSize = 100;
+        private Way _selectedWay;
 
         public List<WayWidget> WayWidgets
         {
@@ -22,6 +23,14 @@ namespace EnVoiture
                 ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
                 ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
                 return ww;
+            }
+        }
+
+        public Way SelectedWay
+        {
+            get
+            {
+                return _selectedWay;
             }
         }
 
@@ -47,9 +56,7 @@ namespace EnVoiture
             {
                 if (sender is WayButton)
                 {
-                    WayButton wb = sender as WayButton;
-                    Way w = wb.WayWidget.Way;
-                    // TODO
+                    _selectedWay = (sender as WayButton).WayWidget.Way;
                 }
                 Invalidate();
             }
