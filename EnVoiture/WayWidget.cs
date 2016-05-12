@@ -27,6 +27,9 @@ namespace EnVoiture
             Pen BlackPen = new Pen(Color.Black, 20);
             Point point2 = new Point(Left + TailleY / 2, Top + TailleY / 2);
             Point point1;
+
+            g.FillEllipse(Brushes.Black, point2.X - 10, point2.Y - 10, 20, 20);
+
             if (Way.GetDictionaire.ContainsKey(Orientation.NORTH) && Way.GetDictionaire[Orientation.NORTH])
             {
                 point1 = new Point(Left + TailleX / 2,Top);
