@@ -90,6 +90,8 @@ namespace EnVoiture
             this.PerformLayout();
 
         }
+
+
         /*
         private void MouseUp(object sender, MouseEventArgs e)
         {
