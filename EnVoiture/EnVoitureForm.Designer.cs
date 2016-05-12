@@ -64,8 +64,10 @@
             this.enVoiturePanel.Name = "enVoiturePanel";
             this.enVoiturePanel.Size = new System.Drawing.Size(576, 531);
             this.enVoiturePanel.TabIndex = 0;
+            this.enVoiturePanel.ToolsBox = null;
             this.enVoiturePanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
             this.enVoiturePanel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
+            this.enVoiturePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EnVoitureForm_MouseDown);
             // 
             // toolsBox
             // 

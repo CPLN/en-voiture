@@ -125,9 +125,9 @@ namespace EnVoiture
         /// <returns></returns>
         public static Way NewWays(int x, int y, Way way)
         {
-            way = new Way(x, y, 100, 100, way.Orientations);
-         // way.Location = new Point(x, y);
-            return way;
+            if (way != null)
+                way.Location = new Point(x / 100, y / 100);
+            return way.MemberwiseClone() as Way;
         }
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2

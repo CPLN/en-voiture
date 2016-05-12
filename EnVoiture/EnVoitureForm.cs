@@ -29,6 +29,7 @@ namespace EnVoiture
             CarWidget v = new CarWidget(0, 0, 10, 20, 80);
             this._roadUsers.Add(v);
             this.voiture = v.Car;
+            enVoiturePanel.ToolsBox = toolsBox;
         }
 
         /// <summary>

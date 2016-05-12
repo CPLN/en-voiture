@@ -73,6 +73,9 @@
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EnVoiturePanel.resx">
+      <DependentUpon>EnVoiturePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

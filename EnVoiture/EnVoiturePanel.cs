@@ -24,6 +24,12 @@ namespace EnVoiture
 
         private List<WayWidget> Ways;
 
+        public ToolsBox ToolsBox
+        {
+            get;
+            set;
+        }
+
         /// <summary>
         /// Constructeur par défaut.
         /// </summary>
@@ -40,11 +46,6 @@ namespace EnVoiture
             voiture = (roadUsers[0] as CarWidget).Car;
 
             this.Ways = new List<WayWidget>();
-
-            foreach (Way way in Way.WaysGenerator(2, 12))
-            {
-                this.Ways.Add(new WayWidget(way));
-            }
 
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
@@ -148,7 +149,24 @@ namespace EnVoiture
                     return;
                 }
             }
-            
+
+            // creation de la route si en mode edition
+            if (ToolsBox.Visible)
+            {
+                Ways.Add(new WayWidget(Way.NewWays(e.X, e.Y, ToolsBox.SelectedWay)));
+                Invalidate();
+            }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // EnVoiturePanel
+            // 
+            this.Name = "EnVoiturePanel";
+            this.ResumeLayout(false);
+
         }
     }    
 }
