@@ -111,7 +111,13 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } }
+        public Dictionary<Orientation, bool> GetDictionaire
+        {
+            get
+            {
+                return _orientsWays == null ? new Dictionary<Orientation, bool>() : _orientsWays;
+            }
+        }
 
         /// <summary>
         /// Création de la route qui sera crée dans EnvoitureVoiturePanel ("Drag and Drop") 
