@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace EnVoiture
 {
-    class ToolsBox : UserControl
+    public class ToolsBox : UserControl
     {
         private TableLayoutPanel tableLayoutPanel;
         private int _waysSize = 100;

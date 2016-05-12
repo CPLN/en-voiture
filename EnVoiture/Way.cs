@@ -9,7 +9,6 @@ namespace EnVoiture
 {
     public class Way
     {
-        private Point point;
         private Dictionary<Orientation, bool> _orientsWays;
 
         /// <summary>
@@ -18,7 +17,7 @@ namespace EnVoiture
         public Point Location
         {
             get;
-            private set;
+            set;
         }
 
         public int Left
@@ -61,9 +60,6 @@ namespace EnVoiture
             get;
             private set;
         }
-        public int X { get; set; }
-
-        public int Y { get; set; }
 
         /// <summary>
         /// Constructeur utilisant un x, y, width et height en paramètre
@@ -78,8 +74,7 @@ namespace EnVoiture
             this.Location = new Point(x, y);
             this.Size = new Size(width, height);
             this.Orientations = orientations;
-            this.X = x;
-            this.Y = y;
+            this.Location = new Point(x, y);
         }
 
         /// <summary>
@@ -127,8 +122,11 @@ namespace EnVoiture
         public static Way NewWays(int x, int y, Way way)
         {
             if (way != null)
+            {
                 way.Location = new Point(x / 100, y / 100);
-            return way.MemberwiseClone() as Way;
+                return way.MemberwiseClone() as Way;
+            }
+            return null;
         }
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
