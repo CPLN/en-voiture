@@ -66,6 +66,9 @@
     <Compile Include="RoadUserWidget.cs" />
     <Compile Include="Way.cs" />
     <Compile Include="Orientation.cs" />
+    <Compile Include="WayButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="WayWidget.cs" />
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>

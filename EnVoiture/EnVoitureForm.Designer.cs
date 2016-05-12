@@ -69,6 +69,7 @@
             // 
             // toolsBox
             // 
+            this.toolsBox.AutoScroll = true;
             this.toolsBox.BackColor = System.Drawing.Color.Silver;
             this.toolsBox.Location = new System.Drawing.Point(0, 0);
             this.toolsBox.Margin = new System.Windows.Forms.Padding(0);

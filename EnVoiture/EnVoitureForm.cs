@@ -16,7 +16,6 @@ namespace EnVoiture
 
         Car voiture;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
-        private WayWidget dragAndDropSource;
 
         // ?
         private List<Way> Ways = new List<Way>();
