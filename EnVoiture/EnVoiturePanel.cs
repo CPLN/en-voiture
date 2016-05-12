@@ -38,10 +38,9 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(150, 150, 10, 20, 80));
             roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
-
             this.Ways = new List<WayWidget>();
 
-            foreach(Way way in Way.WaysGenerator(1, 2))
+            foreach(Way way in Way.WaysGenerator(5, 4))
             {
                 this.Ways.Add(new WayWidget(way));
             }

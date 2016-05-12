@@ -141,44 +141,64 @@ namespace EnVoiture
         /// <returns>Liste de Ways</returns>
         public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
         {
-            Random rand = new Random();
+            
             int nbWays = largeurVille * hauteurVille;
             List<Way> _waysVille = new List<Way>();
 
+            Random rand = new Random();
             for (int n = 0; n < nbWays; n++)
             {
                     int x = n % largeurVille;
                     int y = n / largeurVille;
 
-                    Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation, bool>();
+                    bool sortieN;
+                    bool sortieE;
+                    bool sortieS;
+                    bool sortieW;
+                    int icpt;
+                    Dictionary<Orientation, bool> _bList = new Dictionary<Orientation, bool>();
+                    do
+                    {
+                        icpt = 0;
+                        sortieN = rand.Next(2) == 0;
+                        sortieE = rand.Next(2) == 0;
+                        sortieS = rand.Next(2) == 0;
+                        sortieW = rand.Next(2) == 0;
 
-                    if (n == 0)
-                    {
-                        bool sortieN = rand.Next(2) == 0;
-                        bool sortieE = rand.Next(2) == 0;
-                        bool sortieS = rand.Next(2) == 0;
-                        bool sortieW = rand.Next(2) == 0;
-                        _orientsWays.Add(Orientation.NORTH, sortieN);
-                        _orientsWays.Add(Orientation.EAST, sortieE);
-                        _orientsWays.Add(Orientation.SOUTH, sortieS);
-                        _orientsWays.Add(Orientation.WEST, sortieW);
-                    }
-                    else if (y == 0)
-                    {
-                        bool sortieE = rand.Next(2) == 0;
-                        bool sortieN = rand.Next(2) == 0;
-                        bool sortieS = rand.Next(2) == 0;
-                        bool sortieW = _waysVille[n - 1]._orientsWays[Orientation.EAST] == true;
-                        _orientsWays.Add(Orientation.NORTH, sortieN);
-                        _orientsWays.Add(Orientation.EAST, sortieE);
-                        _orientsWays.Add(Orientation.SOUTH, sortieS);
-                        _orientsWays.Add(Orientation.WEST, sortieW);
-                    }
-                    else
-                    {
-                            
-                    }
-                    _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
+                        if (x != 0)
+                        {
+                            sortieW = _waysVille[n-1]._orientsWays[Orientation.EAST];
+                        }
+
+                        if (y != 0)
+                        {
+                            sortieN = _waysVille[n - largeurVille]._orientsWays[Orientation.SOUTH];
+                        }
+
+                        if (sortieE)
+                        {
+                            icpt++;
+                        }
+                        if (sortieN)
+                        {
+                            icpt++;
+                        }
+                        if (sortieS)
+                        {
+                            icpt++;
+                        }
+                        if (sortieW)
+                        {
+                            icpt++;
+                        }
+
+                    } while (icpt < 2);
+                    _bList.Add(Orientation.NORTH, sortieN);
+                    _bList.Add(Orientation.EAST, sortieE);
+                    _bList.Add(Orientation.SOUTH, sortieS);
+                    _bList.Add(Orientation.WEST, sortieW);
+
+                    _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _bList));
             }
             return _waysVille;
         }
