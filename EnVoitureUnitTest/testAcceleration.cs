@@ -1,0 +1,39 @@
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using EnVoiture;
+using System.Drawing;
+
+namespace EnVoitureUnitTest
+{
+    [TestClass]
+    public class testAcceleration
+    {
+        [TestMethod]
+        public void TestMethod1()
+        {
+            Car car = new Car(new Rectangle(0, 0, 0, 0), 5);
+
+            Assert.AreEqual(0, car.Vitesse);
+            car.Avancer();
+            Assert.AreEqual(1, car.Vitesse);
+            car.Avancer();
+            Assert.AreEqual(2, car.Vitesse);
+            car.Avancer();
+            Assert.AreEqual(3, car.Vitesse);
+
+            car.Avancer();
+            Assert.AreEqual(4, car.Vitesse);
+
+            car.Avancer();
+            Assert.AreEqual(5, car.Vitesse);
+            car.Avancer();
+            Assert.AreEqual(5, car.Vitesse);
+
+            car.Reculer();
+            car.Reculer();
+            car.Reculer();
+
+            Assert.AreEqual(0, car.Vitesse);
+        }
+    }
+}
