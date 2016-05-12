@@ -14,6 +14,9 @@ namespace EnVoiture
         private int _waysSize = 100;
         private Way _selectedWay;
 
+        /// <summary>
+        /// propriété WayWidgets permetant d'ajouter des WayWidget dans la liste ww
+        /// </summary>
         public List<WayWidget> WayWidgets
         {
             get
@@ -34,6 +37,9 @@ namespace EnVoiture
             }
         }
 
+        /// <summary>
+        /// Constructeur par défaut
+        /// </summary>
         public ToolsBox()
         {
             InitializeComponent();
@@ -90,22 +96,5 @@ namespace EnVoiture
             this.PerformLayout();
 
         }
-
-
-        /*
-        private void MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left && dragAndDropSource != null)
-            {
-                Way thenewway = new Way(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH });
-                thenewway.Size.Width = e.X - thenewway.Size.Width;
-                thenewway.Size.Height = e.Y - thenewway.Size.Height;
-                thenewway.X = e.X - thenewway.X;
-                thenewway.Y = e.Y - thenewway.Y;
-                Invalidate();
-                dragAndDropSource = null;
-            }
-        }
-        */
     }
 }
