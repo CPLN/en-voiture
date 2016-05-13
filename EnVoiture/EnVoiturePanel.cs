@@ -11,7 +11,7 @@ namespace EnVoiture
 {
     public class EnVoiturePanel : UserControl
     {
-        private Car voiture;
+        private Voiture voiture;
         private List<RoadUserWidget> roadUsers;
         private bool bAvancer = false;
         private bool bReculer = false;

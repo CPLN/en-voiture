@@ -14,7 +14,7 @@ namespace EnVoiture
         // Liste des elements qui seront affichés
         private List<RoadUserWidget> _roadUsers = new List<RoadUserWidget>();
 
-        Car voiture;
+        Voiture voiture;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
 
         // Liste des routes

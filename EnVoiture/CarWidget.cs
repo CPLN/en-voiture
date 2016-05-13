@@ -10,7 +10,7 @@ namespace EnVoiture
         /// <summary>
         /// La voiture liée à cet afficheur.
         /// </summary>
-        public Car Car { get; private set; }
+        public Voiture Car { get; private set; }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
@@ -18,7 +18,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public CarWidget(Rectangle rectangle)
         {
-            this.Car = new Car(rectangle,0.0);
+            this.Car = new Voiture(rectangle,0.0);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         public CarWidget(int x, int y, int width, int height, double vMax)
         {
-            this.Car = new Car(x, y, width, height,vMax);
+            this.Car = new Voiture(x, y, width, height,vMax);
         }
 
         public override void Paint(Graphics g)

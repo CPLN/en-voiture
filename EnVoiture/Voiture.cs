@@ -5,13 +5,13 @@ namespace EnVoiture
     /// <summary>
     /// Représentation d'une voiture dans l'application.
     /// </summary>
-    public class Car : RoadUser
+    public class Voiture : RoadUser
     {
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
-        public Car(Rectangle rectangle, double vMax) : base(rectangle,0.0,vMax) { }
+        public Voiture(Rectangle rectangle, double vMax) : base(rectangle,0.0,vMax) { }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture en donnant directement les valeurs.
@@ -20,7 +20,7 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public Car(int x, int y, int width, int height,double vMax) 
+        public Voiture(int x, int y, int width, int height,double vMax) 
             : base(x, y, width, height,0.0,vMax) 
         {
         }
