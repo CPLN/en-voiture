@@ -9,7 +9,7 @@ namespace EnVoiture
 {
     public class WayButton : UserControl
     {
-        public WayWidget WayWidget
+        public RouteWidget WayWidget
         {
             get;
             set;

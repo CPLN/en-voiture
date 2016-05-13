@@ -12,24 +12,24 @@ namespace EnVoiture
     {
         private TableLayoutPanel tableLayoutPanel;
         private int _waysSize = 1;
-        private Way _selectedWay;
+        private Route _selectedWay;
 
         /// <summary>
         /// propriété WayWidgets permetant d'ajouter des WayWidget dans la liste ww
         /// </summary>
-        public List<WayWidget> WayWidgets
+        public List<RouteWidget> WayWidgets
         {
             get
             {
-                List<WayWidget> ww = new List<WayWidget>();
-                ww.Add(new WayWidget(new Way(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
-                ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
-                ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
+                List<RouteWidget> ww = new List<RouteWidget>();
+                ww.Add(new RouteWidget(new Route(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
+                ww.Add(new RouteWidget(new Route(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
+                ww.Add(new RouteWidget(new Route(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
                 return ww;
             }
         }
 
-        public Way SelectedWay
+        public Route SelectedWay
         {
             get
             {
@@ -44,7 +44,7 @@ namespace EnVoiture
         {
             InitializeComponent();
 
-            foreach (WayWidget w in WayWidgets)
+            foreach (RouteWidget w in WayWidgets)
             {
                 WayButton wb = new WayButton();
                 wb.WayWidget = w;

@@ -18,7 +18,7 @@ namespace EnVoiture
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
 
         // Liste des routes
-        private List<Way> Ways = new List<Way>();
+        private List<Route> Ways = new List<Route>();
 
         /// <summary>
         /// Constructeur par défaut.
@@ -38,9 +38,9 @@ namespace EnVoiture
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public Way CreateWay(int x, int y)
+        public Route CreateWay(int x, int y)
         {
-            Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
+            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
             return RouteBase;
         }
 

@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class WayWidget
+    public class RouteWidget
     {
         public static int SIZE = 100;
-        public Way Way { get; set; }
+        public Route Way { get; set; }
 
-        public WayWidget(Way way)
+        public RouteWidget(Route way)
         {
             Way = way;
         }
         public void Paint(Graphics g)
         {
-            int Left = Way.Location.X * SIZE;
-            int Top = Way.Location.Y * SIZE;
-            int TailleX = Way.Size.Width * SIZE;
-            int TailleY = Way.Size.Height * SIZE;
+            int Left = Way.Position.X * SIZE;
+            int Top = Way.Position.Y * SIZE;
+            int TailleX = Way.Taille.Width * SIZE;
+            int TailleY = Way.Taille.Height * SIZE;
 
             g.FillRectangle(Brushes.Gray, Left, Top, TailleX, TailleY);
             Pen BlackPen = new Pen(Color.Black, 20);
