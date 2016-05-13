@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    class WayWidget
+    public class WayWidget
     {
         public static int SIZE = 100;
         public Way Way { get; set; }
 
-        public WayWidget(Way w)
+        public WayWidget(Way way)
         {
-            Way = w;
+            Way = way;
         }
         public void Paint(Graphics g)
         {
@@ -23,7 +23,7 @@ namespace EnVoiture
             int TailleX = Way.Size.Width * SIZE;
             int TailleY = Way.Size.Height * SIZE;
 
-            g.FillRectangle(Brushes.Gray, Left, Top,TailleX, TailleY);
+            g.FillRectangle(Brushes.Gray, Left, Top, TailleX, TailleY);
             Pen BlackPen = new Pen(Color.Black, 20);
             Point point2 = new Point(Left + TailleY / 2, Top + TailleY / 2);
             Point point1;
@@ -32,7 +32,7 @@ namespace EnVoiture
 
             if (Way.GetDictionaire.ContainsKey(Orientation.NORTH) && Way.GetDictionaire[Orientation.NORTH])
             {
-                point1 = new Point(Left + TailleX / 2,Top);
+                point1 = new Point(Left + TailleX / 2, Top);
                 g.DrawLine(BlackPen, point1, point2);
 
             }
@@ -51,6 +51,11 @@ namespace EnVoiture
                 point1 = new Point(Left, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);
             }
+        }
+
+        public void PaintOnOrigin(Graphics g)
+        {
+            g.FillRectangle(Brushes.Black, new Rectangle(0, 0, 100, 100));
         }
     }
 }
