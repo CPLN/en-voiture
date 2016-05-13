@@ -17,7 +17,7 @@ namespace EnVoiture
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
-        private WayWidget _hoverWayWidget = new WayWidget(new Way(0, 0, 100, 100, new List<Orientation> { }));
+        private WayWidget _hoverWayWidget = new WayWidget(new Way(0, 0, 1, 1, new List<Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
@@ -45,9 +45,7 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(150, 150, 10, 20, 80));
             roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
-
             this.Ways = new List<WayWidget>();
-            Ways.Add(_hoverWayWidget);
 
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }

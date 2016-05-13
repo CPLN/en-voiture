@@ -111,7 +111,13 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } }
+        public Dictionary<Orientation, bool> GetDictionaire
+        {
+            get
+            {
+                return _orientsWays == null ? new Dictionary<Orientation, bool>() : _orientsWays;
+            }
+        }
 
         /// <summary>
         /// Création de la route qui sera crée dans EnvoitureVoiturePanel ("Drag and Drop") 
@@ -136,66 +142,66 @@ namespace EnVoiture
         /// <returns>Liste de Ways</returns>
         public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
         {
-            Random rand = new Random();
+            
             int nbWays = largeurVille * hauteurVille;
-            List<Way> _waysVille = new List<Way>();        
-            for (int i = 0; i < largeurVille; i++)
-            {
-                for (int j = 0; j < hauteurVille; j++)
-                {
-                    int x = i % largeurVille;
-                    int y = i / largeurVille;
+            List<Way> _waysVille = new List<Way>();
 
-                    Dictionary<Orientation, bool> _orientsWays = new Dictionary<Orientation, bool>();
-                    if (i == 0 && j == 0)
+            Random rand = new Random();
+            for (int n = 0; n < nbWays; n++)
+            {
+                    int x = n % largeurVille;
+                    int y = n / largeurVille;
+
+                    bool sortieN;
+                    bool sortieE;
+                    bool sortieS;
+                    bool sortieW;
+                    int icpt;
+                    Dictionary<Orientation, bool> _bList = new Dictionary<Orientation, bool>();
+                    do
                     {
-                        bool sortieN = rand.Next(1) == 0;
-                        bool sortieE = rand.Next(1) == 0;
-                        bool sortieS = rand.Next(1) == 0;
-                        bool sortieW = rand.Next(1) == 0;
-                        //_orientsWays.Add(Orientation.EAST, sortie);
-                    }
-                    _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _orientsWays));
-                }
+                        icpt = 0;
+                        sortieN = rand.Next(2) == 0;
+                        sortieE = rand.Next(2) == 0;
+                        sortieS = rand.Next(2) == 0;
+                        sortieW = rand.Next(2) == 0;
+
+                        if (x != 0)
+                        {
+                            sortieW = _waysVille[n-1]._orientsWays[Orientation.EAST];
+                        }
+
+                        if (y != 0)
+                        {
+                            sortieN = _waysVille[n - largeurVille]._orientsWays[Orientation.SOUTH];
+                        }
+
+                        if (sortieE)
+                        {
+                            icpt++;
+                        }
+                        if (sortieN)
+                        {
+                            icpt++;
+                        }
+                        if (sortieS)
+                        {
+                            icpt++;
+                        }
+                        if (sortieW)
+                        {
+                            icpt++;
+                        }
+
+                    } while (icpt < 2);
+                    _bList.Add(Orientation.NORTH, sortieN);
+                    _bList.Add(Orientation.EAST, sortieE);
+                    _bList.Add(Orientation.SOUTH, sortieS);
+                    _bList.Add(Orientation.WEST, sortieW);
+
+                    _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _bList));
             }
             return _waysVille;
-        }
-
-        public void Paint(Graphics g)
-        {
-            if (Location.X < 0 || Location.X >= g.VisibleClipBounds.Width)
-            {
-                return;
-            }
-            if (Location.Y < 0 || Location.Y >= g.VisibleClipBounds.Height)
-            {
-                return;
-            }
-            g.FillRectangle(Brushes.Gray, Location.X, Location.Y, Size.Width, Size.Height);
-            Pen BlackPen = new Pen(Color.Black, 20);
-            Point point2 = new Point(Location.X + Size.Width / 2, Location.Y + Size.Height / 2);
-            Point point1;
-            if (GetDictionaire.ContainsKey(Orientation.NORTH) && GetDictionaire[Orientation.NORTH])
-            {
-                point1 = new Point(Location.X + Size.Width / 2, Location.X);
-                g.DrawLine(BlackPen, point1, point2);
-
-            }
-            if (GetDictionaire.ContainsKey(Orientation.SOUTH) && GetDictionaire[Orientation.SOUTH])
-            {
-                point1 = new Point(Location.X + Size.Width / 2, Location.Y + Size.Height);
-                g.DrawLine(BlackPen, point1, point2);
-            }
-            if (GetDictionaire.ContainsKey(Orientation.EAST) && GetDictionaire[Orientation.EAST])
-            {
-                point1 = new Point(Location.X, Location.Y + Size.Height / 2);
-                g.DrawLine(BlackPen, point1, point2);
-            }
-            if (GetDictionaire.ContainsKey(Orientation.WEST) && GetDictionaire[Orientation.WEST])
-            {
-                point1 = new Point(Location.X + Size.Width, Location.Y + Size.Height / 2);
-                g.DrawLine(BlackPen, point1, point2);
-            }
         }
     }
 }

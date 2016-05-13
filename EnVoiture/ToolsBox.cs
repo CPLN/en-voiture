@@ -11,7 +11,7 @@ namespace EnVoiture
     public class ToolsBox : UserControl
     {
         private TableLayoutPanel tableLayoutPanel;
-        private int _waysSize = 100;
+        private int _waysSize = 1;
         private Way _selectedWay;
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace EnVoiture
                 wb.WayWidget = w;
                 wb.Paint += new PaintEventHandler((source, e) => { w.PaintOnOrigin(e.Graphics); });
                 wb.MouseClick += new MouseEventHandler(this.WayButton_MouseClick);
-                wb.Size = w.Way.Size;
+                wb.Size = new Size(100,100);
                 //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
                 tableLayoutPanel.Controls.Add(wb);
             }
