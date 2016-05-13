@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace EnVoiture
 {
-    public class WayButton : UserControl
+    public class RouteBouton : UserControl
     {
-        public WayWidget WayWidget
+        public RouteWidget RouteWidget
         {
             get;
             set;

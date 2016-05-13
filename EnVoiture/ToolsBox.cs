@@ -12,24 +12,24 @@ namespace EnVoiture
     {
         private TableLayoutPanel tableLayoutPanel;
         private int _waysSize = 1;
-        private Way _selectedWay;
+        private Route _selectedWay;
 
         /// <summary>
         /// propriété WayWidgets permetant d'ajouter des WayWidget dans la liste ww
         /// </summary>
-        public List<WayWidget> WayWidgets
+        public List<RouteWidget> WayWidgets
         {
             get
             {
-                List<WayWidget> ww = new List<WayWidget>();
-                ww.Add(new WayWidget(new Way(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
-                ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
-                ww.Add(new WayWidget(new Way(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
+                List<RouteWidget> ww = new List<RouteWidget>();
+                ww.Add(new RouteWidget(new Route(20, 100, _waysSize, _waysSize, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
+                ww.Add(new RouteWidget(new Route(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
+                ww.Add(new RouteWidget(new Route(20, 300, _waysSize, _waysSize, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
                 return ww;
             }
         }
 
-        public Way SelectedWay
+        public Route SelectedWay
         {
             get
             {
@@ -44,11 +44,11 @@ namespace EnVoiture
         {
             InitializeComponent();
 
-            foreach (WayWidget w in WayWidgets)
+            foreach (RouteWidget w in WayWidgets)
             {
-                WayButton wb = new WayButton();
+                RouteBouton wb = new RouteBouton();
                 wb.WayWidget = w;
-                wb.Paint += new PaintEventHandler((source, e) => { w.PaintOnOrigin(e.Graphics); });
+                wb.Paint += new PaintEventHandler((source, e) => { w.DessinerSurOrigine(e.Graphics); });
                 wb.MouseClick += new MouseEventHandler(this.WayButton_MouseClick);
                 wb.Size = new Size(100,100);
                 //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
@@ -60,9 +60,9 @@ namespace EnVoiture
         {
             if (e.Button == MouseButtons.Left)
             {
-                if (sender is WayButton)
+                if (sender is RouteBouton)
                 {
-                    _selectedWay = (sender as WayButton).WayWidget.Way;
+                    _selectedWay = (sender as RouteBouton).WayWidget.Route;
                 }
                 Invalidate();
             }
