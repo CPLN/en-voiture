@@ -11,7 +11,7 @@ namespace EnVoiture
 {
     public class EnVoiturePanel : UserControl
     {
-        private Car voiture;
+        private Voiture voiture;
         private List<RoadUserWidget> roadUsers;
         private bool bAvancer = false;
         private bool bReculer = false;
@@ -25,7 +25,7 @@ namespace EnVoiture
 
         private List<RouteWidget> Ways;
 
-        public ToolsBox ToolsBox
+        public BoiteAOutils ToolsBox
         {
             get;
             set;
@@ -41,10 +41,10 @@ namespace EnVoiture
             DoubleBuffered = true;
 
             this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
-            roadUsers.Add(new CarWidget(150, 150, 10, 20, 80));
-            roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
-            voiture = (roadUsers[0] as CarWidget).Car;
+            roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Ways = new List<RouteWidget>();
 
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
@@ -150,10 +150,10 @@ namespace EnVoiture
         {
             foreach (RoadUserWidget roaduser in roadUsers)
             {
-                CarWidget voitureCourante = roaduser as CarWidget;
-                if (voitureCourante.Car.IsClicked(e.Location))
+                VoitureWidget voitureCourante = roaduser as VoitureWidget;
+                if (voitureCourante.Voiture.IsClicked(e.Location))
                 {
-                    voiture = voitureCourante.Car;
+                    voiture = voitureCourante.Voiture;
                     return;
                 }
             }
@@ -161,7 +161,7 @@ namespace EnVoiture
             // creation de la route si en mode edition
             if (ToolsBox.Visible)
             {
-                Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.SelectedWay);
+                Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
                     Ways.Add(new RouteWidget(w));
             }
