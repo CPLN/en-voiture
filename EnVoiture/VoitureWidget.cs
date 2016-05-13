@@ -5,20 +5,20 @@ namespace EnVoiture
     /// <summary>
     /// Représentation visuelle d'une voiture dans l'application.
     /// </summary>
-    public class CarWidget : RoadUserWidget
+    public class VoitureWidget : RoadUserWidget
     {
         /// <summary>
         /// La voiture liée à cet afficheur.
         /// </summary>
-        public Voiture Car { get; private set; }
+        public Voiture Voiture { get; private set; }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
-        public CarWidget(Rectangle rectangle)
+        public VoitureWidget(Rectangle rectangle)
         {
-            this.Car = new Voiture(rectangle,0.0);
+            this.Voiture = new Voiture(rectangle,0.0);
         }
 
         /// <summary>
@@ -28,14 +28,14 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public CarWidget(int x, int y, int width, int height, double vMax)
+        public VoitureWidget(int x, int y, int width, int height, double vMax)
         {
-            this.Car = new Voiture(x, y, width, height,vMax);
+            this.Voiture = new Voiture(x, y, width, height,vMax);
         }
 
-        public override void Paint(Graphics g)
+        public override void Dessiner(Graphics g)
         {
-            g.FillRectangle(Brushes.Red, Car.Bounds);
+            g.FillRectangle(Brushes.Red, Voiture.Bounds);
         }
     }
 }
