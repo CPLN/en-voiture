@@ -48,7 +48,7 @@ namespace EnVoiture
             {
                 WayButton wb = new WayButton();
                 wb.WayWidget = w;
-                wb.Paint += new PaintEventHandler((source, e) => { w.PaintOnOrigin(e.Graphics); });
+                wb.Paint += new PaintEventHandler((source, e) => { w.DessinerSurOrigine(e.Graphics); });
                 wb.MouseClick += new MouseEventHandler(this.WayButton_MouseClick);
                 wb.Size = new Size(100,100);
                 //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
@@ -62,7 +62,7 @@ namespace EnVoiture
             {
                 if (sender is WayButton)
                 {
-                    _selectedWay = (sender as WayButton).WayWidget.Way;
+                    _selectedWay = (sender as WayButton).WayWidget.Route;
                 }
                 Invalidate();
             }

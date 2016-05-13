@@ -62,7 +62,7 @@ namespace EnVoiture
 
             foreach (RouteWidget way in Ways)
             {
-                way.Paint(g);
+                way.Dessiner(g);
             }
             foreach (RoadUserWidget user in roadUsers)
             {
@@ -140,7 +140,7 @@ namespace EnVoiture
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
-                _hoverWayWidget.Way.Position = new Point(p.X / 100, p.Y / 100);
+                _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
 
             Invalidate();
