@@ -112,7 +112,11 @@ namespace EnVoiture
                 bDroite = false;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Tick(object sender, System.EventArgs e)
         {
             if (bAvancer)
@@ -132,7 +136,7 @@ namespace EnVoiture
             }
             else
             {
-                voiture.Ralentir();
+                voiture.Freiner();
             }
             
             if (bGauche)
