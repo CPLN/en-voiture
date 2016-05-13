@@ -101,14 +101,14 @@ namespace EnVoiture
                 foreach (RoadUserWidget user in _roadUsers)
                 {
                     if (!(user is VoitureWidget))
-                        user.Paint(g);
+                        user.Dessiner(g);
                 }
             }
             else
             {
                 foreach (RoadUserWidget user in _roadUsers)
                 {
-                    user.Paint(g);
+                    user.Dessiner(g);
                 }
             }
         }

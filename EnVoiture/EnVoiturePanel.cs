@@ -66,7 +66,7 @@ namespace EnVoiture
             }
             foreach (RoadUserWidget user in roadUsers)
             {
-                user.Paint(g);
+                user.Dessiner(g);
             }
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
