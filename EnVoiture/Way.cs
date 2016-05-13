@@ -17,7 +17,7 @@ namespace EnVoiture
         public Point Location
         {
             get;
-            private set;
+            set;
         }
 
         public int Left
@@ -52,30 +52,6 @@ namespace EnVoiture
             private set;
         }
 
-        public int TailleX
-        {
-            get
-            {
-                return Size.Width;
-            }
-            set
-            {
-                Size = new Size(value, Size.Height);
-            }
-
-        }
-        public int TailleY
-        {
-            get
-            {
-                return Size.Height;
-            }
-            set
-            {
-                Size = new Size(Size.Width, value);
-            }
-        }
-
         /// <summary>
         /// Orientations of the way
         /// </summary>
@@ -84,8 +60,9 @@ namespace EnVoiture
             get;
             private set;
         }
+
         /// <summary>
-        /// 
+        /// Constructeur utilisant un x, y, width et height en paramètre
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -97,12 +74,14 @@ namespace EnVoiture
             this.Location = new Point(x, y);
             this.Size = new Size(width, height);
             this.Orientations = orientations;
+            this.Location = new Point(x, y);
         }
+
         /// <summary>
-        /// 
+        /// constructeur utilsant un point et un size en paramètre
         /// </summary>
-        /// <param name="location"></param>
-        /// <param name="size"></param>
+        /// <param name="location">Contient x et y</param>
+        /// <param name="size">contient Widht et height</param>
         /// <param name="orientations"></param>
         public Way(Point location, Size size, List<Orientation> orientations)
         {
@@ -110,6 +89,7 @@ namespace EnVoiture
             this.Size = size;
             this.Orientations = orientations;
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -131,8 +111,29 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } }
+        public Dictionary<Orientation, bool> GetDictionaire
+        {
+            get
+            {
+                return _orientsWays == null ? new Dictionary<Orientation, bool>() : _orientsWays;
+            }
+        }
 
+        /// <summary>
+        /// Création de la route qui sera crée dans EnvoitureVoiturePanel ("Drag and Drop") 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static Way NewWays(int x, int y, Way way)
+        {
+            if (way != null)
+            {
+                way.Location = new Point(x / 100, y / 100);
+                return way.MemberwiseClone() as Way;
+            }
+            return null;
+        }
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
         /// </summary>
