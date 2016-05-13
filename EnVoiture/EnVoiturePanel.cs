@@ -145,7 +145,6 @@ namespace EnVoiture
                 voiture.Droite();
             }
 
-
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
