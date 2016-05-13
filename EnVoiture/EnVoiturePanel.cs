@@ -25,7 +25,7 @@ namespace EnVoiture
 
         private List<RouteWidget> Ways;
 
-        public ToolsBox ToolsBox
+        public BoiteAOutils ToolsBox
         {
             get;
             set;
@@ -161,7 +161,7 @@ namespace EnVoiture
             // creation de la route si en mode edition
             if (ToolsBox.Visible)
             {
-                Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.SelectedWay);
+                Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
                     Ways.Add(new RouteWidget(w));
             }

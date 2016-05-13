@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ToolsBox.cs">
+    <Compile Include="BoiteAOutils.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Car.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="RoadUserWidget.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Orientation.cs" />
-    <Compile Include="WayButton.cs">
+    <Compile Include="RouteBouton.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RouteWidget.cs" />
@@ -87,8 +87,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ToolsBox.resx">
-      <DependentUpon>ToolsBox.cs</DependentUpon>
+    <EmbeddedResource Include="BoiteAOutils.resx">
+      <DependentUpon>BoiteAOutils.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
