@@ -20,7 +20,7 @@ namespace EnVoiture
         {
             this.Pieton = new Pieton(x, y, width, height, 15, 30);
         }
-        public override void Paint(Graphics g)
+        public override void Dessiner(Graphics g)
         {
             g.FillEllipse(Brushes.Black, Pieton.Bounds);
         }
