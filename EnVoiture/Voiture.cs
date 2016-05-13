@@ -3,23 +3,15 @@ using System.Drawing;
 namespace EnVoiture
 {
     /// <summary>
-    /// Représentation visuelle d'une voiture dans l'application.
+    /// Représentation d'une voiture dans l'application.
     /// </summary>
-    public class CarWidget : RoadUserWidget
+    public class Voiture : RoadUser
     {
-        /// <summary>
-        /// La voiture liée à cet afficheur.
-        /// </summary>
-        public Car Car { get; private set; }
-
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
-        public CarWidget(Rectangle rectangle)
-        {
-            this.Car = new Car(rectangle,0.0);
-        }
+        public Voiture(Rectangle rectangle, double vMax) : base(rectangle,0.0,vMax) { }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture en donnant directement les valeurs.
@@ -28,14 +20,10 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public CarWidget(int x, int y, int width, int height, double vMax)
+        public Voiture(int x, int y, int width, int height,double vMax) 
+            : base(x, y, width, height,0.0,vMax) 
         {
-            this.Car = new Car(x, y, width, height,vMax);
         }
 
-        public override void Paint(Graphics g)
-        {
-            g.FillRectangle(Brushes.Red, Car.Bounds);
-        }
     }
 }

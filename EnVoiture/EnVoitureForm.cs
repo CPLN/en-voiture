@@ -14,11 +14,11 @@ namespace EnVoiture
         // Liste des elements qui seront affichés
         private List<RoadUserWidget> _roadUsers = new List<RoadUserWidget>();
 
-        Car voiture;
+        Voiture voiture;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
 
         // Liste des routes
-        private List<Way> Ways = new List<Way>();
+        private List<Route> Ways = new List<Route>();
 
         /// <summary>
         /// Constructeur par défaut.
@@ -26,9 +26,9 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
-            CarWidget v = new CarWidget(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(0, 0, 10, 20, 80);
             this._roadUsers.Add(v);
-            this.voiture = v.Car;
+            this.voiture = v.Voiture;
             enVoiturePanel.ToolsBox = toolsBox;
         }
 
@@ -38,9 +38,9 @@ namespace EnVoiture
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public Way CreateWay(int x, int y)
+        public Route CreateWay(int x, int y)
         {
-            Way RouteBase = new Way(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
+            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
             return RouteBase;
         }
 
@@ -100,7 +100,7 @@ namespace EnVoiture
                 // mode edition
                 foreach (RoadUserWidget user in _roadUsers)
                 {
-                    if (!(user is CarWidget))
+                    if (!(user is VoitureWidget))
                         user.Paint(g);
                 }
             }
