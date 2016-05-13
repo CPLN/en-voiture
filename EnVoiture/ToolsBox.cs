@@ -46,7 +46,7 @@ namespace EnVoiture
 
             foreach (RouteWidget w in WayWidgets)
             {
-                WayButton wb = new WayButton();
+                RouteBouton wb = new RouteBouton();
                 wb.WayWidget = w;
                 wb.Paint += new PaintEventHandler((source, e) => { w.DessinerSurOrigine(e.Graphics); });
                 wb.MouseClick += new MouseEventHandler(this.WayButton_MouseClick);
@@ -60,9 +60,9 @@ namespace EnVoiture
         {
             if (e.Button == MouseButtons.Left)
             {
-                if (sender is WayButton)
+                if (sender is RouteBouton)
                 {
-                    _selectedWay = (sender as WayButton).WayWidget.Route;
+                    _selectedWay = (sender as RouteBouton).WayWidget.Route;
                 }
                 Invalidate();
             }
