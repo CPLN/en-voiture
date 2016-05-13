@@ -231,7 +231,7 @@ namespace EnVoiture
         }
         public void Accelerer()
         {
-
+            Location = new Point(Location.X, Location.Y - 1);
         }
         public void Freiner()
         {
