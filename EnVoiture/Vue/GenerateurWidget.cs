@@ -21,7 +21,8 @@ namespace EnVoiture.Vue
         /// Cette fonction reçoit en paramètre un point et permet de le transformer en orientation.
         /// </summary>
         /// <param name="point"></param>
-        public Orientation DetectionOrientation(Point point){
+        public Orientation DetectionOrientation(Point point)
+        {
             throw new NotImplementedException();
         }
 
