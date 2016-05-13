@@ -117,14 +117,24 @@ namespace EnVoiture
         {
             if (bAvancer)
             {
-                voiture.Avancer();
+                voiture.Accelerer();
             }
-
-            if (bReculer)
+            else if (bReculer)
             {
-                voiture.Reculer();
+                if(voiture.Vitesse == 0)
+                {
+                    voiture.Reculer();
+                }
+                else
+                {
+                    voiture.Ralentir();
+                }
             }
-
+            else
+            {
+                voiture.Ralentir();
+            }
+            
             if (bGauche)
             {
                 voiture.Gauche();
