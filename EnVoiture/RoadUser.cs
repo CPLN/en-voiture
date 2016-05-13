@@ -10,6 +10,9 @@ namespace EnVoiture
         private Rectangle bounds;
         private double dblVitesse;
         private double dblVitesseMax;
+        private const double ACCELERATION = 10;
+        private const double DECCELERATION = 2;
+        private const double FREINAGE = 15;
 
         /// <summary>
         /// propriété règlant la vitesse
@@ -25,6 +28,10 @@ namespace EnVoiture
                 if (value <= dblVitesseMax)
                 {
                     dblVitesse = value;
+                }
+                else
+                {
+                    dblVitesse = dblVitesseMax;
                 }
             }
         }
@@ -221,22 +228,18 @@ namespace EnVoiture
         {
             Location = new Point(Location.X, Location.Y + 1);
         }
-        public void StopDeplacement()
-        {
-            Location = new Point(Location.X, Location.Y);
-        }
         public void Ralentir()
         {
-            
+            dblVitesse = dblVitesse - DECCELERATION;
         }
 
         public void Accelerer()
         {
-
+            dblVitesse = dblVitesse + ACCELERATION;
         }
         public void Freiner()
         {
-
+            dblVitesse = dblVitesse - FREINAGE;
         }
         public void FreinageUrgence()
         {

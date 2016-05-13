@@ -46,9 +46,9 @@ namespace EnVoiture
             roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as CarWidget).Car;
             this.Ways = new List<WayWidget>();
+
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
-
 
         /// <summary>
         /// 
