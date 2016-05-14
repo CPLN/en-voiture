@@ -32,7 +32,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.alignment = new System.Windows.Forms.TableLayoutPanel();
             this.enVoiturePanel = new EnVoiture.EnVoiturePanel();
-            this.toolsBox = new EnVoiture.ToolsBox();
+            this.toolsBox = new EnVoiture.BoiteAOutils();
             this.alignment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +101,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TableLayoutPanel alignment;
         private EnVoiturePanel enVoiturePanel;
-        private ToolsBox toolsBox;
+        private BoiteAOutils toolsBox;
     }
 }
 
