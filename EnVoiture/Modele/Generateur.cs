@@ -21,10 +21,14 @@ namespace EnVoiture.Modele
         public void EditionRoute(Orientation orientation)
         {
             bool obstacle = false;
+
+            //test si le dictonnaire contient une clef
             if (Route.GetDictionaire.ContainsKey(orientation))
             {
                 obstacle = Route.GetDictionaire[orientation];
             }
+
+            //Change l'état de l'obstacle de false à true et vice-versa.
             switch (obstacle)
             {
                 case true:
