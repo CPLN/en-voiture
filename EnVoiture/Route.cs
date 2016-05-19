@@ -7,120 +7,100 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class Way
+    public class Route
     {
-        private Dictionary<Orientation, bool> _orientsWays;
+        private Dictionary<Orientation, bool> _orientationsRoutes;
 
         /// <summary>
         /// Location of the way
         /// </summary>
-        public Point Location
+        public Point Position
         {
             get;
-            private set;
+            set;
         }
 
         public int Left
         {
             get
             {
-                return Location.X;
+                return Position.X;
             }
             set
             {
-                Location = new Point(value, Location.Y);
+                Position = new Point(value, Position.Y);
             }
         }
         public int Top
         {
             get
             {
-                return Location.Y;
+                return Position.Y;
             }
             set
             {
-                Location = new Point(Location.X, value);
+                Position = new Point(Position.X, value);
             }
         }
         
         /// <summary>
-        /// Size of the way
+        /// Taille de la route
         /// </summary>
-        public Size Size
+        public Size Taille
         {
             get;
             private set;
         }
 
-        public int TailleX
-        {
-            get
-            {
-                return Size.Width;
-            }
-            set
-            {
-                Size = new Size(value, Size.Height);
-            }
-
-        }
-        public int TailleY
-        {
-            get
-            {
-                return Size.Height;
-            }
-            set
-            {
-                Size = new Size(Size.Width, value);
-            }
-        }
-
         /// <summary>
-        /// Orientations of the way
+        /// Orientations de la route
         /// </summary>
         public List<Orientation> Orientations
         {
             get;
             private set;
         }
+
         /// <summary>
-        /// 
+        /// Constructeur utilisant un x, y, largeur, hauteur et une liste d'orientations en paramètres
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="width"></param>
         /// <param name="height"></param>
         /// <param name="orientations"></param>
-        public Way(int x, int y, int width, int height, List<Orientation> orientations)
+        public Route(int x, int y, int largeur, int hauteur, List<Orientation> orientations)
         {
-            this.Location = new Point(x, y);
-            this.Size = new Size(width, height);
+            this.Position = new Point(x, y);
+            this.Taille = new Size(largeur, hauteur);
             this.Orientations = orientations;
+            this.Position = new Point(x, y);
         }
+
         /// <summary>
-        /// 
+        /// Constructeur utilsant une localisation, une taille et une liste d'orientations en paramètre
         /// </summary>
-        /// <param name="location"></param>
-        /// <param name="size"></param>
+        /// <param name="location">Contient x et y</param>
+        /// <param name="size">contient Widht et height</param>
         /// <param name="orientations"></param>
-        public Way(Point location, Size size, List<Orientation> orientations)
+        public Route(Point position, Size taille, List<Orientation> orientations)
         {
-            this.Location = location;
-            this.Size = size;
+            this.Position = position;
+            this.Taille = taille;
             this.Orientations = orientations;
         }
+
         /// <summary>
-        /// 
+        /// Constructeur utilisant une localisation, une taille et un dictionnaire d'orientations et de booléans
         /// </summary>
         /// <param name="location"></param>
         /// <param name="size"></param>
         /// <param name="_orientsWays"></param>
-        public Way(Point location, Size size, Dictionary<Orientation, bool> _orientsWays)
+        public Route(Point position, Size taille, Dictionary<Orientation, bool> orientationsRoutes)
         {
-            this.Location = location;
-            this.Size = size;
-            this._orientsWays = _orientsWays;
+            this.Position = position;
+            this.Taille = taille;
+            this._orientationsRoutes = orientationsRoutes;
         }
 
         /// <summary>
@@ -131,19 +111,40 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire { get { return _orientsWays; } }
+        public Dictionary<Orientation, bool> GetDictionaire
+        {
+            get
+            {
+                return _orientationsRoutes == null ? new Dictionary<Orientation, bool>() : _orientationsRoutes;
+            }
+        }
 
+        /// <summary>
+        /// Création de la route qui sera crée dans EnvoitureVoiturePanel ("Drag and Drop") 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public static Route VersPositionCase(int x, int y, Route way)
+        {
+            if (way != null)
+            {
+                way.Position = new Point(x / 100, y / 100);
+                return way.MemberwiseClone() as Route;
+            }
+            return null;
+        }
         /// <summary>
         /// Création de liste de Ways selon les paramètres entrés. Chaque Way fait 25cm2
         /// </summary>
         /// <param name="largeurVille"></param>
         /// <param name="hauteurVille"></param>
         /// <returns>Liste de Ways</returns>
-        public static List<Way> WaysGenerator(int largeurVille, int hauteurVille)
+        public static List<Route> Generer(int largeurVille, int hauteurVille)
         {
             
             int nbWays = largeurVille * hauteurVille;
-            List<Way> _waysVille = new List<Way>();
+            List<Route> _routesVille = new List<Route>();
 
             Random rand = new Random();
             for (int n = 0; n < nbWays; n++)
@@ -167,12 +168,12 @@ namespace EnVoiture
 
                         if (x != 0)
                         {
-                            sortieW = _waysVille[n-1]._orientsWays[Orientation.EAST];
+                            sortieW = _routesVille[n-1]._orientationsRoutes[Orientation.EAST];
                         }
 
                         if (y != 0)
                         {
-                            sortieN = _waysVille[n - largeurVille]._orientsWays[Orientation.SOUTH];
+                            sortieN = _routesVille[n - largeurVille]._orientationsRoutes[Orientation.SOUTH];
                         }
 
                         if (sortieE)
@@ -198,9 +199,9 @@ namespace EnVoiture
                     _bList.Add(Orientation.SOUTH, sortieS);
                     _bList.Add(Orientation.WEST, sortieW);
 
-                    _waysVille.Add(new Way(new Point(x, y), new Size(1, 1), _bList));
+                    _routesVille.Add(new Route(new Point(x, y), new Size(1, 1), _bList));
             }
-            return _waysVille;
+            return _routesVille;
         }
     }
 }

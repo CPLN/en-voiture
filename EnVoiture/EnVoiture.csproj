@@ -45,8 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="CarWidget.cs" />
+    <Compile Include="BoiteAOutils.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Voiture.cs" />
     <Compile Include="EnVoitureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,7 +56,7 @@
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EnVoiturePanel.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PietonWidget.cs" />
     <Compile Include="Pieton.cs" />
@@ -62,11 +64,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoadUser.cs" />
     <Compile Include="RoadUserWidget.cs" />
-    <Compile Include="Way.cs" />
+    <Compile Include="Route.cs" />
     <Compile Include="Orientation.cs" />
-    <Compile Include="WayWidget.cs" />
+    <Compile Include="RouteBouton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RouteWidget.cs" />
+    <Compile Include="VoitureWidget.cs" />
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnVoiturePanel.resx">
+      <DependentUpon>EnVoiturePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +87,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="BoiteAOutils.resx">
+      <DependentUpon>BoiteAOutils.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -11,7 +11,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestAcceleration1()
         {
-            Car car = new Car(new Rectangle(0, 0, 0, 0), 5);
+            Voiture car = new Voiture(new Rectangle(0, 0, 0, 0), 5);
 
             Assert.AreEqual(0, car.Vitesse);
             car.Avancer();
@@ -38,7 +38,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void Testralentir()
         {
-            Car car = new Car(new Rectangle(0, 0, 0, 0), 5);
+            Voiture car = new Voiture(new Rectangle(0, 0, 0, 0), 5);
 
             car.Vitesse = 5;
 
@@ -61,7 +61,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestAcceleration2()
         {
-            Car car = new Car(new Rectangle(0, 0, 0, 0), 5);
+            Voiture car = new Voiture(new Rectangle(0, 0, 0, 0), 5);
 
             car.Vitesse = 5;
 
