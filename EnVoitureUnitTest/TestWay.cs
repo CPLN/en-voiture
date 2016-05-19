@@ -28,13 +28,13 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestOppositeOrientationNS()
         {
-            Assert.AreEqual(Orientation.NORD.getOpposite(), Orientation.SUD);
+            Assert.AreEqual(Orientation.NORD.Oppose(), Orientation.SUD);
         }
 
         [TestMethod]
         public void TestOppositeOrientationWE()
         {
-            Assert.AreEqual(Orientation.OUEST.getOpposite(), Orientation.EST);
+            Assert.AreEqual(Orientation.OUEST.Oppose(), Orientation.EST);
         }
 
         [TestMethod]

@@ -120,7 +120,7 @@ namespace EnVoitureUnitTest
         public void TestGauche()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
-            car.Gauche();
+            car.TournerGauche();
             Assert.AreEqual(0, car.Localisation.Y); //teste si la position sur l'axe y a bien été décrémentée
             Assert.AreEqual(-1, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
@@ -128,7 +128,7 @@ namespace EnVoitureUnitTest
         public void TestDroite()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
-            car.Droite();
+            car.TournerDroite();
             Assert.AreEqual(0, car.Localisation.Y); //teste si la position sur l'axe y a bien été incrémentée
             Assert.AreEqual(1, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }

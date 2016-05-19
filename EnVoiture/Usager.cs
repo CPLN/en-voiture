@@ -209,11 +209,11 @@ namespace EnVoiture
         {
             Localisation = new Point(Localisation.X, Localisation.Y - 1);
         }
-        public void Gauche()
+        public void TournerGauche()
         {
             Localisation = new Point(Localisation.X - 1, Localisation.Y);
         }
-        public void Droite()
+        public void TournerDroite()
         {
             Localisation = new Point(Localisation.X + 1, Localisation.Y);
         }

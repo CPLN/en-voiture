@@ -80,9 +80,9 @@ namespace EnVoiture
             if (bReculer)
                 voiture.Reculer();
             if (bGauche)
-                voiture.Gauche();
+                voiture.TournerGauche();
             if (bDroite)
-                voiture.Droite();
+                voiture.TournerDroite();
             enVoiturePanel.Invalidate();
         }
 

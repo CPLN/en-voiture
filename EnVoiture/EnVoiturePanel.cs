@@ -128,12 +128,12 @@ namespace EnVoiture
 
             if (bGauche)
             {
-                voiture.Gauche();
+                voiture.TournerGauche();
             }
 
             if (bDroite)
             {
-                voiture.Droite();
+                voiture.TournerDroite();
             }
 
 
