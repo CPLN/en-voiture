@@ -227,17 +227,24 @@ namespace EnVoiture
         }
         public void Reculer()
         {
-            Location = new PointF(Location.X, Location.Y + dblVitesse);
+            dblVitesse -= ACCELERATION;
+            Location = new PointF(Location.X, Location.Y - dblVitesse);
         }
         public void Ralentir()
         {
-            dblVitesse -= DECCELERATION;
+            if (Vitesse > 0)
+            {
+                dblVitesse -= DECCELERATION;
+            }
+            else if(Vitesse<0)
+            {
+                dblVitesse += DECCELERATION;
+            }
         }
 
         public void Accelerer()
         {
             dblVitesse += ACCELERATION;
-            Avancer();
         }
         public void Freiner()
         {

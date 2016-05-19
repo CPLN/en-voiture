@@ -67,25 +67,6 @@ namespace EnVoiture
             enVoiturePanel.OnKeyUp(sender, e);
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timerDirection_Tick(object sender, System.EventArgs e)
-        {
-            if (bAvancer)
-                voiture.Avancer();
-            if (bReculer)
-                voiture.Reculer();
-            if (bGauche)
-                voiture.Gauche();
-            if (bDroite)
-                voiture.Droite();
-            enVoiturePanel.Invalidate();
-        }
-
         /// <summary>
         /// est appelé quand on fait: pEnVoiture.Invalidate();
         /// </summary>

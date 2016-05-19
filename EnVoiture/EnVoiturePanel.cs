@@ -129,7 +129,7 @@ namespace EnVoiture
             }
             else if (bReculer)
             {
-                if(voiture.Vitesse == 0)
+                if(voiture.Vitesse <= 0)
                 {
                     voiture.Reculer();
                 }
@@ -138,10 +138,11 @@ namespace EnVoiture
                     voiture.Freiner();
                 }
             }
-            else if(bReculer == false && bAvancer == false)
+            else if(!bReculer && !bAvancer)
             {
                 voiture.Ralentir();
             }
+            voiture.Avancer();
             
             if (bGauche)
             {
@@ -158,7 +159,6 @@ namespace EnVoiture
                 Point p = PointToClient(Cursor.Position);
                 _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
-
             Invalidate();
         }
 
