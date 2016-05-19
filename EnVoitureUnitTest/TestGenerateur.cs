@@ -16,20 +16,42 @@ namespace EnVoitureUnitTest
          */
 
         /// <summary>
-        /// Test si l'état du nord n'a pas changé
+        /// Test si l'état du nord a changé de rien à route simple
         /// </summary>
         [TestMethod]
-        public void TestEditionRouteNorth()
+        public void TestEditionRouteNord()
         {
             Orientation orientation = Orientation.NORTH;
-            Route route = new Route(0, 0, 1, 1, new List<Orientation>());
-            Generateur generateur = new Generateur(route);
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            bool obstacle = false;
-            if (route.GetDictionaire.ContainsKey(orientation))
-                obstacle = route.GetDictionaire[orientation];
-            Assert.AreEqual(obstacle, false);
+            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.ROUTE);
+        }
+
+        /// <summary>
+        /// Test si l'état du nord a changé de route simple à route avec trottoir
+        /// </summary>
+        [TestMethod]
+        public void TestEditionRouteNordNord()
+        {
+            Orientation orientation = Orientation.NORTH;
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            generateur.EditionRoute(orientation);
+
+            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.ROUTE);
+        }
+
+        /// <summary>
+        /// Test si l'état du nord a changé de route aec trottoir à rien
+        /// </summary>
+        [TestMethod]
+        public void TestEditionRouteNordEst()
+        {
+            Orientation orientation = Orientation.NORTH;
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            generateur.EditionRoute(orientation);
+
+            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.PASROUTE);
         }
 
         /*
