@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture.Modele
 {
-    class Generateur
+  public  class Generateur
     {
         public Route Route { get; set; }
 

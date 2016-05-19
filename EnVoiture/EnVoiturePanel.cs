@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnVoiture.Vue;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -24,6 +25,7 @@ namespace EnVoiture
         private Region _region;
 
         private List<RouteWidget> Ways;
+        private List<GenerateurWidget> Routes;
 
         public BoiteAOutils ToolsBox
         {
@@ -163,7 +165,8 @@ namespace EnVoiture
             {
                 Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
-                    Ways.Add(new RouteWidget(w));
+                    //Ways.Add(new RouteWidget(w));
+                    Routes.Add(new GenerateurWidget(w));
             }
         }
 
