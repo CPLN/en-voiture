@@ -20,21 +20,18 @@ namespace EnVoiture.Modele
         /// <param name="orientation"> Orientation de la route</param>
         public void EditionRoute(Orientation orientation)
         {
-            
-            /*switch ()
+            bool obstactle = Route.GetDictionaire[orientation];
+            switch (obstactle)
             {
-                case Obstacle.ROUTE : 
-            break;
-                case Obstacle.PASROUTE :
+                case true:
+                    Route.GetDictionaire[orientation] = false;
+                    break;
+                case false:
+                    Route.GetDictionaire[orientation] = true;
                     break;
                 default:
                     break;
-            }*/
+            }
         }
-    }
-
-    public enum Obstacle
-    {
-        ROUTE, PASROUTE
     }
 }
