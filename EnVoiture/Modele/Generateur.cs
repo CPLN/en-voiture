@@ -20,8 +20,12 @@ namespace EnVoiture.Modele
         /// <param name="orientation"> Orientation de la route</param>
         public void EditionRoute(Orientation orientation)
         {
-            bool obstactle = Route.GetDictionaire[orientation];
-            switch (obstactle)
+            bool obstacle = false;
+            if (Route.GetDictionaire.ContainsKey(orientation))
+            {
+                obstacle = Route.GetDictionaire[orientation];
+            }
+            switch (obstacle)
             {
                 case true:
                     Route.GetDictionaire[orientation] = false;
