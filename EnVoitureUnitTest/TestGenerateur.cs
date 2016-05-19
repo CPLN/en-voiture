@@ -9,6 +9,15 @@ namespace EnVoitureUnitTest
     [TestClass]
     public class TestGenerateur
     {
+        /*
+         * 
+         * Tests avec l'orientation nord 
+         *
+         */
+
+        /// <summary>
+        /// Test si l'état du nord n'a pas changé
+        /// </summary>
         [TestMethod]
         public void TestEditionRouteNorth()
         {
@@ -23,6 +32,15 @@ namespace EnVoitureUnitTest
             Assert.AreEqual(obstacle, false);
         }
 
+        /*
+         * 
+         * Tests avec l'orientation de l'est
+         *
+         */
+
+        /// <summary>
+        /// Test si l'état de l'est n'a pas changé
+        /// </summary>
         [TestMethod]
         public void TestEditionRouteEast()
         {
@@ -37,6 +55,15 @@ namespace EnVoitureUnitTest
             Assert.AreEqual(obstacle, false);
         }
 
+        /*
+         * 
+         * Tests avec l'orientation sud
+         *
+         */
+
+        /// <summary>
+        /// Test si l'état du sud n'a pas changé
+        /// </summary>
         [TestMethod]
         public void TestEditionRouteSouth()
         {
@@ -51,6 +78,15 @@ namespace EnVoitureUnitTest
             Assert.AreEqual(obstacle, false);
         }
 
+        /*
+         * 
+         * Tests avec l'orientation ouest
+         *
+         */
+
+        /// <summary>
+        /// Test si l'état de l'ouest n'a pas changé
+        /// </summary>
         [TestMethod]
         public void TestEditionRouteWest()
         {
