@@ -7,7 +7,7 @@ namespace EnVoiture
     /// </summary>
     public abstract class Usager
     {
-        private Rectangle bounds;
+        private Rectangle bornes;
         private double dblVitesse;
         private double dblVitesseMax;
 
@@ -43,115 +43,115 @@ namespace EnVoiture
                 dblVitesseMax = value;
             }
         }
-        public Rectangle Bounds
+        public Rectangle Bornes
         {
             get
             {
-                return bounds;
+                return bornes;
             }
             set
             {
-                bounds = value;
+                bornes = value;
             }
         }
 
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public Point Location
+        public Point Localisation
         {
             get
             {
-                return bounds.Location;
+                return bornes.Location;
             }
             set
             {
-                bounds.Location = value;
+                bornes.Location = value;
             }
         }
-        public Size Size
+        public Size Taille
         {
             get
             {
-                return bounds.Size;
+                return bornes.Size;
             }
             set
             {
-                bounds.Size = value;
+                bornes.Size = value;
             }
         }
 
         /// <summary>
         /// Largeur de l'usager
         /// </summary>
-        public int Width
+        public int Largeur
         {
             get
             {
-                return bounds.Width;
+                return bornes.Width;
             }
             set
             {
-                bounds.Width = value;
+                bornes.Width = value;
             }
         }
 
         /// <summary>
         /// Hauteur de l'usager
         /// </summary>
-        public int Height
+        public int Hauteur
         {
             get
             {
-                return bounds.Height;
+                return bornes.Height;
             }
             set
             {
-                bounds.Height = value;
+                bornes.Height = value;
             }
         }
 
         /// <summary>
         /// Position x de la gauche de l'usager
         /// </summary>
-        public int Left
+        public int Gauche
         {
             get
             {
-                return bounds.Left;
+                return bornes.Left;
             }
         }
 
         /// <summary>
         /// Position x de la droite de l'usager
         /// </summary>
-        public int Right
+        public int Droite
         {
             get
             {
-                return bounds.Right;
+                return bornes.Right;
             }
         }
 
         /// <summary>
         /// Position y du haut de l'usager
         /// </summary>
-        public int Top
+        public int Haut
         {
             get
             {
-                return bounds.Top;
+                return bornes.Top;
             }
         }
 
         /// <summary>
         /// Position y du bas de l'usager
         /// </summary>
-        public int Bottom
+        public int Bas
         {
             get
             {
-                return bounds.Bottom;
+                return bornes.Bottom;
             }
         }
 
@@ -166,7 +166,7 @@ namespace EnVoiture
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
         public Usager(Rectangle bounds,double v,double vMax)
         {
-            this.bounds = bounds;
+            this.bornes = bounds;
             VitesseMax = vMax;
             Vitesse = v;
         }
@@ -193,7 +193,7 @@ namespace EnVoiture
         /// <returns>Si cet usager et l'autre se touchent</returns>
         public bool Heurte(Usager other)
         {
-            return bounds.IntersectsWith(other.bounds);
+            return bornes.IntersectsWith(other.bornes);
         }
         /// <summary>
         /// Vérifie si le clique de souris est en contact avec un usager.
@@ -202,28 +202,28 @@ namespace EnVoiture
         /// <returns>Si le clique de souris à la même position que l'usager</returns>
         public bool estClique(Point cursorPosition)
         {
-            return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
+            return bornes.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
         }
 
         public void Avancer()
         {
-            Location = new Point(Location.X, Location.Y - 1);
+            Localisation = new Point(Localisation.X, Localisation.Y - 1);
         }
         public void Gauche()
         {
-            Location = new Point(Location.X - 1, Location.Y);
+            Localisation = new Point(Localisation.X - 1, Localisation.Y);
         }
         public void Droite()
         {
-            Location = new Point(Location.X + 1, Location.Y);
+            Localisation = new Point(Localisation.X + 1, Localisation.Y);
         }
         public void Reculer()
         {
-            Location = new Point(Location.X, Location.Y + 1);
+            Localisation = new Point(Localisation.X, Localisation.Y + 1);
         }
         public void StopDeplacement()
         {
-            Location = new Point(Location.X, Location.Y);
+            Localisation = new Point(Localisation.X, Localisation.Y);
         }
     }
 }

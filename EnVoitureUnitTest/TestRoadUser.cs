@@ -16,7 +16,7 @@ namespace EnVoitureUnitTest
             Rectangle rect = new Rectangle(10, 20, 30, 40);
             Usager car2 = new Voiture(rect, 80);
 
-            Assert.AreEqual(car1.Bounds, car2.Bounds);
+            Assert.AreEqual(car1.Bornes, car2.Bornes);
             Assert.AreNotEqual(car1, car2);
         }
 
@@ -24,14 +24,14 @@ namespace EnVoitureUnitTest
         public void TestGeometry()
         {
             Usager car = new Voiture(16, 42, 120, 910, 80);
-            Assert.AreEqual(new Point(16, 42), car.Location);
-            Assert.AreEqual(new Size(120, 910), car.Size);
-            Assert.AreEqual(120, car.Width);
-            Assert.AreEqual(910, car.Height);
-            Assert.AreEqual(16, car.Left);
-            Assert.AreEqual(136, car.Right);
-            Assert.AreEqual(42, car.Top);
-            Assert.AreEqual(952, car.Bottom);
+            Assert.AreEqual(new Point(16, 42), car.Localisation);
+            Assert.AreEqual(new Size(120, 910), car.Taille);
+            Assert.AreEqual(120, car.Largeur);
+            Assert.AreEqual(910, car.Hauteur);
+            Assert.AreEqual(16, car.Gauche);
+            Assert.AreEqual(136, car.Droite);
+            Assert.AreEqual(42, car.Haut);
+            Assert.AreEqual(952, car.Bas);
         }
 
         [TestMethod]
@@ -113,40 +113,40 @@ namespace EnVoitureUnitTest
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
             car.Avancer();
-            Assert.AreEqual(-1, car.Location.Y); //teste si la position sur l'axe y a bien été incrémenté
-            Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe x est restée la même
+            Assert.AreEqual(-1, car.Localisation.Y); //teste si la position sur l'axe y a bien été incrémenté
+            Assert.AreEqual(0, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
         [TestMethod]
         public void TestGauche()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
             car.Gauche();
-            Assert.AreEqual(0, car.Location.Y); //teste si la position sur l'axe y a bien été décrémentée
-            Assert.AreEqual(-1, car.Location.X);//teste si la position su l'axe x est restée la même
+            Assert.AreEqual(0, car.Localisation.Y); //teste si la position sur l'axe y a bien été décrémentée
+            Assert.AreEqual(-1, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
         [TestMethod]
         public void TestDroite()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
             car.Droite();
-            Assert.AreEqual(0, car.Location.Y); //teste si la position sur l'axe y a bien été incrémentée
-            Assert.AreEqual(1, car.Location.X);//teste si la position su l'axe x est restée la même
+            Assert.AreEqual(0, car.Localisation.Y); //teste si la position sur l'axe y a bien été incrémentée
+            Assert.AreEqual(1, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
         [TestMethod]
         public void TestReculer()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
             car.Reculer();
-            Assert.AreEqual(1, car.Location.Y); //teste si la position sur l'axe y a bien été décrémentée
-            Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe x est restée la même
+            Assert.AreEqual(1, car.Localisation.Y); //teste si la position sur l'axe y a bien été décrémentée
+            Assert.AreEqual(0, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
         [TestMethod]
         public void TestStopDeplacement()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
             car.StopDeplacement();
-            Assert.AreEqual(0, car.Location.Y); //teste si la position su l'axe y est restée la même
-            Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe x est restée la même
+            Assert.AreEqual(0, car.Localisation.Y); //teste si la position su l'axe y est restée la même
+            Assert.AreEqual(0, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
         [TestMethod]
         public void TestIsClicked()

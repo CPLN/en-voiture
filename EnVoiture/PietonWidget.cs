@@ -22,7 +22,7 @@ namespace EnVoiture
         }
         public override void Dessiner(Graphics g)
         {
-            g.FillEllipse(Brushes.Black, Pieton.Bounds);
+            g.FillEllipse(Brushes.Black, Pieton.Bornes);
         }
         
     }
