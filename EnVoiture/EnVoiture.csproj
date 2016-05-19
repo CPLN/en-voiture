@@ -48,6 +48,7 @@
     <Compile Include="BoiteAOutils.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Modele\Obstacle.cs" />
     <Compile Include="Voiture.cs" />
     <Compile Include="VoitureWidget.cs" />
     <Compile Include="EnVoitureForm.cs">
