@@ -64,8 +64,8 @@
     <Compile Include="Pieton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoadUser.cs" />
-    <Compile Include="RoadUserWidget.cs" />
+    <Compile Include="Usager.cs" />
+    <Compile Include="UsagerWidget.cs" />
     <Compile Include="Vue\GenerateurWidget.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="Orientation.cs" />

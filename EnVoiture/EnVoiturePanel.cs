@@ -151,7 +151,7 @@ namespace EnVoiture
             foreach (UsagerWidget roaduser in roadUsers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
-                if (voitureCourante.Voiture.IsClicked(e.Location))
+                if (voitureCourante.Voiture.estClique(e.Location))
                 {
                     voiture = voitureCourante.Voiture;
                     return;

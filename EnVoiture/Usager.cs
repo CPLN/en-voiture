@@ -5,7 +5,7 @@ namespace EnVoiture
     /// <summary>
     /// Classe représentant un élément mobile de l'application, comme une voiture ou un piéton, par exemple.
     /// </summary>
-    public abstract class RoadUser
+    public abstract class Usager
     {
         private Rectangle bounds;
         private double dblVitesse;
@@ -164,7 +164,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(Rectangle bounds,double v,double vMax)
+        public Usager(Rectangle bounds,double v,double vMax)
         {
             this.bounds = bounds;
             VitesseMax = vMax;
@@ -180,7 +180,7 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
-        public RoadUser(int x, int y, int width, int height, double v, double vMax)
+        public Usager(int x, int y, int width, int height, double v, double vMax)
             : this(new Rectangle(x, y, width, height),v,vMax)
         {
            
@@ -191,7 +191,7 @@ namespace EnVoiture
         /// </summary>
         /// <param name="other">L'autre usager</param>
         /// <returns>Si cet usager et l'autre se touchent</returns>
-        public bool Collide(RoadUser other)
+        public bool Heurte(Usager other)
         {
             return bounds.IntersectsWith(other.bounds);
         }
@@ -200,7 +200,7 @@ namespace EnVoiture
         /// </summary>
         /// <param name="other"></param>
         /// <returns>Si le clique de souris à la même position que l'usager</returns>
-        public bool IsClicked(Point cursorPosition)
+        public bool estClique(Point cursorPosition)
         {
             return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
         }
