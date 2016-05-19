@@ -8,6 +8,6 @@ namespace EnVoiture.Modele
 {
     public enum Obstacle
     {
-        ROUTE, PASROUTE
+        RIEN, ROUTE, ROUTETROTTOIR
     }
 }
