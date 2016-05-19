@@ -42,7 +42,7 @@ namespace EnVoitureUnitTest
         {
             List<Orientation> o = new List<Orientation>();
             Route w1 = new Route(2, 1, 20, 30, o);
-            Assert.AreEqual(2, w1.Position.X);
+            Assert.AreEqual(2, w1.Position.X); 
             Assert.AreEqual(1, w1.Position.Y);
         }
     }
