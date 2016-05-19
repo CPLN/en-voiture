@@ -19,7 +19,7 @@ namespace EnVoitureUnitTest
         /// Test si l'état du nord a changé de rien à route simple
         /// </summary>
         [TestMethod]
-        public void TestEditionRouteNord()
+        public void TestEditionRouteNordRienRoute()
         {
             Orientation orientation = Orientation.NORTH;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
@@ -32,7 +32,7 @@ namespace EnVoitureUnitTest
         /// Test si l'état du nord a changé de route simple à route avec trottoir
         /// </summary>
         [TestMethod]
-        public void TestEditionRouteNordNord()
+        public void TestEditionRouteNordRouteTrottoir()
         {
             Orientation orientation = Orientation.NORTH;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
@@ -45,7 +45,7 @@ namespace EnVoitureUnitTest
         /// Test si l'état du nord a changé de route avec trottoir à rien
         /// </summary>
         [TestMethod]
-        public void TestEditionRouteNordEst()
+        public void TestEditionRouteNordTrottoirRien()
         {
             Orientation orientation = Orientation.NORTH;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
