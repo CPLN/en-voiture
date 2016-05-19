@@ -12,7 +12,7 @@ namespace EnVoiture
     public class EnVoiturePanel : UserControl
     {
         private Voiture voiture;
-        private List<RoadUserWidget> roadUsers;
+        private List<UsagerWidget> roadUsers;
         private bool bAvancer = false;
         private bool bReculer = false;
         private bool bDroite = false;
@@ -40,7 +40,7 @@ namespace EnVoiture
 
             DoubleBuffered = true;
 
-            this.roadUsers = new List<RoadUserWidget>();
+            this.roadUsers = new List<UsagerWidget>();
             roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
             roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
             roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
@@ -64,7 +64,7 @@ namespace EnVoiture
             {
                 way.Dessiner(g);
             }
-            foreach (RoadUserWidget user in roadUsers)
+            foreach (UsagerWidget user in roadUsers)
             {
                 user.Dessiner(g);
             }
@@ -148,7 +148,7 @@ namespace EnVoiture
 
         public void OnMouseDown(object sender, MouseEventArgs e)
         {
-            foreach (RoadUserWidget roaduser in roadUsers)
+            foreach (UsagerWidget roaduser in roadUsers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
                 if (voitureCourante.Voiture.IsClicked(e.Location))

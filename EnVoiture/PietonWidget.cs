@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    class PietonWidget : RoadUserWidget
+    class PietonWidget : UsagerWidget
     {
         public Pieton Pieton { get; private set; }
 
