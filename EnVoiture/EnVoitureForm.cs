@@ -26,7 +26,7 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
-            VoitureWidget v = new VoitureWidget(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(0,0,10,20,80);
             this._roadUsers.Add(v);
             this.voiture = v.Voiture;
             enVoiturePanel.ToolsBox = toolsBox;

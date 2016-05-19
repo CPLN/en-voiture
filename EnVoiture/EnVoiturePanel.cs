@@ -135,12 +135,12 @@ namespace EnVoiture
                 }
                 else
                 {
-                    voiture.Ralentir();
+                    voiture.Freiner();
                 }
             }
-            else
+            else if(bReculer == false && bAvancer == false)
             {
-                voiture.Freiner();
+                voiture.Ralentir();
             }
             
             if (bGauche)
