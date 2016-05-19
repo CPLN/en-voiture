@@ -47,6 +47,10 @@ namespace EnVoiture
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Ways = new List<RouteWidget>();
 
+            foreach (Route route in Route.Generer(6,6))
+            {
+                Ways.Add(new RouteWidget(route));
+            }
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
 
@@ -65,7 +69,7 @@ namespace EnVoiture
             }
             foreach (RoadUserWidget user in roadUsers)
             {
-                user.Paint(g);
+                user.Dessiner(g);
             }
         }
         public void OnKeyDown(object sender, KeyEventArgs e)

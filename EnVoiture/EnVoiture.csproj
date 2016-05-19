@@ -49,7 +49,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Voiture.cs" />
-    <Compile Include="CarWidget.cs" />
     <Compile Include="EnVoitureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +70,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RouteWidget.cs" />
+    <Compile Include="VoitureWidget.cs" />
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </EmbeddedResource>
