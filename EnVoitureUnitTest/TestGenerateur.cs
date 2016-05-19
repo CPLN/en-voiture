@@ -38,11 +38,11 @@ namespace EnVoitureUnitTest
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.ROUTETROTTOIR);
         }
 
         /// <summary>
-        /// Test si l'état du nord a changé de route aec trottoir à rien
+        /// Test si l'état du nord a changé de route avec trottoir à rien
         /// </summary>
         [TestMethod]
         public void TestEditionRouteNordEst()
@@ -51,7 +51,7 @@ namespace EnVoitureUnitTest
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.PASROUTE);
+            Assert.AreEqual(generateur.Route.GetDictionaire[orientation], Obstacle.RIEN);
         }
 
         /*
