@@ -47,9 +47,12 @@ namespace EnVoiture
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Ways = new List<RouteWidget>();
 
+            foreach (Route route in Route.Generer(6,6))
+            {
+                Ways.Add(new RouteWidget(route));
+            }
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
-
 
         /// <summary>
         /// 
@@ -66,7 +69,7 @@ namespace EnVoiture
             }
             foreach (RoadUserWidget user in roadUsers)
             {
-                user.Paint(g);
+                user.Dessiner(g);
             }
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
@@ -113,19 +116,34 @@ namespace EnVoiture
                 bDroite = false;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Tick(object sender, System.EventArgs e)
         {
             if (bAvancer)
             {
-                voiture.Avancer();
+                voiture.Accelerer();
             }
-
-            if (bReculer)
+            else if (bReculer)
             {
-                voiture.Reculer();
+                if(voiture.Vitesse <= 0)
+                {
+                    voiture.Reculer();
+                }
+                else
+                {
+                    voiture.Freiner();
+                }
             }
-
+            else if(!bReculer && !bAvancer)
+            {
+                voiture.Ralentir();
+            }
+            voiture.Avancer();
+            
             if (bGauche)
             {
                 voiture.Gauche();
@@ -136,13 +154,11 @@ namespace EnVoiture
                 voiture.Droite();
             }
 
-
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
                 _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
-
             Invalidate();
         }
 

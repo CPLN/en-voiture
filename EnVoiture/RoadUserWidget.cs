@@ -12,6 +12,6 @@ namespace EnVoiture
         /// Permet de dessiner l'usager sur un context graphic.
         /// </summary>
         /// <param name="g">L'endroit où dessiner l'usager</param>
-        public abstract void Paint(Graphics g);
+        public abstract void Dessiner(Graphics g);
     }
 }

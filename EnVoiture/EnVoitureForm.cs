@@ -26,7 +26,7 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
-            VoitureWidget v = new VoitureWidget(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(0,0,10,20,80);
             this._roadUsers.Add(v);
             this.voiture = v.Voiture;
             enVoiturePanel.ToolsBox = toolsBox;
@@ -67,25 +67,6 @@ namespace EnVoiture
             enVoiturePanel.OnKeyUp(sender, e);
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timerDirection_Tick(object sender, System.EventArgs e)
-        {
-            if (bAvancer)
-                voiture.Avancer();
-            if (bReculer)
-                voiture.Reculer();
-            if (bGauche)
-                voiture.Gauche();
-            if (bDroite)
-                voiture.Droite();
-            enVoiturePanel.Invalidate();
-        }
-
         /// <summary>
         /// est appelé quand on fait: pEnVoiture.Invalidate();
         /// </summary>
@@ -101,14 +82,14 @@ namespace EnVoiture
                 foreach (RoadUserWidget user in _roadUsers)
                 {
                     if (!(user is VoitureWidget))
-                        user.Paint(g);
+                        user.Dessiner(g);
                 }
             }
             else
             {
                 foreach (RoadUserWidget user in _roadUsers)
                 {
-                    user.Paint(g);
+                    user.Dessiner(g);
                 }
             }
         }

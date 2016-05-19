@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace EnVoiture
 {
@@ -7,14 +8,17 @@ namespace EnVoiture
     /// </summary>
     public abstract class RoadUser
     {
-        private Rectangle bounds;
-        private double dblVitesse;
-        private double dblVitesseMax;
+        private RectangleF bounds;
+        private float dblVitesse;
+        private float dblVitesseMax;
+        private const float ACCELERATION = 10;
+        private const float DECCELERATION = 2;
+        private const float FREINAGE = 15;
 
         /// <summary>
         /// propriété règlant la vitesse
         /// </summary>
-        public double Vitesse
+        public float Vitesse
         {
             get
             {
@@ -26,13 +30,17 @@ namespace EnVoiture
                 {
                     dblVitesse = value;
                 }
+                else
+                {
+                    dblVitesse = dblVitesseMax;
+                }
             }
         }
 
         /// <summary>
         /// propriété règéant la vitesse maximum 
         /// </summary>
-        public double VitesseMax
+        public float VitesseMax
         {
             get
             {
@@ -43,7 +51,7 @@ namespace EnVoiture
                 dblVitesseMax = value;
             }
         }
-        public Rectangle Bounds
+        public RectangleF Bounds
         {
             get
             {
@@ -58,7 +66,7 @@ namespace EnVoiture
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public Point Location
+        public PointF Location
         {
             get
             {
@@ -69,7 +77,7 @@ namespace EnVoiture
                 bounds.Location = value;
             }
         }
-        public Size Size
+        public SizeF Size
         {
             get
             {
@@ -84,7 +92,7 @@ namespace EnVoiture
         /// <summary>
         /// Largeur de l'usager
         /// </summary>
-        public int Width
+        public float Width
         {
             get
             {
@@ -99,7 +107,7 @@ namespace EnVoiture
         /// <summary>
         /// Hauteur de l'usager
         /// </summary>
-        public int Height
+        public float Height
         {
             get
             {
@@ -114,7 +122,7 @@ namespace EnVoiture
         /// <summary>
         /// Position x de la gauche de l'usager
         /// </summary>
-        public int Left
+        public float Left
         {
             get
             {
@@ -125,7 +133,7 @@ namespace EnVoiture
         /// <summary>
         /// Position x de la droite de l'usager
         /// </summary>
-        public int Right
+        public float Right
         {
             get
             {
@@ -136,7 +144,7 @@ namespace EnVoiture
         /// <summary>
         /// Position y du haut de l'usager
         /// </summary>
-        public int Top
+        public float Top
         {
             get
             {
@@ -147,7 +155,7 @@ namespace EnVoiture
         /// <summary>
         /// Position y du bas de l'usager
         /// </summary>
-        public int Bottom
+        public float Bottom
         {
             get
             {
@@ -164,7 +172,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(Rectangle bounds,double v,double vMax)
+        public RoadUser(Rectangle bounds, float v, float vMax)
         {
             this.bounds = bounds;
             VitesseMax = vMax;
@@ -180,7 +188,7 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
-        public RoadUser(int x, int y, int width, int height, double v, double vMax)
+        public RoadUser(int x, int y, int width, int height, float v, float vMax)
             : this(new Rectangle(x, y, width, height),v,vMax)
         {
            
@@ -207,23 +215,44 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Location = new Point(Location.X, Location.Y - 1);
+            Location = new PointF(Location.X, Location.Y - dblVitesse);
         }
         public void Gauche()
         {
-            Location = new Point(Location.X - 1, Location.Y);
+            Location = new PointF(Location.X - 1, Location.Y);
         }
         public void Droite()
         {
-            Location = new Point(Location.X + 1, Location.Y);
+            Location = new PointF(Location.X + 1, Location.Y);
         }
         public void Reculer()
         {
-            Location = new Point(Location.X, Location.Y + 1);
+            dblVitesse -= ACCELERATION;
+            Location = new PointF(Location.X, Location.Y - dblVitesse);
         }
-        public void StopDeplacement()
+        public void Ralentir()
         {
-            Location = new Point(Location.X, Location.Y);
+            if (Vitesse > 0)
+            {
+                dblVitesse -= DECCELERATION;
+            }
+            else if(Vitesse<0)
+            {
+                dblVitesse += DECCELERATION;
+            }
+        }
+
+        public void Accelerer()
+        {
+            dblVitesse += ACCELERATION;
+        }
+        public void Freiner()
+        {
+            dblVitesse -= FREINAGE;
+        }
+        public void FreinageUrgence()
+        {
+
         }
     }
 }
