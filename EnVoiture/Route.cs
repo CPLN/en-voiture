@@ -168,12 +168,12 @@ namespace EnVoiture
 
                         if (x != 0)
                         {
-                            sortieW = _routesVille[n-1]._orientationsRoutes[Orientation.EAST];
+                            sortieW = _routesVille[n-1]._orientationsRoutes[Orientation.EST];
                         }
 
                         if (y != 0)
                         {
-                            sortieN = _routesVille[n - largeurVille]._orientationsRoutes[Orientation.SOUTH];
+                            sortieN = _routesVille[n - largeurVille]._orientationsRoutes[Orientation.SUD];
                         }
 
                         if (sortieE)
@@ -194,10 +194,10 @@ namespace EnVoiture
                         }
 
                     } while (icpt < 2);
-                    _bList.Add(Orientation.NORTH, sortieN);
-                    _bList.Add(Orientation.EAST, sortieE);
-                    _bList.Add(Orientation.SOUTH, sortieS);
-                    _bList.Add(Orientation.WEST, sortieW);
+                    _bList.Add(Orientation.NORD, sortieN);
+                    _bList.Add(Orientation.EST, sortieE);
+                    _bList.Add(Orientation.SUD, sortieS);
+                    _bList.Add(Orientation.OUEST, sortieW);
 
                     _routesVille.Add(new Route(new Point(x, y), new Size(1, 1), _bList));
             }

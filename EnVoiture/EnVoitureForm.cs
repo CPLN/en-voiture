@@ -40,7 +40,7 @@ namespace EnVoiture
         /// <returns></returns>
         public Route CreateWay(int x, int y)
         {
-            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
+            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORD });
             return RouteBase;
         }
 

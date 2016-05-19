@@ -21,7 +21,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteNordRienRoute()
         {
-            Orientation orientation = Orientation.NORTH;
+            Orientation orientation = Orientation.NORD;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -34,7 +34,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteNordRouteTrottoir()
         {
-            Orientation orientation = Orientation.NORTH;
+            Orientation orientation = Orientation.NORD;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -47,7 +47,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteNordTrottoirRien()
         {
-            Orientation orientation = Orientation.NORTH;
+            Orientation orientation = Orientation.NORD;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -66,7 +66,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteEstRienRoute()
         {
-            Orientation orientation = Orientation.EAST;
+            Orientation orientation = Orientation.EST;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -79,7 +79,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteEstRouteTrottoir()
         {
-            Orientation orientation = Orientation.EAST;
+            Orientation orientation = Orientation.EST;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -92,7 +92,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteEstTrottoirRien()
         {
-            Orientation orientation = Orientation.EAST;
+            Orientation orientation = Orientation.EST;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -111,7 +111,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteSudRienRoute()
         {
-            Orientation orientation = Orientation.SOUTH;
+            Orientation orientation = Orientation.SUD;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -124,7 +124,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteSudRouteTrottoir()
         {
-            Orientation orientation = Orientation.SOUTH;
+            Orientation orientation = Orientation.SUD;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -137,7 +137,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteSudTrottoirRien()
         {
-            Orientation orientation = Orientation.SOUTH;
+            Orientation orientation = Orientation.SUD;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -156,7 +156,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteOuestRienRoute()
         {
-            Orientation orientation = Orientation.WEST;
+            Orientation orientation = Orientation.OUEST;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -169,7 +169,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteOuestRouteTrottoir()
         {
-            Orientation orientation = Orientation.WEST;
+            Orientation orientation = Orientation.OUEST;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
@@ -182,7 +182,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestEditionRouteOuestTrottoirRien()
         {
-            Orientation orientation = Orientation.WEST;
+            Orientation orientation = Orientation.OUEST;
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 

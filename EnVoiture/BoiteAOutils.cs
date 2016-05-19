@@ -22,9 +22,9 @@ namespace EnVoiture
             get
             {
                 List<RouteWidget> ww = new List<RouteWidget>();
-                ww.Add(new RouteWidget(new Route(20, 100, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
-                ww.Add(new RouteWidget(new Route(20, 300, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
-                ww.Add(new RouteWidget(new Route(20, 300, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
+                ww.Add(new RouteWidget(new Route(20, 100, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.NORD, Orientation.SUD })));
+                ww.Add(new RouteWidget(new Route(20, 300, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.EST, Orientation.SUD })));
+                ww.Add(new RouteWidget(new Route(20, 300, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.EST, Orientation.SUD })));
                 return ww;
             }
         }
