@@ -11,9 +11,9 @@ namespace EnVoiture
         private RectangleF bounds;
         private float dblVitesse;
         private float dblVitesseMax;
-        private const float ACCELERATION = 10;
-        private const float DECCELERATION = 2;
-        private const float FREINAGE = 15;
+        private const float ACCELERATION = 10F;
+        private const float DECCELERATION = 2F;
+        private const float FREINAGE = 15F;
 
         /// <summary>
         /// propriété règlant la vitesse
@@ -166,7 +166,7 @@ namespace EnVoiture
         /// <summary>
         /// Angle de rotation de l'usager.
         /// </summary>
-        public double Angle { get; set; }
+        public float Angle { get; set; }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
@@ -215,20 +215,20 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Location = new PointF(Location.X, Location.Y - dblVitesse);
+            Location = new PointF((float)(Location.X + dblVitesse * Math.Sin(Angle)), (float)(Location.Y - dblVitesse * Math.Cos(Angle)));
         }
         public void Gauche()
         {
-            Location = new PointF(Location.X - 1, Location.Y);
+            Angle -= Vitesse / 100.0F;
         }
         public void Droite()
         {
-            Location = new PointF(Location.X + 1, Location.Y);
+            Angle += Vitesse / 100.0F;
         }
         public void Reculer()
         {
             dblVitesse -= ACCELERATION;
-            Location = new PointF(Location.X, Location.Y - dblVitesse);
+            Location = new PointF((float)(Location.X+dblVitesse*Math.Sin(Angle)), (float)(Location.Y - dblVitesse*Math.Cos(Angle)));
         }
         public void Ralentir()
         {
