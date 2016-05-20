@@ -50,23 +50,23 @@ namespace EnVoiture.Vue
             int min = Math.Min(minX, minY);
             if (min == posGauche)
             {
-                return Orientation.WEST;
+                return Orientation.OUEST;
             }
             else
             {
                 if (min == posDroite)
                 {
-                    return Orientation.EAST;
+                    return Orientation.EST;
                 }
                 else
                 {
                     if (min == posHaut)
                     {
-                        return Orientation.NORTH;
+                        return Orientation.NORD;
                     }
                     else
                     {
-                        return Orientation.SOUTH;
+                        return Orientation.SUD;
                     }
                 }
             }
