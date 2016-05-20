@@ -125,6 +125,18 @@ namespace EnVoitureUnitTest
          */
 
         /// <summary>
+        /// Test si on clique en x57 et y80 que cela retourne sud
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationSudX57Y80()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(57, 80));
+            Assert.AreEqual(o, Orientation.SUD);
+        }
+
+        /// <summary>
         /// Test si on clique en x50 et y51 que cela retourne sud
         /// </summary>
         [TestMethod]
@@ -187,6 +199,18 @@ namespace EnVoitureUnitTest
             GenerateurWidget generateurw = new GenerateurWidget();
 
             Orientation o = generateurw.DetectionOrientation(new Point(13, 24));
+            Assert.AreEqual(o, Orientation.OUEST);
+        }
+
+        /// <summary>
+        /// Test si on clique en x0 et y100 que cela retourne ouest
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationOuestX0Y100()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(0, 100));
             Assert.AreEqual(o, Orientation.OUEST);
         }
 
