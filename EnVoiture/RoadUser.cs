@@ -166,7 +166,7 @@ namespace EnVoiture
         /// <summary>
         /// Angle de rotation de l'usager.
         /// </summary>
-        public double Angle { get; set; }
+        public float Angle { get; set; }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
