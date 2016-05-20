@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnVoiture.Vue;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace EnVoiture
 {
     public class RouteBouton : UserControl
     {
-        public RouteWidget RouteWidget
+        public GenerateurWidget GenerateurWidget
         {
             get;
             set;

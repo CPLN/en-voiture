@@ -203,5 +203,10 @@ namespace EnVoiture
             }
             return _routesVille;
         }
+
+        internal static Route VersPositionCase(int p1, int p2, Vue.GenerateurWidget generateurWidget)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
