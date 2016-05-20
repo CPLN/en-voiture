@@ -60,26 +60,41 @@ namespace EnVoiture
             int TailleX = Route.Taille.Width * TAILLE;
             int TailleY = Route.Taille.Height * TAILLE;
             Point point2 = new Point(Left + TailleY / 2, Top + TailleY / 2);
-            Pen BlackPen = new Pen(Color.Black, 20);
+            Pen pen;
+            switch (obstacle)
+            {
+                case Obstacle.RIEN:
+                    pen = new Pen(Brushes.Transparent, 20);
+                    break;
+                case Obstacle.ROUTE:
+                    pen = new Pen(Brushes.Black, 20);
+                    break;
+                case Obstacle.ROUTETROTTOIR:
+                    pen = new Pen(Brushes.Blue, 20);
+                    break;
+                default:
+                    pen = new Pen(Brushes.Gainsboro, 20);
+                    break;
+            }
             Point point1;
 
             switch (orientation)
             {
                 case Orientation.NORD:
                     point1 = new Point(Left + TailleX / 2, Top);
-                    g.DrawLine(BlackPen, point1, point2);
+                    g.DrawLine(pen, point1, point2);
                     break;
                 case Orientation.EST:
                     point1 = new Point(Left + TailleX, Top + TailleY / 2);
-                    g.DrawLine(BlackPen, point1, point2);
+                    g.DrawLine(pen, point1, point2);
                     break;
                 case Orientation.SUD:
                     point1 = new Point(Left + TailleX / 2, Top + TailleY);
-                    g.DrawLine(BlackPen, point1, point2);
+                    g.DrawLine(pen, point1, point2);
                     break;
                 case Orientation.OUEST:
                     point1 = new Point(Left, Top + TailleY / 2);
-                    g.DrawLine(BlackPen, point1, point2);
+                    g.DrawLine(pen, point1, point2);
                     break;
                 default:
                     break;

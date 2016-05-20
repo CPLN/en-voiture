@@ -48,7 +48,7 @@ namespace EnVoiture
             roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Ways = new List<RouteWidget>();
-            foreach (Route route in Route.Generer(3,3))
+            foreach (Route route in Route.Generer(6,5))
             {
                 Ways.Add(new RouteWidget(route));
             }

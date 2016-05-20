@@ -143,7 +143,6 @@ namespace EnVoiture
         /// <returns>Liste de Ways</returns>
         public static List<Route> Generer(int largeurVille, int hauteurVille)
         {
-            
             int nbWays = largeurVille * hauteurVille;
             List<Route> _routesVille = new List<Route>();
 
