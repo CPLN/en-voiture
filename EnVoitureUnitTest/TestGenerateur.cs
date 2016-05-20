@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using EnVoiture;
 using EnVoiture.Modele;
+using System.Drawing;
 
 namespace EnVoitureUnitTest
 {
@@ -22,7 +23,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteNordRienRoute()
         {
             Orientation orientation = Orientation.NORD;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.NORD, Obstacle.RIEN }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
@@ -35,7 +39,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteNordRouteTrottoir()
         {
             Orientation orientation = Orientation.NORD;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.NORD, Obstacle.ROUTE }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
@@ -48,7 +55,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteNordTrottoirRien()
         {
             Orientation orientation = Orientation.NORD;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.NORD, Obstacle.ROUTETROTTOIR }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
@@ -67,7 +77,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteEstRienRoute()
         {
             Orientation orientation = Orientation.EST;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.EST, Obstacle.RIEN }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
@@ -80,7 +93,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteEstRouteTrottoir()
         {
             Orientation orientation = Orientation.EST;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.EST, Obstacle.ROUTE }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
@@ -93,7 +109,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteEstTrottoirRien()
         {
             Orientation orientation = Orientation.EST;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.EST, Obstacle.ROUTETROTTOIR }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
@@ -112,7 +131,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteSudRienRoute()
         {
             Orientation orientation = Orientation.SUD;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.SUD, Obstacle.RIEN }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
@@ -125,7 +147,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteSudRouteTrottoir()
         {
             Orientation orientation = Orientation.SUD;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.SUD, Obstacle.ROUTE }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
@@ -138,7 +163,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteSudTrottoirRien()
         {
             Orientation orientation = Orientation.SUD;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.SUD, Obstacle.ROUTETROTTOIR }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
@@ -157,7 +185,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteOuestRienRoute()
         {
             Orientation orientation = Orientation.OUEST;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.OUEST, Obstacle.RIEN }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
@@ -170,7 +201,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteOuestRouteTrottoir()
         {
             Orientation orientation = Orientation.OUEST;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.OUEST, Obstacle.ROUTE }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
@@ -183,7 +217,10 @@ namespace EnVoitureUnitTest
         public void TestEditionRouteOuestTrottoirRien()
         {
             Orientation orientation = Orientation.OUEST;
-            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            Generateur generateur = new Generateur(new Route(new Point(0, 0), new Size(1, 1), new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.OUEST, Obstacle.ROUTETROTTOIR }
+                }));
             generateur.EditionRoute(orientation);
 
             Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
