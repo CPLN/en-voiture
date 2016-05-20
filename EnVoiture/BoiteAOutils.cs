@@ -11,7 +11,6 @@ namespace EnVoiture
 {
     public class BoiteAOutils : UserControl
     {
-        private TableLayoutPanel tableLayoutPanel;
         
 
  
@@ -66,15 +65,9 @@ namespace EnVoiture
         {
             InitializeComponent();
             GenerateurWidget = new GenerateurWidget();
-                RouteBouton wb = new RouteBouton();
-                wb.GenerateurWidget = GenerateurWidget;
-                wb.Paint += new PaintEventHandler((source, e) => { GenerateurWidget.DessinerSurOrigine(e.Graphics); });
-                wb.MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
-                wb.Size = new Size(100, 100);
-                //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
-                tableLayoutPanel.Controls.Add(wb);
-            
-                
+            Paint += new PaintEventHandler((source, e) => { GenerateurWidget.DessinerSurOrigine(e.Graphics); });
+            MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
+            //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);
         }
 
         private void RouteBouton_MouseClick(object sender, MouseEventArgs e)
@@ -92,30 +85,15 @@ namespace EnVoiture
 
         private void InitializeComponent()
         {
-            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel
-            // 
-            this.tableLayoutPanel.AutoSize = true;
-            this.tableLayoutPanel.ColumnCount = 1;
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 2;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.Size = new System.Drawing.Size(52, 194);
-            this.tableLayoutPanel.TabIndex = 0;
-            // 
-            // ToolsBox
+            // BoiteAOutils
             // 
             this.AutoScroll = true;
-            this.Controls.Add(this.tableLayoutPanel);
-            this.Name = "ToolsBox";
+            this.Name = "BoiteAOutils";
             this.Size = new System.Drawing.Size(311, 194);
             this.ResumeLayout(false);
-            this.PerformLayout();
+
         }
     }
 }

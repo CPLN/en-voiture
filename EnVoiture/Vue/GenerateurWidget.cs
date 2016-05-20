@@ -12,10 +12,10 @@ namespace EnVoiture.Vue
    
   public class GenerateurWidget
     {
-        const int HAUTEUR = 200;
-        const int LARGEUR = 200;
-        const int MARGEX = 20;
-        const int MARGEY = 20;
+        const int HAUTEUR = 100;
+        const int LARGEUR = 100;
+        const int MARGEX = 0;
+        const int MARGEY = 0;
 
         public Generateur Generateur { get; set; }
 
@@ -40,11 +40,11 @@ namespace EnVoiture.Vue
         /// <param name="point"></param>
         public Orientation DetectionOrientation(Point point)
         {
-            //fonctionne que pour le NORTH et le WEST
+            //fonctionne 
             int posGauche = point.X - MARGEX;
             int posHaut = point.Y - MARGEY;
-            int posDroite = (LARGEUR+MARGEX)-(point.X+MARGEX);
-            int posBas = (HAUTEUR+MARGEY)-(point.Y+MARGEY);
+            int posDroite = LARGEUR-point.X;
+            int posBas = HAUTEUR-point.Y;
             int minX = Math.Min(posGauche, posDroite);
             int minY = Math.Min(posBas, posHaut);
             int min = Math.Min(minX, minY);
@@ -74,6 +74,7 @@ namespace EnVoiture.Vue
 
         public void DessinerSurOrigine(Graphics g)
         {
+            //g.FillRectangle(Brushes.Yellow, 0, 0, 100, 100);
             g.FillRectangle(Brushes.Black, new Rectangle(MARGEX, MARGEY, HAUTEUR, LARGEUR));
         }
 
