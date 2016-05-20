@@ -29,20 +29,22 @@ namespace EnVoiture.Modele
             }
 
             //Change l'état de l'obstacle de false à true et vice-versa.
+            Dictionary<Orientation, Obstacle> dico = Route.DictionaireObstacles;
             switch (obstacle)
             {
                 case Obstacle.RIEN:
-                    Route.DictionaireObstacles[orientation] = Obstacle.ROUTE;
+                    dico[orientation] = Obstacle.ROUTE;
                     break;
                 case Obstacle.ROUTE:
-                    Route.DictionaireObstacles[orientation] = Obstacle.ROUTETROTTOIR;
+                    dico[orientation] = Obstacle.ROUTETROTTOIR;
                     break;
                 case Obstacle.ROUTETROTTOIR:
-                    Route.DictionaireObstacles[orientation] = Obstacle.RIEN;
+                    dico[orientation] = Obstacle.RIEN;
                     break;
                 default:
                     break;
             }
+            Route.DictionaireObstacles = dico;
         }
     }
 }
