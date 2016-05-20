@@ -116,7 +116,13 @@ namespace EnVoiture
         {
             get
             {
-                return _orientationsRoutes == null ? new Dictionary<Orientation, Obstacle>() : _orientationsRoutes;
+                return _orientationsRoutes == null ? new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.NORD, Obstacle.RIEN },
+                    { Orientation.EST, Obstacle.RIEN },
+                    { Orientation.SUD, Obstacle.RIEN },
+                    { Orientation.OUEST, Obstacle.RIEN }
+                } : _orientationsRoutes;
             }
         }
 
