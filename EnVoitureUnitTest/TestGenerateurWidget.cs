@@ -11,6 +11,18 @@ namespace EnVoitureUnitTest
     {
         /*
          * 
+         * 
+         * 
+         * 
+         * DectectionOrientation Tests
+         * 
+         * 
+         * 
+         * 
+         */ 
+
+        /*
+         * 
          * Tests nord
          * 
          */
@@ -260,6 +272,90 @@ namespace EnVoitureUnitTest
 
             Orientation o = generateurw.DetectionOrientation(new Point(50, 50));
             Assert.AreEqual(o, Orientation.OUEST);
+        }
+
+        /*
+         * 
+         * 
+         * 
+         * 
+         * Detectcontenu Tests
+         * 
+         * 
+         * 
+         * 
+         */
+
+        /// <summary>
+        /// Test si le point x0 et y0 est sur le generateur
+        /// </summary>
+        [TestMethod]
+        public void TestDetectcontenuX0Y0()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+            bool detect = generateurw.Detectcontenu(new Point(0, 0));
+
+            Assert.AreEqual(detect, true);
+        }
+
+        /// <summary>
+        /// Test si le point x1 et y1 est sur le generateur
+        /// </summary>
+        [TestMethod]
+        public void TestDetectcontenuX1Y1()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+            bool detect = generateurw.Detectcontenu(new Point(1, 1));
+
+            Assert.AreEqual(detect, true);
+        }
+
+        /// <summary>
+        /// Test si le point x20 et y20 est sur le generateur
+        /// </summary>
+        [TestMethod]
+        public void TestDetectcontenuX20Y20()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+            bool detect = generateurw.Detectcontenu(new Point(20, 20));
+
+            Assert.AreEqual(detect, true);
+        }
+
+        /// <summary>
+        /// Test si le point x100 et y100 est sur le generateur
+        /// </summary>
+        [TestMethod]
+        public void TestDetectcontenuX100Y100()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+            bool detect = generateurw.Detectcontenu(new Point(100, 100));
+
+            Assert.AreEqual(detect, true);
+        }
+
+        /// <summary>
+        /// Test si le point x0 et y100 est sur le generateur
+        /// </summary>
+        [TestMethod]
+        public void TestDetectcontenuX0Y100()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+            bool detect = generateurw.Detectcontenu(new Point(0, 100));
+
+            Assert.AreEqual(detect, true);
+        }
+
+        /// <summary>
+        /// Test si le point x0 et y100 est sur le generateur
+        /// </summary>
+        [TestMethod]
+        public void TestDetectcontenuX100Y0()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+            bool detect = generateurw.Detectcontenu(new Point(100, 0));
+
+            Assert.AreEqual(detect, true);
         }
     }
 }
