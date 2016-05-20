@@ -151,7 +151,7 @@ namespace EnVoitureUnitTest
          */
 
         /// <summary>
-        /// Test si l'état de l'est a changé de null à route simple
+        /// Test si l'état du sud a changé de null à route simple
         /// </summary>
         [TestMethod]
         public void TestEditionRouteSudNullRoute()
@@ -164,7 +164,7 @@ namespace EnVoitureUnitTest
         }
 
         /// <summary>
-        /// Test si l'état de l'est a changé de rien à route simple
+        /// Test si l'état du sud a changé de rien à route simple
         /// </summary>
         [TestMethod]
         public void TestEditionRouteSudRienRoute()
@@ -180,7 +180,7 @@ namespace EnVoitureUnitTest
         }
 
         /// <summary>
-        /// Test si l'état de l'est a changé de route simple à route avec trottoir
+        /// Test si l'état du sud a changé de route simple à route avec trottoir
         /// </summary>
         [TestMethod]
         public void TestEditionRouteSudRouteTrottoir()
@@ -196,7 +196,7 @@ namespace EnVoitureUnitTest
         }
 
         /// <summary>
-        /// Test si l'état de l'est a changé de route avec trottoir à rien
+        /// Test si l'état du sud a changé de route avec trottoir à rien
         /// </summary>
         [TestMethod]
         public void TestEditionRouteSudTrottoirRien()
@@ -218,7 +218,7 @@ namespace EnVoitureUnitTest
          */
 
         /// <summary>
-        /// Test si l'état de l'est a changé de null à route simple
+        /// Test si l'état de l'ouest a changé de null à route simple
         /// </summary>
         [TestMethod]
         public void TestEditionRouteOuestNullRoute()
@@ -231,7 +231,7 @@ namespace EnVoitureUnitTest
         }
 
         /// <summary>
-        /// Test si l'état de l'est a changé de rien à route simple
+        /// Test si l'état de l'ouest a changé de rien à route simple
         /// </summary>
         [TestMethod]
         public void TestEditionRouteOuestRienRoute()
@@ -247,7 +247,7 @@ namespace EnVoitureUnitTest
         }
 
         /// <summary>
-        /// Test si l'état de l'est a changé de route simple à route avec trottoir
+        /// Test si l'état de l'ouest a changé de route simple à route avec trottoir
         /// </summary>
         [TestMethod]
         public void TestEditionRouteOuestRouteTrottoir()
@@ -263,7 +263,7 @@ namespace EnVoitureUnitTest
         }
 
         /// <summary>
-        /// Test si l'état de l'est a changé de route avec trottoir à rien
+        /// Test si l'état de l'ouest a changé de route avec trottoir à rien
         /// </summary>
         [TestMethod]
         public void TestEditionRouteOuestTrottoirRien()
