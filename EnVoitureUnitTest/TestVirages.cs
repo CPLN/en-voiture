@@ -31,6 +31,15 @@ namespace EnVoitureUnitTest
             voiture.Accelerer();
             voiture.Droite();
             Assert.AreNotEqual(0.0F, voiture.Angle);
+            Assert.AreEqual(12.1, 12.0999999, 1e-4);
+        }
+        /// <summary>
+        /// Teste que l'angle calculé est correct
+        /// </summary>
+        [TestMethod]
+        public void TestCalculAngle()
+        {
+
         }
     }
 }
