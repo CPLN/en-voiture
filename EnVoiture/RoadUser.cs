@@ -215,15 +215,15 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Location = new PointF(Location.X, Location.Y - dblVitesse);
+           Location = new PointF(Location.X, Location.Y - dblVitesse);
         }
         public void Gauche()
         {
-            Location = new PointF(Location.X - 1, Location.Y);
+            Angle += Vitesse/100;
         }
         public void Droite()
         {
-            Location = new PointF(Location.X + 1, Location.Y);
+            Angle += Vitesse/100;
         }
         public void Reculer()
         {

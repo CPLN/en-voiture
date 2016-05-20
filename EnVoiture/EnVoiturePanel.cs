@@ -143,7 +143,6 @@ namespace EnVoiture
                 voiture.Ralentir();
             }
             voiture.Avancer();
-            
             if (bGauche)
             {
                 voiture.Gauche();
