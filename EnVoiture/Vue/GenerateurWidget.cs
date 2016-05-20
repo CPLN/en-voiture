@@ -80,7 +80,7 @@ namespace EnVoiture.Vue
 
         public bool Detectcontenu(Point point)
         {
-            return point.X < MARGEX + LARGEUR && point.X > MARGEX && point.Y < MARGEY + HAUTEUR && point.Y > MARGEY;
+            return point.X <= MARGEX + LARGEUR && point.X >= MARGEX && point.Y <= MARGEY + HAUTEUR && point.Y >= MARGEY;
         }
     }
 }
