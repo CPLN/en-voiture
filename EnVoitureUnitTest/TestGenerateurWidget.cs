@@ -11,6 +11,60 @@ namespace EnVoitureUnitTest
     {
         /*
          * 
+         * Tests nord
+         * 
+         */
+
+        /// <summary>
+        /// Test si on clique en x58 et y34 que cela retourne nord
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationNordX58Y34()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(58, 34));
+            Assert.AreEqual(o, Orientation.NORD);
+        }
+
+        /// <summary>
+        /// Test si on clique en x50 et y49 que cela retourne nord
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationNordX50Y49()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(50, 49));
+            Assert.AreEqual(o, Orientation.NORD);
+        }
+
+        /// <summary>
+        /// Test si on clique en x99 et y0 que cela retourne nord
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationNordX99Y0()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(99, 0));
+            Assert.AreEqual(o, Orientation.NORD);
+        }
+
+        /// <summary>
+        /// Test si on clique en x1 et y0 que cela retourne nord
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationNordX1Y0()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(1, 0));
+            Assert.AreEqual(o, Orientation.NORD);
+        }
+
+        /*
+         * 
          * Tests est
          * 
          */
