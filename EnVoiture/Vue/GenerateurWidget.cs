@@ -76,6 +76,7 @@ namespace EnVoiture.Vue
         {
             //g.FillRectangle(Brushes.Yellow, 0, 0, 100, 100);
             g.FillRectangle(Brushes.Black, new Rectangle(MARGEX, MARGEY, HAUTEUR, LARGEUR));
+            RouteWidget.DessinerSurOrigine(g);
         }
 
         public bool Detectcontenu(Point point)
