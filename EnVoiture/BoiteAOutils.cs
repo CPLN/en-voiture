@@ -1,4 +1,5 @@
-﻿using EnVoiture.Vue;
+﻿using EnVoiture.Modele;
+using EnVoiture.Vue;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -77,7 +78,7 @@ namespace EnVoiture
                 if (GenerateurWidget.Detectcontenu(e.Location))
                 {
                     MessageBox.Show(GenerateurWidget.DetectionOrientation(e.Location).ToString());
-                    GenerateurWidget.DetectionOrientation(e.Location);
+                    GenerateurWidget.Generateur.EditionRoute(GenerateurWidget.DetectionOrientation(e.Location));
                 }
                 Invalidate();
             }
