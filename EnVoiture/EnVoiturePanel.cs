@@ -142,7 +142,6 @@ namespace EnVoiture
             {
                 voiture.Ralentir();
             }
-            voiture.Avancer();
             if (bGauche)
             {
                 voiture.Gauche();
@@ -152,6 +151,7 @@ namespace EnVoiture
             {
                 voiture.Droite();
             }
+            voiture.Avancer();
 
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {

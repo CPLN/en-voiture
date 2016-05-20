@@ -11,9 +11,9 @@ namespace EnVoiture
         private RectangleF bounds;
         private float dblVitesse;
         private float dblVitesseMax;
-        private const float ACCELERATION = 10;
-        private const float DECCELERATION = 2;
-        private const float FREINAGE = 15;
+        private const float ACCELERATION = 0.1F;
+        private const float DECCELERATION = 0.2F;
+        private const float FREINAGE = 0.15F;
 
         /// <summary>
         /// propriété règlant la vitesse
@@ -215,20 +215,20 @@ namespace EnVoiture
 
         public void Avancer()
         {
-           Location = new PointF(Location.X, Location.Y - dblVitesse);
+            Location = new PointF((float)(Location.X + dblVitesse * Math.Sin(Angle)), (float)(Location.Y - dblVitesse * Math.Cos(Angle)));
         }
         public void Gauche()
         {
-            Angle += Vitesse/100;
+            Angle -= Vitesse / 100.0F;
         }
         public void Droite()
         {
-            Angle += Vitesse/100;
+            Angle += Vitesse / 100.0F;
         }
         public void Reculer()
         {
             dblVitesse -= ACCELERATION;
-            Location = new PointF(Location.X, Location.Y - dblVitesse);
+            Location = new PointF((float)(Location.X+dblVitesse*Math.Sin(Angle)), (float)(Location.Y - dblVitesse*Math.Cos(Angle)));
         }
         public void Ralentir()
         {
