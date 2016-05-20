@@ -10,17 +10,27 @@ namespace EnVoitureUnitTest
     [TestClass]
     public class TestVirages
     {
-        private Voiture voiture;
-        private List<RoadUserWidget> roadUsers;
-        private bool bAvancer = false;
-        private bool bReculer = false;
-        private bool bDroite = false;
-        private bool bGauche = false;
-
+        /// <summary>
+        /// Teste que l'angle change quand l'on avance et que l'on tourne à gauche
+        /// </summary>
         [TestMethod]
-        public class TestRotation
+        public void TestAngleVirageGauche()
         {
-            
+            RoadUser voiture = new Voiture(10, 20, 30, 40, 80);
+            voiture.Accelerer();
+            voiture.Gauche();
+            Assert.AreNotEqual(0.0F, voiture.Angle);
+        }
+        /// <summary>
+        /// Teste que l'angle change quand l'on avance et que l'on tourne à droite
+        /// </summary>
+        [TestMethod]
+        public void TestAngleVirageDroite()
+        {
+            RoadUser voiture = new Voiture(10, 20, 30, 40, 80);
+            voiture.Accelerer();
+            voiture.Droite();
+            Assert.AreNotEqual(0.0F, voiture.Angle);
         }
     }
 }
