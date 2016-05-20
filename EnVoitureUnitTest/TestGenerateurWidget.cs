@@ -11,12 +11,66 @@ namespace EnVoitureUnitTest
     {
         /*
          * 
+         * Tests sud
+         * 
+         */
+
+        /// <summary>
+        /// Test si on clique en x50 et y51 que cela retourne ouest
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationSudX50Y51()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(50, 51));
+            Assert.AreEqual(o, Orientation.SUD);
+        }
+
+        /// <summary>
+        /// Test si on clique en x2 et y99 que cela retourne ouest
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationSudX2Y99()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(2, 99));
+            Assert.AreEqual(o, Orientation.SUD);
+        }
+
+        /// <summary>
+        /// Test si on clique en x1 et y100 que cela retourne ouest
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationSudX1Y100()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(1, 100));
+            Assert.AreEqual(o, Orientation.SUD);
+        }
+
+        /// <summary>
+        /// Test si on clique en x99 et y100 que cela retourne ouest
+        /// </summary>
+        [TestMethod]
+        public void TestDetectionOrientationSudX99Y100()
+        {
+            GenerateurWidget generateurw = new GenerateurWidget();
+
+            Orientation o = generateurw.DetectionOrientation(new Point(99, 100));
+            Assert.AreEqual(o, Orientation.SUD);
+        }
+
+        /*
+         * 
          * Tests ouest
          * 
          */
 
         /// <summary>
-        /// Test si on clique en x50 et y50 que cela retourne ouest
+        /// Test si on clique en x13 et y24 que cela retourne ouest
         /// </summary>
         [TestMethod]
         public void TestDetectionOrientationOuestX13Y24()
