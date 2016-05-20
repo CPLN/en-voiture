@@ -216,7 +216,7 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Localisation = new PointF(Localisation.X, Localisation.Y - 1);
+            Localisation = new PointF(Localisation.X, Localisation.Y - dblVitesse);
         }
         public void TournerGauche()
         {
@@ -229,7 +229,6 @@ namespace EnVoiture
         public void Reculer()
         {
             dblVitesse -= ACCELERATION;
-            Localisation = new PointF(Localisation.X, Localisation.Y + 1);
         }
         public void Ralentir()
         {
