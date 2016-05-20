@@ -17,6 +17,19 @@ namespace EnVoitureUnitTest
          */
 
         /// <summary>
+        /// Test si l'état du nord a changé de null à route simple
+        /// </summary>
+        [TestMethod]
+        public void TestEditionRouteNordNullRoute()
+        {
+            Orientation orientation = Orientation.NORD;
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            generateur.EditionRoute(orientation);
+
+            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+        }
+
+        /// <summary>
         /// Test si l'état du nord a changé de rien à route simple
         /// </summary>
         [TestMethod]
@@ -69,6 +82,19 @@ namespace EnVoitureUnitTest
          * Tests avec l'orientation de l'est
          *
          */
+
+        /// <summary>
+        /// Test si l'état de l'est a changé de null à route simple
+        /// </summary>
+        [TestMethod]
+        public void TestEditionRouteEstNullRoute()
+        {
+            Orientation orientation = Orientation.EST;
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            generateur.EditionRoute(orientation);
+
+            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+        }
 
         /// <summary>
         /// Test si l'état de l'est a changé de rien à route simple
@@ -125,6 +151,19 @@ namespace EnVoitureUnitTest
          */
 
         /// <summary>
+        /// Test si l'état de l'est a changé de null à route simple
+        /// </summary>
+        [TestMethod]
+        public void TestEditionRouteSudNullRoute()
+        {
+            Orientation orientation = Orientation.SUD;
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            generateur.EditionRoute(orientation);
+
+            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+        }
+
+        /// <summary>
         /// Test si l'état de l'est a changé de rien à route simple
         /// </summary>
         [TestMethod]
@@ -177,6 +216,19 @@ namespace EnVoitureUnitTest
          * Tests avec l'orientation ouest
          *
          */
+
+        /// <summary>
+        /// Test si l'état de l'est a changé de null à route simple
+        /// </summary>
+        [TestMethod]
+        public void TestEditionRouteOuestNullRoute()
+        {
+            Orientation orientation = Orientation.OUEST;
+            Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
+            generateur.EditionRoute(orientation);
+
+            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+        }
 
         /// <summary>
         /// Test si l'état de l'est a changé de rien à route simple
