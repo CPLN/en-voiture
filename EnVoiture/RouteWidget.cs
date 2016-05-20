@@ -46,43 +46,43 @@ namespace EnVoiture
 
             g.FillEllipse(Brushes.Black, point2.X - 10, point2.Y - 10, 20, 20);
 
-            if (Route.GetDictionaire.ContainsKey(Orientation.NORD))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.NORD))
             {
 
                 /*point1 = new Point(x + largeur / 2, y);
                 g.DrawLine(BlackPen, point1, point2);*/
 
 
-                DessinerSegment(g, Orientation.NORD, Route.GetDictionaire[Orientation.NORD], x, y, largeur, hauteur);
+                DessinerSegment(g, Orientation.NORD, Route.DictionaireObstacles[Orientation.NORD], x, y, largeur, hauteur);
 
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.SUD))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.SUD))
             {
 
                 /*point1 = new Point(x + largeur / 2, y + hauteur);
                 g.DrawLine(BlackPen, point1, point2);*/
 
-                DessinerSegment(g, Orientation.SUD, Route.GetDictionaire[Orientation.SUD], x, y, largeur, hauteur);
+                DessinerSegment(g, Orientation.SUD, Route.DictionaireObstacles[Orientation.SUD], x, y, largeur, hauteur);
 
 
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.EST))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.EST))
             {
 
                /* point1 = new Point(x + largeur, y + hauteur / 2);
                 g.DrawLine(BlackPen, point1, point2);*/
 
-                DessinerSegment(g, Orientation.EST, Route.GetDictionaire[Orientation.EST], x, y, largeur, hauteur);
+                DessinerSegment(g, Orientation.EST, Route.DictionaireObstacles[Orientation.EST], x, y, largeur, hauteur);
 
 
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.OUEST))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.OUEST))
             {
 
                 /*point1 = new Point(x, y + hauteur / 2);
                 g.DrawLine(BlackPen, point1, point2);*/
 
-                DessinerSegment(g, Orientation.OUEST, Route.GetDictionaire[Orientation.OUEST], x, y, largeur, hauteur);
+                DessinerSegment(g, Orientation.OUEST, Route.DictionaireObstacles[Orientation.OUEST], x, y, largeur, hauteur);
 
             }
         }
