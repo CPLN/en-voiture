@@ -77,7 +77,6 @@ namespace EnVoiture
             {
                 if (GenerateurWidget.Detectcontenu(e.Location))
                 {
-                    MessageBox.Show(GenerateurWidget.DetectionOrientation(e.Location).ToString());
                     GenerateurWidget.Generateur.EditionRoute(GenerateurWidget.DetectionOrientation(e.Location));
                 }
                 Invalidate();
