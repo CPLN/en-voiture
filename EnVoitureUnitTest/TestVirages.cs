@@ -20,7 +20,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public class TestRotation
         {
-
+            
         }
     }
 }
