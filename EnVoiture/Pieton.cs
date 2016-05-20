@@ -18,12 +18,12 @@ namespace EnVoiture
         /// <param name="y1">Largeur</param>
         /// <param name="v">Vitesse de Base</param>
         /// <param name="vMax">Vitesse Max</param>
-        public Pieton(int x, int y, int width, int height, double v, double vMax)
+        public Pieton(int x, int y, int width, int height, float v, float vMax)
             : base(x,y,width,height,v,vMax)
         {
             
         }
-       public Pieton(Rectangle rectangle,double v, double vMax)
+        public Pieton(Rectangle rectangle, float v, float vMax)
            :base(rectangle,v,vMax)
         {
 

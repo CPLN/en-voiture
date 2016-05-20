@@ -53,11 +53,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TestGenerateur.cs" />
-    <Compile Include="TestGeneratWays.cs" />
+    <Compile Include="TestGenerateWays.cs" />
     <Compile Include="TestRoadUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestPieton.cs" />
     <Compile Include="TestWay.cs" />
+    <Compile Include="testAcceleration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnVoiture\EnVoiture.csproj">

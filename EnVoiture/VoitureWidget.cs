@@ -18,7 +18,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public VoitureWidget(Rectangle rectangle)
         {
-            this.Voiture = new Voiture(rectangle,0.0);
+            this.Voiture = new Voiture(rectangle,0.0F);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public VoitureWidget(int x, int y, int width, int height, double vMax)
+        public VoitureWidget(int x, int y, int width, int height, float vMax)
         {
             this.Voiture = new Voiture(x, y, width, height,vMax);
         }
