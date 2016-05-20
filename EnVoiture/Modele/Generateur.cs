@@ -9,6 +9,7 @@ namespace EnVoiture.Modele
 {
     public class Generateur
     {
+        private Obstacle obstacle;
         public Route Route { get; set; }
 
         public Generateur(Route route)
@@ -21,8 +22,6 @@ namespace EnVoiture.Modele
         /// <param name="orientation"> Orientation de la route</param>
         public void EditionRoute(Orientation orientation)
         {
-            bool obstacle = false;
-
             //test si le dictonnaire contient une clef
             if (Route.GetDictionaire.ContainsKey(orientation))
             {
@@ -32,11 +31,14 @@ namespace EnVoiture.Modele
             //Change l'état de l'obstacle de false à true et vice-versa.
             switch (obstacle)
             {
-                case true:
-                    Route.GetDictionaire[orientation] = false;
+                case Obstacle.RIEN:
+                    Route.GetDictionaire[orientation] = Obstacle.ROUTE;
                     break;
-                case false:
-                    Route.GetDictionaire[orientation] = true;
+                case Obstacle.ROUTE:
+                    Route.GetDictionaire[orientation] = Obstacle.ROUTETROTTOIR;
+                    break;
+                case Obstacle.ROUTETROTTOIR:
+                    Route.GetDictionaire[orientation] = Obstacle.RIEN;
                     break;
                 default:
                     break;

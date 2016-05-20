@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnVoiture.Modele;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace EnVoiture
 {
     public class Route
     {
-        private Dictionary<Orientation, bool> _orientationsRoutes;
+        private Dictionary<Orientation, Obstacle> _orientationsRoutes;
 
         /// <summary>
         /// Location of the way
@@ -96,7 +97,7 @@ namespace EnVoiture
         /// <param name="location"></param>
         /// <param name="size"></param>
         /// <param name="_orientsWays"></param>
-        public Route(Point position, Size taille, Dictionary<Orientation, bool> orientationsRoutes)
+        public Route(Point position, Size taille, Dictionary<Orientation, Obstacle> orientationsRoutes)
         {
             this.Position = position;
             this.Taille = taille;
@@ -111,11 +112,11 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire
+        public Dictionary<Orientation, Obstacle> GetDictionaire
         {
             get
             {
-                return _orientationsRoutes == null ? new Dictionary<Orientation, bool>() : _orientationsRoutes;
+                return _orientationsRoutes == null ? new Dictionary<Orientation, Obstacle>() : _orientationsRoutes;
             }
         }
 
@@ -152,19 +153,20 @@ namespace EnVoiture
                     int x = n % largeurVille;
                     int y = n / largeurVille;
 
-                    bool sortieN;
-                    bool sortieE;
-                    bool sortieS;
-                    bool sortieW;
+                    Obstacle sortieN;
+                    Obstacle sortieE;
+                    Obstacle sortieS;
+                    Obstacle sortieW;
                     int icpt;
-                    Dictionary<Orientation, bool> _bList = new Dictionary<Orientation, bool>();
+                    Dictionary<Orientation, Obstacle> _bList = new Dictionary<Orientation, Obstacle>();
                     do
                     {
                         icpt = 0;
-                        sortieN = rand.Next(2) == 0;
-                        sortieE = rand.Next(2) == 0;
-                        sortieS = rand.Next(2) == 0;
-                        sortieW = rand.Next(2) == 0;
+                        int quantiteObstacles = Enum.GetNames(typeof(Obstacle)).Length;
+                        sortieN = (Obstacle)rand.Next(quantiteObstacles);
+                        sortieE = (Obstacle)rand.Next(quantiteObstacles);
+                        sortieS = (Obstacle)rand.Next(quantiteObstacles);
+                        sortieW = (Obstacle)rand.Next(quantiteObstacles);
 
                         if (x != 0)
                         {
@@ -176,23 +178,39 @@ namespace EnVoiture
                             sortieN = _routesVille[n - largeurVille]._orientationsRoutes[Orientation.SUD];
                         }
 
-                        if (sortieE)
+                        //if (sortieE)
+                        //{
+                        //    icpt++;
+                        //}
+                        //if (sortieN)
+                        //{
+                        //    icpt++;
+                        //}
+                        //if (sortieS)
+                        //{
+                        //    icpt++;
+                        //}
+                        //if (sortieW)
+                        //{
+                        //    icpt++;
+                        //}
+                        if (sortieE != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-                        if (sortieN)
+                        if (sortieN != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-                        if (sortieS)
+                        if (sortieS != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-                        if (sortieW)
+                        if (sortieW != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-
+                        
                     } while (icpt < 2);
                     _bList.Add(Orientation.NORD, sortieN);
                     _bList.Add(Orientation.EST, sortieE);
