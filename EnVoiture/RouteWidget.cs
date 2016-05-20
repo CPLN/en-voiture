@@ -27,23 +27,23 @@ namespace EnVoiture
 
             g.FillEllipse(Brushes.Black, point2.X - 10, point2.Y - 10, 20, 20);
 
-            if (Route.GetDictionaire.ContainsKey(Orientation.NORD))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.NORD))
             {
-                DessinerSegment(g, Orientation.NORD, Route.GetDictionaire[Orientation.NORD]);
+                DessinerSegment(g, Orientation.NORD, Route.DictionaireObstacles[Orientation.NORD]);
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.SUD))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.SUD))
             {
-                DessinerSegment(g, Orientation.SUD, Route.GetDictionaire[Orientation.SUD]);
+                DessinerSegment(g, Orientation.SUD, Route.DictionaireObstacles[Orientation.SUD]);
 
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.EST))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.EST))
             {
-                DessinerSegment(g, Orientation.EST, Route.GetDictionaire[Orientation.EST]);
+                DessinerSegment(g, Orientation.EST, Route.DictionaireObstacles[Orientation.EST]);
 
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.OUEST))
+            if (Route.DictionaireObstacles.ContainsKey(Orientation.OUEST))
             {
-                DessinerSegment(g, Orientation.OUEST, Route.GetDictionaire[Orientation.OUEST]);
+                DessinerSegment(g, Orientation.OUEST, Route.DictionaireObstacles[Orientation.OUEST]);
 
             }
         }

@@ -23,22 +23,22 @@ namespace EnVoiture.Modele
         public void EditionRoute(Orientation orientation)
         {
             //test si le dictonnaire contient une clef
-            if (Route.GetDictionaire.ContainsKey(orientation))
+            if (Route.DictionaireObstacles.ContainsKey(orientation))
             {
-                obstacle = Route.GetDictionaire[orientation];
+                obstacle = Route.DictionaireObstacles[orientation];
             }
 
             //Change l'état de l'obstacle de false à true et vice-versa.
             switch (obstacle)
             {
                 case Obstacle.RIEN:
-                    Route.GetDictionaire[orientation] = Obstacle.ROUTE;
+                    Route.DictionaireObstacles[orientation] = Obstacle.ROUTE;
                     break;
                 case Obstacle.ROUTE:
-                    Route.GetDictionaire[orientation] = Obstacle.ROUTETROTTOIR;
+                    Route.DictionaireObstacles[orientation] = Obstacle.ROUTETROTTOIR;
                     break;
                 case Obstacle.ROUTETROTTOIR:
-                    Route.GetDictionaire[orientation] = Obstacle.RIEN;
+                    Route.DictionaireObstacles[orientation] = Obstacle.RIEN;
                     break;
                 default:
                     break;

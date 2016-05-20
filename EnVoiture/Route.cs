@@ -10,7 +10,13 @@ namespace EnVoiture
 {
     public class Route
     {
-        private Dictionary<Orientation, Obstacle> _orientationsRoutes;
+        private Dictionary<Orientation, Obstacle> _orientationsRoutes = new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.NORD, Obstacle.RIEN },
+                    { Orientation.EST, Obstacle.RIEN },
+                    { Orientation.SUD, Obstacle.RIEN },
+                    { Orientation.OUEST, Obstacle.RIEN }
+                };
 
         /// <summary>
         /// Location of the way
@@ -112,17 +118,15 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, Obstacle> GetDictionaire
+        public Dictionary<Orientation, Obstacle> DictionaireObstacles
         {
             get
             {
-                return _orientationsRoutes == null ? new Dictionary<Orientation, Obstacle>()
-                {
-                    { Orientation.NORD, Obstacle.RIEN },
-                    { Orientation.EST, Obstacle.RIEN },
-                    { Orientation.SUD, Obstacle.RIEN },
-                    { Orientation.OUEST, Obstacle.RIEN }
-                } : _orientationsRoutes;
+                return _orientationsRoutes;
+            }
+            set
+            {
+                _orientationsRoutes = value;
             }
         }
 
