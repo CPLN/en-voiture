@@ -78,16 +78,9 @@ namespace EnVoiture.Vue
             g.FillRectangle(Brushes.Black, new Rectangle(MARGEX, MARGEY, HAUTEUR, LARGEUR));
         }
 
-        public bool Detectcontenu(Point point) 
+        public bool Detectcontenu(Point point)
         {
-            if (point.X < MARGEX + LARGEUR && point.X > MARGEX && point.Y < MARGEY + HAUTEUR && point.Y > MARGEY)
-            {
-                return true;
-            }
-
-            return false;
+            return point.X < MARGEX + LARGEUR && point.X > MARGEX && point.Y < MARGEY + HAUTEUR && point.Y > MARGEY;
         }
- 
-
     }
 }
