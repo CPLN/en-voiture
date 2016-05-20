@@ -245,6 +245,7 @@ namespace EnVoiture
         public void Accelerer()
         {
             dblVitesse += ACCELERATION;
+            Avancer();
         }
         public void Freiner()
         {
