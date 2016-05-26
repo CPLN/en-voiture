@@ -58,7 +58,7 @@ namespace EnVoiture
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public Point Localisation
+        public Point Position
         {
             get
             {
@@ -207,23 +207,23 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Localisation = new Point(Localisation.X, Localisation.Y - 1);
+            Position = new Point(Position.X, Position.Y - 1);
         }
         public void TournerGauche()
         {
-            Localisation = new Point(Localisation.X - 1, Localisation.Y);
+            Position = new Point(Position.X - 1, Position.Y);
         }
         public void TournerDroite()
         {
-            Localisation = new Point(Localisation.X + 1, Localisation.Y);
+            Position = new Point(Position.X + 1, Position.Y);
         }
         public void Reculer()
         {
-            Localisation = new Point(Localisation.X, Localisation.Y + 1);
+            Position = new Point(Position.X, Position.Y + 1);
         }
         public void StopDeplacement()
         {
-            Localisation = new Point(Localisation.X, Localisation.Y);
+            Position = new Point(Position.X, Position.Y);
         }
     }
 }
