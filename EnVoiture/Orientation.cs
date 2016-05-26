@@ -8,28 +8,28 @@ namespace EnVoiture
 {
     public enum Orientation
     {
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST
+        NORD,
+        EST,
+        SUD,
+        OUEST
     }
 
     public static class OrientationMethods
     {
-        public static Orientation getOpposite(this Orientation o)
+        public static Orientation Oppose(this Orientation o)
         {
             switch (o)
             {
-                case Orientation.NORTH:
-                    return Orientation.SOUTH;
-                case Orientation.EAST:
-                    return Orientation.WEST;
-                case Orientation.SOUTH:
-                    return Orientation.NORTH;
-                case Orientation.WEST:
-                    return Orientation.EAST;
+                case Orientation.NORD:
+                    return Orientation.SUD;
+                case Orientation.EST:
+                    return Orientation.OUEST;
+                case Orientation.SUD:
+                    return Orientation.NORD;
+                case Orientation.OUEST:
+                    return Orientation.EST;
             }
-            return Orientation.NORTH;
+            return Orientation.NORD;
         }
     }
 }

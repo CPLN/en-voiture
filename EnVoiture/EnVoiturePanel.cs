@@ -11,21 +11,21 @@ namespace EnVoiture
 {
     public class EnVoiturePanel : UserControl
     {
-        private Car voiture;
-        private List<RoadUserWidget> roadUsers;
+        private Voiture voiture;
+        private List<UsagerWidget> roadUsers;
         private bool bAvancer = false;
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
-        private WayWidget _hoverWayWidget = new WayWidget(new Way(0, 0, 1, 1, new List<Orientation> { }));
+        private RouteWidget _hoverWayWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
         private Region _region;
 
-        private List<WayWidget> Ways;
+        private List<RouteWidget> Ways;
 
-        public ToolsBox ToolsBox
+        public BoiteAOutils ToolsBox
         {
             get;
             set;
@@ -40,13 +40,17 @@ namespace EnVoiture
 
             DoubleBuffered = true;
 
-            this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new CarWidget(0, 0, 10, 20, 80));
-            roadUsers.Add(new CarWidget(150, 150, 10, 20, 80));
-            roadUsers.Add(new CarWidget(240, 240, 10, 20, 80));
-            voiture = (roadUsers[0] as CarWidget).Car;
-            this.Ways = new List<WayWidget>();
+            this.roadUsers = new List<UsagerWidget>();
+            roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            voiture = (roadUsers[0] as VoitureWidget).Voiture;
+            this.Ways = new List<RouteWidget>();
 
+            foreach (Route route in Route.Generer(6,6))
+            {
+                Ways.Add(new RouteWidget(route));
+            }
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
         }
 
@@ -59,13 +63,13 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (WayWidget way in Ways)
+            foreach (RouteWidget way in Ways)
             {
-                way.Paint(g);
+                way.Dessiner(g);
             }
-            foreach (RoadUserWidget user in roadUsers)
+            foreach (UsagerWidget user in roadUsers)
             {
-                user.Paint(g);
+                user.Dessiner(g);
             }
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
@@ -112,7 +116,11 @@ namespace EnVoiture
                 bDroite = false;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Tick(object sender, System.EventArgs e)
         {
             if (bAvancer)
@@ -121,48 +129,47 @@ namespace EnVoiture
             }
             else if (bReculer)
             {
-                if(voiture.Vitesse == 0)
+                if(voiture.Vitesse <= 0)
                 {
                     voiture.Reculer();
                 }
                 else
                 {
-                    voiture.Ralentir();
+                    voiture.Freiner();
                 }
             }
-            else
+            else if(!bReculer && !bAvancer)
             {
                 voiture.Freiner();
             }
+            voiture.Avancer();
             
             if (bGauche)
             {
-                voiture.Gauche();
+                voiture.TournerGauche();
             }
 
             if (bDroite)
             {
-                voiture.Droite();
+                voiture.TournerDroite();
             }
-
 
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
-                _hoverWayWidget.Way.Location = new Point(p.X / 100, p.Y / 100);
+                _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
-
             Invalidate();
         }
 
         public void OnMouseDown(object sender, MouseEventArgs e)
         {
-            foreach (RoadUserWidget roaduser in roadUsers)
+            foreach (UsagerWidget roaduser in roadUsers)
             {
-                CarWidget voitureCourante = roaduser as CarWidget;
-                if (voitureCourante.Car.IsClicked(e.Location))
+                VoitureWidget voitureCourante = roaduser as VoitureWidget;
+                if (voitureCourante.Voiture.estClique(e.Location))
                 {
-                    voiture = voitureCourante.Car;
+                    voiture = voitureCourante.Voiture;
                     return;
                 }
             }
@@ -170,9 +177,9 @@ namespace EnVoiture
             // creation de la route si en mode edition
             if (ToolsBox.Visible)
             {
-                Way w = Way.NewWays(e.X, e.Y, ToolsBox.SelectedWay);
+                Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
-                    Ways.Add(new WayWidget(w));
+                    Ways.Add(new RouteWidget(w));
             }
         }
 

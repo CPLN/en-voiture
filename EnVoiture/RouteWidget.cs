@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class WayWidget
+    public class RouteWidget
     {
-        public static int SIZE = 100;
-        public Way Way { get; set; }
+        public static int TAILLE = 100;
+        public Route Route { get; set; }
 
-        public WayWidget(Way way)
+        public RouteWidget(Route route)
         {
-            Way = way;
+            Route = route;
         }
-        public void Paint(Graphics g)
+        public void Dessiner(Graphics g)
         {
-            int Left = Way.Location.X * SIZE;
-            int Top = Way.Location.Y * SIZE;
-            int TailleX = Way.Size.Width * SIZE;
-            int TailleY = Way.Size.Height * SIZE;
+            int Left = Route.Position.X * TAILLE;
+            int Top = Route.Position.Y * TAILLE;
+            int TailleX = Route.Taille.Width * TAILLE;
+            int TailleY = Route.Taille.Height * TAILLE;
 
             g.FillRectangle(Brushes.Gray, Left, Top, TailleX, TailleY);
             Pen BlackPen = new Pen(Color.Black, 20);
@@ -30,30 +30,30 @@ namespace EnVoiture
 
             g.FillEllipse(Brushes.Black, point2.X - 10, point2.Y - 10, 20, 20);
 
-            if (Way.GetDictionaire.ContainsKey(Orientation.NORTH) && Way.GetDictionaire[Orientation.NORTH])
+            if (Route.GetDictionaire.ContainsKey(Orientation.NORD) && Route.GetDictionaire[Orientation.NORD])
             {
                 point1 = new Point(Left + TailleX / 2, Top);
                 g.DrawLine(BlackPen, point1, point2);
 
             }
-            if (Way.GetDictionaire.ContainsKey(Orientation.SOUTH) && Way.GetDictionaire[Orientation.SOUTH])
+            if (Route.GetDictionaire.ContainsKey(Orientation.SUD) && Route.GetDictionaire[Orientation.SUD])
             {
                 point1 = new Point(Left + TailleX / 2, Top + TailleY);
                 g.DrawLine(BlackPen, point1, point2);
             }
-            if (Way.GetDictionaire.ContainsKey(Orientation.EAST) && Way.GetDictionaire[Orientation.EAST])
+            if (Route.GetDictionaire.ContainsKey(Orientation.EST) && Route.GetDictionaire[Orientation.EST])
             {
                 point1 = new Point(Left + TailleX, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);
             }
-            if (Way.GetDictionaire.ContainsKey(Orientation.WEST) && Way.GetDictionaire[Orientation.WEST])
+            if (Route.GetDictionaire.ContainsKey(Orientation.OUEST) && Route.GetDictionaire[Orientation.OUEST])
             {
                 point1 = new Point(Left, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);
             }
         }
 
-        public void PaintOnOrigin(Graphics g)
+        public void DessinerSurOrigine(Graphics g)
         {
             g.FillRectangle(Brushes.Black, new Rectangle(0, 0, 100, 100));
         }

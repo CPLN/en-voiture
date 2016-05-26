@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,11 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ToolsBox.cs">
+    <Compile Include="Modele\Generateur.cs" />
+    <Compile Include="BoiteAOutils.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Car.cs" />
-    <Compile Include="CarWidget.cs" />
+    <Compile Include="Modele\Obstacle.cs" />
+    <Compile Include="Voiture.cs" />
+    <Compile Include="VoitureWidget.cs" />
     <Compile Include="EnVoitureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,14 +64,15 @@
     <Compile Include="Pieton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoadUser.cs" />
-    <Compile Include="RoadUserWidget.cs" />
-    <Compile Include="Way.cs" />
+    <Compile Include="Usager.cs" />
+    <Compile Include="UsagerWidget.cs" />
+    <Compile Include="Vue\GenerateurWidget.cs" />
+    <Compile Include="Route.cs" />
     <Compile Include="Orientation.cs" />
-    <Compile Include="WayButton.cs">
+    <Compile Include="RouteBouton.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WayWidget.cs" />
+    <Compile Include="RouteWidget.cs" />
     <EmbeddedResource Include="EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,8 +89,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ToolsBox.resx">
-      <DependentUpon>ToolsBox.cs</DependentUpon>
+    <EmbeddedResource Include="BoiteAOutils.resx">
+      <DependentUpon>BoiteAOutils.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -102,6 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controlleur\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
