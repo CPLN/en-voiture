@@ -169,7 +169,16 @@ namespace EnVoiture
             {
                 Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
-                    Routes.Add(new RouteWidget(w));
+                {
+                    List<RouteWidget> routes = new List<RouteWidget>();
+                    foreach (RouteWidget r in Routes)
+                    {
+                        if (r.Route.Position != w.Position)
+                            routes.Add(r);
+                    }
+                    routes.Add(new RouteWidget(w));
+                    Routes = routes;
+                }
             }
         }
 
