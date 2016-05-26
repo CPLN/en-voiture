@@ -6,7 +6,8 @@ using System.Collections.Generic;
 
 namespace EnVoitureUnitTest
 {
-
+    //Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)),
+    //(float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
     [TestClass]
     public class TestVirages
     {
@@ -21,19 +22,24 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui accelere à gauche
         public void TestAccelerationGaucheDepartArrete()
         {
-            
+            Usager voiture = new Voiture(0, 0, 10, 20, 80);
+            voiture.Accelerer();
+            voiture.TournerGauche();
+            Console.WriteLine(voiture.Angle);
+            Assert.AreEqual(voiture.Angle, -0.1, 0.000001);
+            Assert.AreEqual(voiture.Vitesse, 10.0);
         }
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de voiture en mouvement qui accelere à gauche
         public void TestAccelerationGaucheDepartMouvement()
         {
 
         }
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de voiture en mouvement negatif qui accelere à gauche
         public void TestAccelerationGaucheDepartVitesseNegative()
         {
 
@@ -51,7 +57,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui freine à gauche
         public void TestFreinageGaucheDepartArrete()
         {
 
@@ -81,7 +87,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui decelere à gauche
         public void TestFrottementGaucheDepartArrete()
         {
 
@@ -114,7 +120,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui accelere à droite
         public void TestAccelerationDroiteDepartArrete()
         {
 
@@ -144,7 +150,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui freine à droite
         public void TestFreinageDroiteDepartArrete()
         {
 
@@ -174,7 +180,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui decelere à droite
         public void TestFrottementDroiteDepartArrete()
         {
 
@@ -207,7 +213,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui accelere tout droit
         public void TestAccelerationToutDroitDepartArrete()
         {
 
@@ -237,7 +243,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui freine tout droit
         public void TestFreinageToutDroitDepartArrete()
         {
 
@@ -267,7 +273,7 @@ namespace EnVoitureUnitTest
          * 
          */
 
-        [TestMethod]
+        [TestMethod]//Test vitesse et angle de la voiture arretee qui decelere tout droit
         public void TestFrottementToutDroitDepartArrete()
         {
 

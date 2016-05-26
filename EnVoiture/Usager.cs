@@ -223,7 +223,7 @@ namespace EnVoiture
             Angle -= Vitesse / 100.0F;
         }
         public void TournerDroite()
-        {
+        {//ACCELERATION = 10F;DECCELERATION = 2F;FREINAGE = 15F;
             Angle += Vitesse / 100.0F;
         }
         public void Reculer()
