@@ -70,9 +70,13 @@ namespace EnVoiture
             {
                 way.Dessiner(g);
             }
-            foreach (UsagerWidget user in roadUsers)
+            if (!ToolsBox.Visible)
             {
-                user.Dessiner(g);
+                foreach (UsagerWidget user in roadUsers)
+                {
+                    user.Dessiner(g);
+                }
+
             }
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
