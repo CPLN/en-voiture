@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class Pieton : Usager
+    public class Pieton : RoadUser
     {
         /// <summary>
         /// Constructeur Pieton 

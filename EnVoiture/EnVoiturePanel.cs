@@ -144,12 +144,12 @@ namespace EnVoiture
             }
             if (bGauche)
             {
-                voiture.TournerGauche();
+                voiture.Gauche();
             }
 
             if (bDroite)
             {
-                voiture.TournerDroite();
+                voiture.Droite();
             }
             voiture.Avancer();
 
@@ -166,7 +166,7 @@ namespace EnVoiture
             foreach (UsagerWidget roaduser in roadUsers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
-                if (voitureCourante.Voiture.estClique(e.Location))
+                if (voitureCourante.Voiture.IsClicked(e.Location))
                 {
                     voiture = voitureCourante.Voiture;
                     return;
