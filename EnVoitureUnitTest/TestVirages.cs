@@ -11,7 +11,6 @@ namespace EnVoitureUnitTest
     public class TestVirages
     {
 
-
 //===========================================================================
 // Tests Gauche
 //===========================================================================
@@ -52,12 +51,59 @@ namespace EnVoitureUnitTest
          * 
          */
 
+        [TestMethod]
+        public void TestFreinageGaucheDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageGaucheDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageGaucheDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageGaucheDepartVitessesDifferentes()
+        {
+
+        }
+
         /*
          * 
          * Frottement
          * 
          */
 
+        [TestMethod]
+        public void TestFrottementGaucheDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementGaucheDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementGaucheDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementGaucheDepartVitessesDifferentes()
+        {
+
+        }
 //===========================================================================
 // Tests Droite
 //===========================================================================
@@ -98,11 +144,59 @@ namespace EnVoitureUnitTest
          * 
          */
 
+        [TestMethod]
+        public void TestFreinageDroiteDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageDroiteDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageDroiteDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageDroiteDepartVitessesDifferentes()
+        {
+
+        }
+
         /*
          * 
          * Frottement
          * 
          */
+
+        [TestMethod]
+        public void TestFrottementDroiteDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementDroiteDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementDroiteDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementDroiteDepartVitessesDifferentes()
+        {
+
+        }
 //===========================================================================
 // Tests tout droit
 //===========================================================================
@@ -143,10 +237,58 @@ namespace EnVoitureUnitTest
          * 
          */
 
+        [TestMethod]
+        public void TestFreinageToutDroitDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageToutDroitDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageToutDroitDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFreinageToutDroitDepartVitessesDifferentes()
+        {
+
+        }
+
         /*
          * 
          * Frottement
          * 
          */
+
+        [TestMethod]
+        public void TestFrottementToutDroitDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementToutDroitDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementToutDroitDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestFrottementToutDroitDepartVitessesDifferentes()
+        {
+
+        }
     }
 }
