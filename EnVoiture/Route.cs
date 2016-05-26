@@ -68,6 +68,11 @@ namespace EnVoiture
             private set;
         }
 
+        private Route()
+        {
+
+        }
+
         /// <summary>
         /// Constructeur utilisant un x, y, largeur, hauteur et une liste d'orientations en paramètres
         /// </summary>
@@ -77,6 +82,7 @@ namespace EnVoiture
         /// <param name="height"></param>
         /// <param name="orientations"></param>
         public Route(int x, int y, int largeur, int hauteur, List<Orientation> orientations)
+            : this()
         {
             this.Position = new Point(x, y);
             this.Taille = new Size(largeur, hauteur);
@@ -91,6 +97,7 @@ namespace EnVoiture
         /// <param name="size">contient Widht et height</param>
         /// <param name="orientations"></param>
         public Route(Point position, Size taille, List<Orientation> orientations)
+            : this()
         {
             this.Position = position;
             this.Taille = taille;
@@ -141,7 +148,7 @@ namespace EnVoiture
             if (way != null)
             {
                 way.Position = new Point(x / 100, y / 100);
-                return way.MemberwiseClone() as Route;
+                return way.Clone() as Route;
             }
             return null;
         }
@@ -238,7 +245,15 @@ namespace EnVoiture
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            Route clone = new Route();
+            clone.Position = new Point(this.Position.X, this.Position.Y);
+            clone.Taille = new Size(this.Taille.Width, this.Taille.Height);
+            clone.DictionaireObstacles = new Dictionary<Orientation, Obstacle>();
+            foreach (Orientation orientation in this.DictionaireObstacles.Keys)
+            {
+                clone.DictionaireObstacles.Add(orientation, this.DictionaireObstacles[orientation]);
+            }
+            return clone;
         }
     }
 }
