@@ -132,7 +132,7 @@ namespace EnVoiture
             }
             else
             {
-                voiture.Ralentir();
+                voiture.Freiner();
             }
             
             if (bGauche)
