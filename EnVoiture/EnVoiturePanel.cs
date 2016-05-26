@@ -24,8 +24,7 @@ namespace EnVoiture
         private GraphicsPath _graphicsPath;
         private Region _region;
 
-        private List<RouteWidget> Ways;
-        private List<GenerateurWidget> Routes = new List<GenerateurWidget>();
+        private List<RouteWidget> Routes;
 
         public BoiteAOutils ToolsBox
         {
@@ -47,10 +46,10 @@ namespace EnVoiture
             roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
             roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
-            this.Ways = new List<RouteWidget>();
+            this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
             {
-                Ways.Add(new RouteWidget(route));
+                Routes.Add(new RouteWidget(route));
             }
 
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
@@ -67,7 +66,7 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (RouteWidget way in Ways)
+            foreach (RouteWidget way in Routes)
             {
                 way.Dessiner(g);
             }
@@ -170,8 +169,7 @@ namespace EnVoiture
             {
                 Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
-                    //Ways.Add(new RouteWidget(w));
-                    Routes.Add(new GenerateurWidget(w));
+                    Routes.Add(new RouteWidget(w));
             }
         }
 

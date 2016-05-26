@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class Route
+    public class Route : ICloneable
     {
         private Dictionary<Orientation, Obstacle> _orientationsRoutes = new Dictionary<Orientation, Obstacle>()
                 {
@@ -234,6 +234,11 @@ namespace EnVoiture
         internal static Route VersPositionCase(int p1, int p2, Vue.GenerateurWidget generateurWidget)
         {
             throw new NotImplementedException();
+        }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }
 }
