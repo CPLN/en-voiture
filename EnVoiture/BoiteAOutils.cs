@@ -33,7 +33,7 @@ namespace EnVoiture
         public BoiteAOutils()
         {
             InitializeComponent();
-            GenerateurWidget = new GenerateurWidget(new Generateur(new Route(0, 0, 0, 0, new List<Orientation>() { Orientation.NORD })));
+            GenerateurWidget = new GenerateurWidget(new Generateur());
             Paint += new PaintEventHandler((source, e) => { GenerateurWidget.DessinerSurOrigine(e.Graphics); });
             MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
             //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);

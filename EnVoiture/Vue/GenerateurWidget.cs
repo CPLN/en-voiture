@@ -31,6 +31,14 @@ namespace EnVoiture.Vue
         {
             Generateur = generateur;
         }
+      /*
+        public GenerateurWidget()
+        {
+            Route r = new Route(0, 0, 1, 1, new List<Orientation>());
+            RouteWidget = new RouteWidget(r);
+            Generateur = new Generateur(r);
+        }
+      */
 
         /// <summary>
         /// Cette fonction reçoit en paramètre un point et permet de le transformer en orientation.

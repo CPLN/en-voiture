@@ -17,7 +17,12 @@ namespace EnVoiture.Modele
         {
             this.Route = route;
         }
-
+        
+        public Generateur()
+        {
+            this.Route = new Route(0,0,1,1,new List<Orientation>());
+        }
+        
         /// <summary>
         /// Cette fonction permet de changer l'état de l'orientation
         /// </summary>

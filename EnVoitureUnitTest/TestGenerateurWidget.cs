@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EnVoiture;
 using EnVoiture.Vue;
+using EnVoiture.Modele;
 using System.Drawing;
 
 namespace EnVoitureUnitTest
@@ -33,7 +34,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationNordX58Y34()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(58, 34));
             Assert.AreEqual(o, Orientation.NORD);
@@ -45,7 +46,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationNordX50Y49()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(50, 49));
             Assert.AreEqual(o, Orientation.NORD);
@@ -57,7 +58,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationNordX99Y0()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(99, 0));
             Assert.AreEqual(o, Orientation.NORD);
@@ -69,7 +70,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationNordX1Y0()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(1, 0));
             Assert.AreEqual(o, Orientation.NORD);
@@ -87,7 +88,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationEstX78Y30()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(78, 30));
             Assert.AreEqual(o, Orientation.EST);
@@ -99,7 +100,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationEstX100Y0()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(100, 0));
             Assert.AreEqual(o, Orientation.EST);
@@ -111,7 +112,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationEstX100Y100()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(100, 100));
             Assert.AreEqual(o, Orientation.EST);
@@ -123,7 +124,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationEstX50Y51()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(51, 50));
             Assert.AreEqual(o, Orientation.EST);
@@ -142,7 +143,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationSudX57Y80()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(57, 80));
             Assert.AreEqual(o, Orientation.SUD);
@@ -154,7 +155,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationSudX50Y51()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(50, 51));
             Assert.AreEqual(o, Orientation.SUD);
@@ -166,7 +167,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationSudX2Y99()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(2, 99));
             Assert.AreEqual(o, Orientation.SUD);
@@ -178,7 +179,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationSudX1Y100()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(1, 100));
             Assert.AreEqual(o, Orientation.SUD);
@@ -190,7 +191,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationSudX99Y100()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(99, 100));
             Assert.AreEqual(o, Orientation.SUD);
@@ -208,7 +209,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationOuestX13Y24()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(13, 24));
             Assert.AreEqual(o, Orientation.OUEST);
@@ -220,7 +221,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationOuestX0Y100()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(0, 100));
             Assert.AreEqual(o, Orientation.OUEST);
@@ -232,7 +233,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationOuestX0Y0()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(0, 0));
             Assert.AreEqual(o, Orientation.OUEST);
@@ -244,7 +245,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationOuestX0Y1()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(0, 1));
             Assert.AreEqual(o, Orientation.OUEST);
@@ -256,7 +257,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationOuestX1Y1()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(1, 1));
             Assert.AreEqual(o, Orientation.OUEST);
@@ -268,7 +269,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectionOrientationOuestX50Y50()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
 
             Orientation o = generateurw.DetectionOrientation(new Point(50, 50));
             Assert.AreEqual(o, Orientation.OUEST);
@@ -292,7 +293,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectcontenuX0Y0()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
             bool detect = generateurw.Detectcontenu(new Point(0, 0));
 
             Assert.AreEqual(detect, true);
@@ -304,7 +305,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectcontenuX1Y1()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
             bool detect = generateurw.Detectcontenu(new Point(1, 1));
 
             Assert.AreEqual(detect, true);
@@ -316,7 +317,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectcontenuX20Y20()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
             bool detect = generateurw.Detectcontenu(new Point(20, 20));
 
             Assert.AreEqual(detect, true);
@@ -328,7 +329,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectcontenuX100Y100()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
             bool detect = generateurw.Detectcontenu(new Point(100, 100));
 
             Assert.AreEqual(detect, true);
@@ -340,7 +341,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectcontenuX0Y100()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
             bool detect = generateurw.Detectcontenu(new Point(0, 100));
 
             Assert.AreEqual(detect, true);
@@ -352,7 +353,7 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestDetectcontenuX100Y0()
         {
-            GenerateurWidget generateurw = new GenerateurWidget();
+            GenerateurWidget generateurw = new GenerateurWidget(new Generateur());
             bool detect = generateurw.Detectcontenu(new Point(100, 0));
 
             Assert.AreEqual(detect, true);
