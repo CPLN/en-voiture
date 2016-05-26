@@ -142,8 +142,6 @@ namespace EnVoiture
             {
                 voiture.Freiner();
             }
-            voiture.Avancer();
-            
             if (bGauche)
             {
                 voiture.TournerGauche();
@@ -153,6 +151,7 @@ namespace EnVoiture
             {
                 voiture.TournerDroite();
             }
+            voiture.Avancer();
 
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {

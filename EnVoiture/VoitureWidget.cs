@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Drawing;
 namespace EnVoiture
 {
@@ -36,6 +37,11 @@ namespace EnVoiture
         public override void Dessiner(Graphics g)
         {
             g.FillRectangle(Brushes.Red, Voiture.Bornes);
+            g.TranslateTransform(Voiture.Location.X, Voiture.Location.Y);
+            g.RotateTransform((float)(Voiture.Angle * 180.0 / Math.PI));
+            g.FillRectangle(Brushes.Red, 0, 0, Voiture.Width, Voiture.Height);
+            g.RotateTransform((float)(-Voiture.Angle * 180.0 / Math.PI));
+            g.TranslateTransform(-Voiture.Location.X, -Voiture.Location.Y);
         }
     }
 }
