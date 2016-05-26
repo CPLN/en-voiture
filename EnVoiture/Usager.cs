@@ -173,7 +173,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public Usager(RectangleF bounds,float v,float vMax)
+        public Usager(RectangleF bounds, float v, float vMax)
         {
             this.bornes = bounds;
             VitesseMax = vMax;
@@ -190,9 +190,9 @@ namespace EnVoiture
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
         public Usager(float x, float y, float width, float height, float v, float vMax)
-            : this(new RectangleF(x, y, width, height),v,vMax)
+            : this(new RectangleF(x, y, width, height), v, vMax)
         {
-           
+
         }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace EnVoiture
             {
                 dblVitesse -= DECCELERATION;
             }
-            else if(Vitesse<0)
+            else if (Vitesse < 0)
             {
                 dblVitesse += DECCELERATION;
             }

@@ -73,9 +73,13 @@ namespace EnVoiture
             {
                 way.Dessiner(g);
             }
-            foreach (UsagerWidget user in roadUsers)
+            if (!ToolsBox.Visible)
             {
-                user.Dessiner(g);
+                foreach (UsagerWidget user in roadUsers)
+                {
+                    user.Dessiner(g);
+                }
+
             }
             if (ToolsBox.Visible)
                 _hoverWayWidget.Dessiner(g, 50, Color.Black);
