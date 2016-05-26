@@ -11,9 +11,9 @@ namespace EnVoiture
         private RectangleF bounds;
         private float dblVitesse;
         private float dblVitesseMax;
-        private const float ACCELERATION = 10F;
-        private const float DECCELERATION = 2F;
-        private const float FREINAGE = 15F;
+        private const float ACCELERATION = 0.10F;
+        private const float DECCELERATION = 0.02F;
+        private const float FREINAGE = 0.15F;
 
         /// <summary>
         /// propriété règlant la vitesse
@@ -77,6 +77,9 @@ namespace EnVoiture
                 bounds.Location = value;
             }
         }
+        /// <summary>
+        /// propriétét automatique défini la taille en float
+        /// </summary>
         public SizeF Size
         {
             get
@@ -172,7 +175,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(Rectangle bounds, float v, float vMax)
+        public RoadUser(RectangleF bounds, float v, float vMax)
         {
             this.bounds = bounds;
             VitesseMax = vMax;
@@ -189,9 +192,9 @@ namespace EnVoiture
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
         public RoadUser(int x, int y, int width, int height, float v, float vMax)
-            : this(new Rectangle(x, y, width, height),v,vMax)
+            : this(new Rectangle(x, y, width, height), v, vMax)
         {
-           
+
         }
 
         /// <summary>
@@ -213,43 +216,67 @@ namespace EnVoiture
             return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
         }
 
+        /// <summary>
+        /// modifie la location en créant un nouveau point et nous permet d'avancer
+        /// </summary>
         public void Avancer()
         {
-            Location = new PointF((float)(Location.X + dblVitesse * Math.Sin(Angle)), (float)(Location.Y - dblVitesse * Math.Cos(Angle)));
+            Location = new PointF((float)(Location.X + dblVitesse * Math.Cos(Angle)), (float)(Location.Y + dblVitesse * Math.Sin(Angle)));
         }
+        /// <summary>
+        /// décrémente l'angle de la voiture et nous sert donc a tourner a gauche
+        /// </summary>
         public void Gauche()
         {
             Angle -= Vitesse / 100.0F;
         }
+        /// <summary>
+        /// incrémente l'angle de la voiture et nous sert donc a tourner a gauche
+        /// </summary>
         public void Droite()
         {
             Angle += Vitesse / 100.0F;
         }
+        /// <summary>
+        /// décrémente la vitesse 
+        /// </summary>
         public void Reculer()
         {
             dblVitesse -= ACCELERATION;
-            Location = new PointF((float)(Location.X+dblVitesse*Math.Sin(Angle)), (float)(Location.Y - dblVitesse*Math.Cos(Angle)));
         }
+        /// <summary>
+        /// si on ne presse plus rien et que la voiture avance, on ralenti 
+        /// </summary>
         public void Ralentir()
         {
             if (Vitesse > 0)
             {
                 dblVitesse -= DECCELERATION;
             }
-            else if(Vitesse<0)
+            else if (Vitesse < 0)
             {
                 dblVitesse += DECCELERATION;
             }
         }
 
+        /// <summary>
+        /// incrémente la vitesse 
+        /// </summary>
         public void Accelerer()
         {
             dblVitesse += ACCELERATION;
         }
+        /// <summary>
+        /// décrémente la vitesse 
+        /// </summary>
+
         public void Freiner()
         {
             dblVitesse -= FREINAGE;
         }
+        /// <summary>
+        /// pas encore implémenter, décrémentera la vitessse en fonction du freinage d'urgence (gros freinage)
+        /// </summary>
         public void FreinageUrgence()
         {
 
