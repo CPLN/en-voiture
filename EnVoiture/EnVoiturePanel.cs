@@ -25,7 +25,7 @@ namespace EnVoiture
         private Region _region;
 
         private List<RouteWidget> Ways;
-        private List<GenerateurWidget> Routes;
+        private List<GenerateurWidget> Routes = new List<GenerateurWidget>();
 
         public BoiteAOutils ToolsBox
         {
