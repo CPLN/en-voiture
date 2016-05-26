@@ -12,33 +12,8 @@ namespace EnVoiture
 {
     public class BoiteAOutils : UserControl
     {
-        
-
- 
-       // private int _tailleRoutes = 1;
-
-        /// <summary>
-        /// propriété WayWidgets permetant d'ajouter des WayWidget dans la liste ww
-        /// </summary>
-        /// 
-        //public List<RouteWidget> RouteWidgets
-        //{
-        //    get
-        //    {
-        //        List<RouteWidget> ww = new List<RouteWidget>();
-
-        //        ww.Add(new RouteWidget(new Route(20, 100, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.NORTH, Orientation.SOUTH })));
-        //        ww.Add(new RouteWidget(new Route(20, 300, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
-        //        ww.Add(new RouteWidget(new Route(20, 300, _tailleRoutes, _tailleRoutes, new List<Orientation>() { Orientation.EAST, Orientation.SOUTH })));
-
-        //        ww.Add(new RouteWidget(new Route(0, 0, 100, 100, new List<Orientation>() { Orientation.NORTH })));
-        //        return ww;
-        //    }
-        //}
-
         public GenerateurWidget GenerateurWidget
         {
-
             get;
             private set;
         }
@@ -58,7 +33,7 @@ namespace EnVoiture
         public BoiteAOutils()
         {
             InitializeComponent();
-            GenerateurWidget = new GenerateurWidget();
+            GenerateurWidget = new GenerateurWidget(new Generateur(new Route(0, 0, 0, 0, new List<Orientation>() { Orientation.NORD })));
             Paint += new PaintEventHandler((source, e) => { GenerateurWidget.DessinerSurOrigine(e.Graphics); });
             MouseClick += new MouseEventHandler(this.RouteBouton_MouseClick);
             //panel.Location = new Point(this.Location.X + this.Size.Width / 2, 0);

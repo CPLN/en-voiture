@@ -10,12 +10,14 @@ namespace EnVoiture.Modele
     public class Generateur
     {
         private Obstacle obstacle;
+
         public Route Route { get; set; }
 
         public Generateur(Route route)
         {
             this.Route = route;
         }
+
         /// <summary>
         /// Cette fonction permet de changer l'état de l'orientation
         /// </summary>
