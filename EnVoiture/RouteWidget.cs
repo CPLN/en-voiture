@@ -17,6 +17,17 @@ namespace EnVoiture
         {
             Route = route;
         }
+
+        public void Dessiner(Graphics g, int opacite, Color color)
+        {
+            int x = Route.Position.X * TAILLE;
+            int y = Route.Position.Y * TAILLE;
+            int largeur = Route.Taille.Width * TAILLE;
+            int hauteur = Route.Taille.Height * TAILLE;
+            Brush b = new SolidBrush(Color.FromArgb(opacite, color));
+            g.FillRectangle(b, x, y, largeur, hauteur);
+        }
+
         public void Dessiner(Graphics g)
         {
             int Left = Route.Position.X * TAILLE;

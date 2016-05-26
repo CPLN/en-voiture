@@ -74,6 +74,8 @@ namespace EnVoiture
             {
                 user.Dessiner(g);
             }
+            if (ToolsBox.Visible)
+                _hoverWayWidget.Dessiner(g, 50, Color.Black);
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -146,6 +148,9 @@ namespace EnVoiture
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
+                Route r = ToolsBox.GenerateurWidget.Generateur.Route;
+                
+                _hoverWayWidget.Route = r;
                 _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
 
