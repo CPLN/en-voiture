@@ -216,7 +216,7 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Location = new PointF((float)(Location.X + dblVitesse * Math.Sin(Angle)), (float)(Location.Y - dblVitesse * Math.Cos(Angle)));
+            Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
         }
         public void TournerGauche()
         {
@@ -229,7 +229,7 @@ namespace EnVoiture
         public void Reculer()
         {
             dblVitesse -= ACCELERATION;
-            Location = new PointF((float)(Location.X+dblVitesse*Math.Sin(Angle)), (float)(Location.Y - dblVitesse*Math.Cos(Angle)));
+            Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
         }
         public void Ralentir()
         {

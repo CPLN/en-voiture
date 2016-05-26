@@ -10,36 +10,143 @@ namespace EnVoitureUnitTest
     [TestClass]
     public class TestVirages
     {
-        /// <summary>
-        /// Teste que l'angle change quand l'on avance et que l'on tourne à gauche
-        /// </summary>
+
+
+//===========================================================================
+// Tests Gauche
+//===========================================================================
+
+        /*
+         * 
+         * Acceleration
+         * 
+         */
+
         [TestMethod]
-        public void TestAngleVirageGauche()
+        public void TestAccelerationGaucheDepartArrete()
         {
-            RoadUser voiture = new Voiture(10, 20, 30, 40, 80);
-            voiture.Accelerer();
-            voiture.Gauche();
-            Assert.AreNotEqual(0.0F, voiture.Angle);
+            
         }
-        /// <summary>
-        /// Teste que l'angle change quand l'on avance et que l'on tourne à droite
-        /// </summary>
+
         [TestMethod]
-        public void TestAngleVirageDroite()
-        {
-            RoadUser voiture = new Voiture(10, 20, 30, 40, 80);
-            voiture.Accelerer();
-            voiture.Droite();
-            Assert.AreNotEqual(0.0F, voiture.Angle);
-            Assert.AreEqual(12.1, 12.0999999, 1e-4);
-        }
-        /// <summary>
-        /// Teste que l'angle calculé est correct
-        /// </summary>
-        [TestMethod]
-        public void TestCalculAngle()
+        public void TestAccelerationGaucheDepartMouvement()
         {
 
         }
+
+        [TestMethod]
+        public void TestAccelerationGaucheDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationGaucheDepartVitessesDifferentes()
+        {
+
+        }
+
+        /*
+         * 
+         * Freinages
+         * 
+         */
+
+        /*
+         * 
+         * Frottement
+         * 
+         */
+
+//===========================================================================
+// Tests Droite
+//===========================================================================
+
+        /*
+         * 
+         * Acceleration
+         * 
+         */
+
+        [TestMethod]
+        public void TestAccelerationDroiteDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationDroiteDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationDroiteDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationDroiteDepartVitessesDifferentes()
+        {
+
+        }
+
+        /*
+         * 
+         * Freinages
+         * 
+         */
+
+        /*
+         * 
+         * Frottement
+         * 
+         */
+//===========================================================================
+// Tests tout droit
+//===========================================================================
+
+        /*
+         * 
+         * Acceleration
+         * 
+         */
+
+        [TestMethod]
+        public void TestAccelerationToutDroitDepartArrete()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationToutDroitDepartMouvement()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationToutDroitDepartVitesseNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void TestAccelerationToutDroitDepartVitessesDifferentes()
+        {
+
+        }
+
+        /*
+         * 
+         * Freinages
+         * 
+         */
+
+        /*
+         * 
+         * Frottement
+         * 
+         */
     }
 }

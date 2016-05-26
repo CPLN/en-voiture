@@ -143,10 +143,10 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestStopDeplacement()
         {
-            RoadUser car = new Voiture(0, 0, 10, 10, 80);
+            Usager car = new Voiture(0, 0, 10, 10, 80);
             car.FreinageUrgence();
-            Assert.AreEqual(0, car.Location.Y); //teste si la position su l'axe y est restée la même
-            Assert.AreEqual(0, car.Location.X);//teste si la position su l'axe x est restée la même
+            Assert.AreEqual(0, car.Localisation.Y); //teste si la position su l'axe y est restée la même
+            Assert.AreEqual(0, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
         [TestMethod]
         public void TestIsClicked()
