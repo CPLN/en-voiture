@@ -52,6 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestGenerateur.cs" />
     <Compile Include="TestGenerateWays.cs" />
     <Compile Include="TestRoadUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

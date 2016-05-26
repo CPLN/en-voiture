@@ -30,23 +30,23 @@ namespace EnVoiture
 
             g.FillEllipse(Brushes.Black, point2.X - 10, point2.Y - 10, 20, 20);
 
-            if (Route.GetDictionaire.ContainsKey(Orientation.NORTH) && Route.GetDictionaire[Orientation.NORTH])
+            if (Route.GetDictionaire.ContainsKey(Orientation.NORD) && Route.GetDictionaire[Orientation.NORD])
             {
                 point1 = new Point(Left + TailleX / 2, Top);
                 g.DrawLine(BlackPen, point1, point2);
 
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.SOUTH) && Route.GetDictionaire[Orientation.SOUTH])
+            if (Route.GetDictionaire.ContainsKey(Orientation.SUD) && Route.GetDictionaire[Orientation.SUD])
             {
                 point1 = new Point(Left + TailleX / 2, Top + TailleY);
                 g.DrawLine(BlackPen, point1, point2);
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.EAST) && Route.GetDictionaire[Orientation.EAST])
+            if (Route.GetDictionaire.ContainsKey(Orientation.EST) && Route.GetDictionaire[Orientation.EST])
             {
                 point1 = new Point(Left + TailleX, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);
             }
-            if (Route.GetDictionaire.ContainsKey(Orientation.WEST) && Route.GetDictionaire[Orientation.WEST])
+            if (Route.GetDictionaire.ContainsKey(Orientation.OUEST) && Route.GetDictionaire[Orientation.OUEST])
             {
                 point1 = new Point(Left, Top + TailleY / 2);
                 g.DrawLine(BlackPen, point1, point2);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    class PietonWidget : RoadUserWidget
+    class PietonWidget : UsagerWidget
     {
         public Pieton Pieton { get; private set; }
 
@@ -22,7 +22,7 @@ namespace EnVoiture
         }
         public override void Dessiner(Graphics g)
         {
-            g.FillEllipse(Brushes.Black, Pieton.Bounds);
+            g.FillEllipse(Brushes.Black, Pieton.Bornes);
         }
         
     }
