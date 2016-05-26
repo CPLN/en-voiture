@@ -92,6 +92,7 @@
     <EmbeddedResource Include="BoiteAOutils.resx">
       <DependentUpon>BoiteAOutils.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
