@@ -16,13 +16,6 @@ namespace EnVoiture
 
  
        // private int _tailleRoutes = 1;
-        public Route _routeSelectionnee
-        {
-            get
-            {
-                return GenerateurWidget.RouteWidget.Route;
-            }
-        }
 
         /// <summary>
         /// propriété WayWidgets permetant d'ajouter des WayWidget dans la liste ww
