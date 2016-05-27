@@ -26,7 +26,7 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
-            VoitureWidget v = new VoitureWidget(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(0,0,10,20,80);
             this._roadUsers.Add(v);
             this.voiture = v.Voiture;
             enVoiturePanel.ToolsBox = toolsBox;
@@ -65,25 +65,6 @@ namespace EnVoiture
             if (e.KeyCode == Keys.Escape)
                 this.Close();
             enVoiturePanel.OnKeyUp(sender, e);
-        }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timerDirection_Tick(object sender, System.EventArgs e)
-        {
-            if (bAvancer)
-                voiture.Avancer();
-            if (bReculer)
-                voiture.Reculer();
-            if (bGauche)
-                voiture.TournerGauche();
-            if (bDroite)
-                voiture.TournerDroite();
-            enVoiturePanel.Invalidate();
         }
 
         /// <summary>
