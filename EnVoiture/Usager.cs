@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace EnVoiture
 {
@@ -7,14 +8,17 @@ namespace EnVoiture
     /// </summary>
     public abstract class Usager
     {
-        private Rectangle bornes;
-        private double dblVitesse;
-        private double dblVitesseMax;
+        private RectangleF bornes;
+        private float dblVitesse;
+        private float dblVitesseMax;
+        private const float ACCELERATION = 10;
+        private const float DECCELERATION = 2;
+        private const float FREINAGE = 15;
 
         /// <summary>
         /// propriété règlant la vitesse
         /// </summary>
-        public double Vitesse
+        public float Vitesse
         {
             get
             {
@@ -26,13 +30,17 @@ namespace EnVoiture
                 {
                     dblVitesse = value;
                 }
+                else
+                {
+                    dblVitesse = dblVitesseMax;
+                }
             }
         }
 
         /// <summary>
         /// propriété règéant la vitesse maximum 
         /// </summary>
-        public double VitesseMax
+        public float VitesseMax
         {
             get
             {
@@ -43,7 +51,8 @@ namespace EnVoiture
                 dblVitesseMax = value;
             }
         }
-        public Rectangle Bornes
+
+        public RectangleF Bornes
         {
             get
             {
@@ -58,7 +67,7 @@ namespace EnVoiture
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public Point Localisation
+        public PointF Localisation
         {
             get
             {
@@ -69,7 +78,7 @@ namespace EnVoiture
                 bornes.Location = value;
             }
         }
-        public Size Taille
+        public SizeF Taille
         {
             get
             {
@@ -84,7 +93,7 @@ namespace EnVoiture
         /// <summary>
         /// Largeur de l'usager
         /// </summary>
-        public int Largeur
+        public float Largeur
         {
             get
             {
@@ -99,7 +108,7 @@ namespace EnVoiture
         /// <summary>
         /// Hauteur de l'usager
         /// </summary>
-        public int Hauteur
+        public float Hauteur
         {
             get
             {
@@ -114,7 +123,7 @@ namespace EnVoiture
         /// <summary>
         /// Position x de la gauche de l'usager
         /// </summary>
-        public int Gauche
+        public float Gauche
         {
             get
             {
@@ -125,7 +134,7 @@ namespace EnVoiture
         /// <summary>
         /// Position x de la droite de l'usager
         /// </summary>
-        public int Droite
+        public float Droite
         {
             get
             {
@@ -136,7 +145,7 @@ namespace EnVoiture
         /// <summary>
         /// Position y du haut de l'usager
         /// </summary>
-        public int Haut
+        public float Haut
         {
             get
             {
@@ -147,7 +156,7 @@ namespace EnVoiture
         /// <summary>
         /// Position y du bas de l'usager
         /// </summary>
-        public int Bas
+        public float Bas
         {
             get
             {
@@ -164,7 +173,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public Usager(Rectangle bounds,double v,double vMax)
+        public Usager(RectangleF bounds, float v, float vMax)
         {
             this.bornes = bounds;
             VitesseMax = vMax;
@@ -180,10 +189,10 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
-        public Usager(int x, int y, int width, int height, double v, double vMax)
-            : this(new Rectangle(x, y, width, height),v,vMax)
+        public Usager(float x, float y, float width, float height, float v, float vMax)
+            : this(new RectangleF(x, y, width, height), v, vMax)
         {
-           
+
         }
 
         /// <summary>
@@ -191,39 +200,59 @@ namespace EnVoiture
         /// </summary>
         /// <param name="other">L'autre usager</param>
         /// <returns>Si cet usager et l'autre se touchent</returns>
-        public bool Heurte(Usager other)
+        public bool Heurte(Usager autre)
         {
-            return bornes.IntersectsWith(other.bornes);
+            return bornes.IntersectsWith(autre.bornes);
         }
         /// <summary>
         /// Vérifie si le clique de souris est en contact avec un usager.
         /// </summary>
         /// <param name="other"></param>
         /// <returns>Si le clique de souris à la même position que l'usager</returns>
-        public bool estClique(Point cursorPosition)
+        public bool estClique(PointF cursorPosition)
         {
-            return bornes.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
+            return bornes.IntersectsWith(new RectangleF(cursorPosition, new SizeF(1, 1)));
         }
 
         public void Avancer()
         {
-            Localisation = new Point(Localisation.X, Localisation.Y - 1);
+            Localisation = new PointF(Localisation.X, Localisation.Y - dblVitesse);
         }
         public void TournerGauche()
         {
-            Localisation = new Point(Localisation.X - 1, Localisation.Y);
+            Localisation = new PointF(Localisation.X - 1, Localisation.Y);
         }
         public void TournerDroite()
         {
-            Localisation = new Point(Localisation.X + 1, Localisation.Y);
+            Localisation = new PointF(Localisation.X + 1, Localisation.Y);
         }
         public void Reculer()
         {
-            Localisation = new Point(Localisation.X, Localisation.Y + 1);
+            dblVitesse -= ACCELERATION;
         }
-        public void StopDeplacement()
+        public void Ralentir()
         {
-            Localisation = new Point(Localisation.X, Localisation.Y);
+            if (Vitesse > 0)
+            {
+                dblVitesse -= DECCELERATION;
+            }
+            else if (Vitesse < 0)
+            {
+                dblVitesse += DECCELERATION;
+            }
+        }
+
+        public void Accelerer()
+        {
+            dblVitesse += ACCELERATION;
+        }
+        public void Freiner()
+        {
+            Localisation = new PointF(Localisation.X, Localisation.Y);
+            dblVitesse -= FREINAGE;
+        }
+        public void FreinageUrgence()
+        {
         }
     }
 }

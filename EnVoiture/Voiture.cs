@@ -11,7 +11,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
-        public Voiture(Rectangle rectangle, double vMax) : base(rectangle,0.0,vMax) { }
+        public Voiture(Rectangle rectangle, float vMax) : base(rectangle,0.0F,vMax) { }
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture en donnant directement les valeurs.
@@ -20,8 +20,8 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public Voiture(int x, int y, int width, int height,double vMax) 
-            : base(x, y, width, height,0.0,vMax) 
+        public Voiture(int x, int y, int width, int height,float vMax) 
+            : base(x, y, width, height,0.0F,vMax)
         {
         }
 
