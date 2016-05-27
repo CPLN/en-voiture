@@ -26,7 +26,7 @@ namespace EnVoitureUnitTest
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.RIEN);
         }
 
         /*
@@ -93,7 +93,7 @@ namespace EnVoitureUnitTest
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.RIEN);
         }
 
         /*
@@ -160,7 +160,7 @@ namespace EnVoitureUnitTest
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
         }
 
         /// <summary>
@@ -208,7 +208,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.RIEN);
         }
 
         /*
@@ -227,7 +227,7 @@ namespace EnVoitureUnitTest
             Generateur generateur = new Generateur(new Route(0, 0, 1, 1, null));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTE);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTE);
         }
 
         /// <summary>
@@ -259,7 +259,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.ROUTETROTTOIR);
         }
 
         /// <summary>
@@ -275,7 +275,7 @@ namespace EnVoitureUnitTest
                 }));
             generateur.EditionRoute(orientation);
 
-            Assert.AreEqual(generateur.Route.DictionaireObstacles[orientation], Obstacle.RIEN);
+            Assert.AreEqual(generateur.Route.DictionnaireObstacles[orientation], Obstacle.RIEN);
         }
     }
 }

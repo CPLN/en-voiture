@@ -30,13 +30,13 @@ namespace EnVoiture.Modele
         public void EditionRoute(Orientation orientation)
         {
             //test si le dictonnaire contient une clef
-            if (Route.DictionaireObstacles.ContainsKey(orientation))
+            if (Route.DictionnaireObstacles.ContainsKey(orientation))
             {
-                obstacle = Route.DictionaireObstacles[orientation];
+                obstacle = Route.DictionnaireObstacles[orientation];
             }
 
             //Change l'état de l'obstacle de false à true et vice-versa.
-            Dictionary<Orientation, Obstacle> dico = Route.DictionaireObstacles;
+            Dictionary<Orientation, Obstacle> dico = Route.DictionnaireObstacles;
             switch (obstacle)
             {
                 case Obstacle.RIEN:
@@ -51,7 +51,7 @@ namespace EnVoiture.Modele
                 default:
                     break;
             }
-            Route.DictionaireObstacles = dico;
+            Route.DictionnaireObstacles = dico;
         }
     }
 }

@@ -37,7 +37,6 @@ namespace EnVoitureUnitTest
              Assert.AreEqual(routes[3].DictionnaireObstacles[Orientation.SUD], routes[6].DictionnaireObstacles[Orientation.NORD]);
              Assert.AreEqual(routes[4].DictionnaireObstacles[Orientation.SUD], routes[7].DictionnaireObstacles[Orientation.NORD]);
              Assert.AreEqual(routes[5].DictionnaireObstacles[Orientation.SUD], routes[8].DictionnaireObstacles[Orientation.NORD]);
-
          }
     }
 }
