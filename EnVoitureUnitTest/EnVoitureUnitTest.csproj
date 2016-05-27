@@ -60,6 +60,7 @@
     <Compile Include="TestVirages.cs" />
     <Compile Include="TestWay.cs" />
     <Compile Include="testAcceleration.cs" />
+    <Compile Include="TestGenerateurWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnVoiture\EnVoiture.csproj">
