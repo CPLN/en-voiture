@@ -11,9 +11,9 @@ namespace EnVoiture
         private RectangleF bornes;
         private float dblVitesse;
         private float dblVitesseMax;
-        private const float ACCELERATION = 10F;
-        private const float DECCELERATION = 2F;
-        private const float FREINAGE = 15F;
+        private const float ACCELERATION = 0.10F;
+        private const float DECCELERATION = 0.02F;
+        private const float FREINAGE = 0.15F;
 
         /// <summary>
         /// propriété règlant la vitesse
@@ -78,7 +78,10 @@ namespace EnVoiture
                 bornes.Location = value;
             }
         }
-        public SizeF Taille
+        /// <summary>
+        /// propriétét automatique défini la taille en float
+        /// </summary>
+        public SizeF Size
         {
             get
             {
@@ -214,6 +217,9 @@ namespace EnVoiture
             return bornes.IntersectsWith(new RectangleF(cursorPosition, new SizeF(1, 1)));
         }
 
+        /// <summary>
+        /// modifie la location en créant un nouveau point et nous permet d'avancer
+        /// </summary>
         public void Avancer()
         {
             Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
@@ -226,11 +232,17 @@ namespace EnVoiture
         {//ACCELERATION = 10F;DECCELERATION = 2F;FREINAGE = 15F;
             Angle += Vitesse / 100.0F;
         }
+        /// <summary>
+        /// décrémente la vitesse 
+        /// </summary>
         public void Reculer()
         {
             dblVitesse -= ACCELERATION;
-            Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
+            Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)))
         }
+        /// <summary>
+        /// si on ne presse plus rien et que la voiture avance, on ralenti 
+        /// </summary>
         public void Ralentir()
         {
             if (Vitesse > 0)
@@ -243,16 +255,26 @@ namespace EnVoiture
             }
         }
 
+        /// <summary>
+        /// incrémente la vitesse 
+        /// </summary>
         public void Accelerer()
         {
             dblVitesse += ACCELERATION;
             Avancer();
         }
+        /// <summary>
+        /// décrémente la vitesse 
+        /// </summary>
+
         public void Freiner()
         {
             Localisation = new PointF(Localisation.X, Localisation.Y);
             dblVitesse -= FREINAGE;
         }
+        /// <summary>
+        /// pas encore implémenter, décrémentera la vitessse en fonction du freinage d'urgence (gros freinage)
+        /// </summary>
         public void FreinageUrgence()
         {
         }
