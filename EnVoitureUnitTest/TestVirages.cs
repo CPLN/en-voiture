@@ -29,25 +29,32 @@ namespace EnVoitureUnitTest
             voiture.Accelerer();
             voiture.TournerGauche();
             
-            Assert.AreEqual(voiture.Angle, -0.1, 0.000001);
-            Assert.AreEqual(voiture.Vitesse, 10.0);
+            Assert.AreEqual(voiture.Angle, -0.001, 0.000001);
+            Assert.AreEqual(voiture.Vitesse, 0.10F);
         }
 
         [TestMethod]//Test vitesse et angle de voiture en mouvement qui accelere à gauche
         public void TestAccelerationGaucheDepartMouvement()
         {
-            //Usager voiture = new Voiture(0, 0, 10, 20, 80);
-            //voiture.Accelerer();
-            //voiture.Accelerer();
-            //voiture.TournerGauche();
-            //Assert.AreEqual(voiture.Angle, -0.2, 0.000001);
-            //Assert.AreEqual(voiture.Vitesse, 20.0);
+            Usager voiture = new Voiture(0, 0, 10, 20, 80);
+            voiture.Vitesse = 5.0F;
+            voiture.Accelerer();
+            voiture.TournerGauche();
+
+            Assert.AreEqual(voiture.Angle, -0.051, 0.000001);
+            Assert.AreEqual(voiture.Vitesse, 5.1F);
         }
 
         [TestMethod]//Test vitesse et angle de voiture en mouvement negatif qui accelere à gauche
         public void TestAccelerationGaucheDepartVitesseNegative()
         {
+            Usager voiture = new Voiture(0, 0, 10, 20, 80);
+            voiture.Vitesse = -5.0F;
+            voiture.Accelerer();
+            voiture.TournerGauche();
 
+            Assert.AreEqual(voiture.Angle, 0.049, 0.000001);
+            Assert.AreEqual(voiture.Vitesse, -4.9F);
         }
 
         [TestMethod]
