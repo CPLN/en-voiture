@@ -125,7 +125,7 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, Obstacle> DictionaireObstacles
+        public Dictionary<Orientation, Obstacle> DictionnaireObstacles
         {
             get
             {
