@@ -26,7 +26,7 @@ namespace EnVoiture
 
         private List<RouteWidget> Routes;
 
-        public BoiteAOutils ToolsBox
+        public BoiteAOutils BoiteAOutils
         {
             get;
             set;
@@ -46,7 +46,7 @@ namespace EnVoiture
             _usagers.Add(new VoitureWidget(150, 150, 10, 20, 80));
             _usagers.Add(new VoitureWidget(240, 240, 10, 20, 80));
             voiture = (_usagers[0] as VoitureWidget).Voiture;
-            ToolsBox = new BoiteAOutils();
+            BoiteAOutils = new BoiteAOutils();
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
             {
@@ -74,7 +74,7 @@ namespace EnVoiture
             {
                 way.Dessiner(g);
             }
-            if (!ToolsBox.Visible)
+            if (!BoiteAOutils.Visible)
             {
                 foreach (UsagerWidget user in _usagers)
                 {
@@ -167,10 +167,10 @@ namespace EnVoiture
                 voiture.TournerDroite();
             }
 
-            if (ToolsBox.Visible && _hoverWayWidget != null)
+            if (BoiteAOutils.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
-                Route r = ToolsBox.GenerateurWidget.Generateur.Route;
+                Route r = BoiteAOutils.GenerateurWidget.Generateur.Route;
                 
                 _hoverWayWidget.Route = r;
                 _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
@@ -188,9 +188,9 @@ namespace EnVoiture
             }
 
             // creation de la route si en mode edition
-            if (ToolsBox.Visible)
+            if (BoiteAOutils.Visible)
             {
-                Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
+                Route w = Route.VersPositionCase(e.X, e.Y, BoiteAOutils.RouteSelectionnee);
                 if (w != null)
                 {
                     List<RouteWidget> routes = new List<RouteWidget>();
