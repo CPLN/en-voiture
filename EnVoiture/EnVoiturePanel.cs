@@ -184,10 +184,7 @@ namespace EnVoiture
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
                 if (voitureCourante.Voiture.estClique(e.Location))
-                {
                     voiture = voitureCourante.Voiture;
-                    return;
-                }
             }
 
             // creation de la route si en mode edition
