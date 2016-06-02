@@ -46,6 +46,7 @@ namespace EnVoiture
             roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
             roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
+            ToolsBox = new BoiteAOutils();
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
             {
@@ -81,7 +82,7 @@ namespace EnVoiture
                 }
 
             }
-            if (ToolsBox.Visible)
+            else
                 _hoverWayWidget.Dessiner(g, 50, Color.Black);
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
