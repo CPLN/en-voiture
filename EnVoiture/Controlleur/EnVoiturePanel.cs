@@ -20,7 +20,7 @@ namespace EnVoiture.Controller
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
-        private RouteWidget _hoverWayWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<EnVoiture.Modele.Orientation> { }));
+        private RouteWidget _prevRouteWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<EnVoiture.Modele.Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
@@ -85,7 +85,7 @@ namespace EnVoiture.Controller
 
             }
             else
-                _hoverWayWidget.Dessiner(g, 50, Color.Black);
+                _prevRouteWidget.Dessiner(g, 50, Color.Black);
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -169,13 +169,13 @@ namespace EnVoiture.Controller
                 voiture.TournerDroite();
             }
 
-            if (BoiteAOutils.Visible && _hoverWayWidget != null)
+            if (BoiteAOutils.Visible && _prevRouteWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
                 Route r = BoiteAOutils.GenerateurWidget.Generateur.Route;
                 
-                _hoverWayWidget.Route = r;
-                _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
+                _prevRouteWidget.Route = r;
+                _prevRouteWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
             Invalidate();
         }

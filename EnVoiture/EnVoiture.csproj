@@ -103,9 +103,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\voiture.png" />
+    <None Include="Resources\voiture_bleue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voiture_jaune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voiture_rouge.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
