@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.Threading;
 using System.Drawing;
 using EnVoiture.Modele;
 
@@ -9,16 +11,41 @@ namespace EnVoiture.Vue
     /// </summary>
     public class VoitureWidget : UsagerWidget
     {
+        private Bitmap _textureVoiture;
+
         /// <summary>
         /// La voiture liée à cet afficheur.
         /// </summary>
         public Voiture Voiture { get; private set; }
 
         /// <summary>
+        /// Constructeur définissant la texture de la voiture.
+        /// </summary>
+        private VoitureWidget()
+        {
+            switch (new Random().Next(3))
+            {
+                case 0:
+                    this._textureVoiture = Properties.Resources.voiture_bleue;
+                    break;
+                case 1:
+                    this._textureVoiture = Properties.Resources.voiture_jaune;
+                    break;
+                case 2:
+                    this._textureVoiture = Properties.Resources.voiture_rouge;
+                    break;
+                default:
+                    break;
+            }
+            // Pour que le random soit efficace
+            Thread.Sleep(50);
+        }
+
+        /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
         /// </summary>
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
-        public VoitureWidget(Rectangle rectangle)
+        public VoitureWidget(Rectangle rectangle) : this()
         {
             this.Voiture = new Voiture(rectangle, 0.0F);
         }
@@ -30,15 +57,14 @@ namespace EnVoiture.Vue
         /// <param name="y">Position y du haut</param>
         /// <param name="largeur">Largeur</param>
         /// <param name="hauteur">Hauteur</param>
-        public VoitureWidget(int x, int y, int largeur, int hauteur, float vMax)
+        public VoitureWidget(int x, int y, int largeur, int hauteur, float vMax) : this()
         {
             this.Voiture = new Voiture(x, y, largeur, hauteur, vMax);
         }
 
         public override void Dessiner(Graphics g)
         {
-            //g.FillRectangle(Brushes.Red, Voiture.Bornes);
-            g.DrawImage(Properties.Resources.voiture, Voiture.Position);
+            g.DrawImage(_textureVoiture, Voiture.Position);
         }
     }
 }
