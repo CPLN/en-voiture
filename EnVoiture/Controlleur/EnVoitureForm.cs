@@ -40,7 +40,7 @@ namespace EnVoiture.Controller
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public Route CreateWay(int x, int y)
+        public Route creationRoute(int x, int y)
         {
             Route RouteBase = new Route(x, y, 100, 100, new List<EnVoiture.Modele.Orientation>() { EnVoiture.Modele.Orientation.NORD });
             return RouteBase;
@@ -81,10 +81,10 @@ namespace EnVoiture.Controller
             if (toolsBox.Visible)
             {
                 // mode edition
-                foreach (UsagerWidget user in _roadUsers)
+                foreach (UsagerWidget usager in _roadUsers)
                 {
-                    if (!(user is VoitureWidget))
-                        user.Dessiner(g);
+                    if (!(usager is VoitureWidget))
+                        usager.Dessiner(g);
                 }
             }
             else

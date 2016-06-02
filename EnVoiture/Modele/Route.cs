@@ -27,7 +27,7 @@ namespace EnVoiture.Modele
             set;
         }
 
-        public int Left
+        public int Gauche
         {
             get
             {
@@ -38,7 +38,7 @@ namespace EnVoiture.Modele
                 Position = new Point(value, Position.Y);
             }
         }
-        public int Top
+        public int Haut
         {
             get
             {
