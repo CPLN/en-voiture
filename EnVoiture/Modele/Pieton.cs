@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnVoiture
+namespace EnVoiture.Modele
 {
     public class Pieton : Usager
     {
@@ -18,13 +18,13 @@ namespace EnVoiture
         /// <param name="y1">Largeur</param>
         /// <param name="v">Vitesse de Base</param>
         /// <param name="vMax">Vitesse Max</param>
-        public Pieton(int x, int y, int width, int height, float v, float vMax)
-            : base(x,y,width,height,v,vMax)
+        public Pieton(int x, int y, int largeur, int hauteur, float v, float vMax)
+            : base(x, y, largeur, hauteur, v, vMax)
         {
             
         }
         public Pieton(Rectangle rectangle, float v, float vMax)
-           :base(rectangle,v,vMax)
+           :base(rectangle, v, vMax)
         {
 
         }
