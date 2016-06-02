@@ -42,9 +42,11 @@ namespace EnVoiture
             DoubleBuffered = true;
 
             this.roadUsers = new List<UsagerWidget>();
-            roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
-            roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
-            roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(0, 0, 20, 10, 80));
+            roadUsers.Add(new VoitureWidget(150, 150, 20, 10, 80));
+            roadUsers.Add(new VoitureWidget(240, 240, 20, 10, 80));
+
+
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
@@ -77,7 +79,7 @@ namespace EnVoiture
             {
                 foreach (UsagerWidget user in roadUsers)
                 {
-                    Usager.Dessiner(g);
+                    user.Dessiner(g);
                 }
 
             }
@@ -181,7 +183,7 @@ namespace EnVoiture
             foreach (UsagerWidget roaduser in roadUsers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
-                if (voitureCourante.Voiture.IsClicked(e.Location))
+                if (voitureCourante.Voiture.estClique(e.Location))
                 {
                     voiture = voitureCourante.Voiture;
                     return;
