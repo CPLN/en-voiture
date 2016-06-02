@@ -175,11 +175,7 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-<<<<<<< HEAD
-        public RoadUser(RectangleF bounds, float v, float vMax)
-=======
         public Usager(RectangleF bounds, float v, float vMax)
->>>>>>> Joao/master
         {
             this.bounds = bounds;
             VitesseMax = vMax;
@@ -195,13 +191,8 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
-<<<<<<< HEAD
-        public RoadUser(int x, int y, int width, int height, float v, float vMax)
-            : this(new Rectangle(x, y, width, height), v, vMax)
-=======
         public Usager(float x, float y, float width, float height, float v, float vMax)
             : this(new RectangleF(x, y, width, height), v, vMax)
->>>>>>> Joao/master
         {
 
         }
@@ -230,18 +221,9 @@ namespace EnVoiture
         /// </summary>
         public void Avancer()
         {
-<<<<<<< HEAD
-            Location = new PointF((float)(Location.X + Vitesse * Math.Cos(Angle)), (float)(Location.Y + Vitesse * Math.Sin(Angle)));
-        }
-        /// <summary>
-        /// décrémente l'angle de la voiture et nous sert donc a tourner a gauche
-        /// </summary>
-        public void Gauche()
-=======
             Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
         }
         public void TournerGauche()
->>>>>>> Joao/master
         {
             Angle -= Vitesse / 100.0F;
         }
@@ -254,12 +236,8 @@ namespace EnVoiture
         /// </summary>
         public void Reculer()
         {
-<<<<<<< HEAD
-            Vitesse -= ACCELERATION;
-=======
             dblVitesse -= ACCELERATION;
             Localisation = new PointF((float)(Localisation.X + dblVitesse * Math.Sin(Angle)), (float)(Localisation.Y - dblVitesse * Math.Cos(Angle)));
->>>>>>> Joao/master
         }
         /// <summary>
         /// si on ne presse plus rien et que la voiture avance, on ralenti 
@@ -281,12 +259,8 @@ namespace EnVoiture
         /// </summary>
         public void Accelerer()
         {
-<<<<<<< HEAD
-            Vitesse += ACCELERATION;
-=======
             dblVitesse += ACCELERATION;
             Avancer();
->>>>>>> Joao/master
         }
         /// <summary>
         /// décrémente la vitesse 

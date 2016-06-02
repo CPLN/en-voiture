@@ -36,11 +36,8 @@ namespace EnVoiture
 
         public override void Dessiner(Graphics g)
         {
-            g.TranslateTransform(Voiture.Localisation.X, Voiture.Localisation.Y);
-            g.RotateTransform((float)(Voiture.Angle * 180.0 / Math.PI));
-            g.FillRectangle(Brushes.Red, 0, 0, Voiture.Largeur, Voiture.Hauteur);
-            g.RotateTransform((float)(-Voiture.Angle * 180.0 / Math.PI));
-            g.TranslateTransform(-Voiture.Localisation.X, -Voiture.Localisation.Y);
+            //g.FillRectangle(Brushes.Red, Voiture.Bornes);
+            g.DrawImage(Properties.Resources.voiture, Voiture.Position);
         }
     }
 }

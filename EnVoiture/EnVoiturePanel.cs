@@ -13,7 +13,7 @@ namespace EnVoiture
     public class EnVoiturePanel : UserControl
     {
         private Voiture voiture;
-        private List<RoadUserWidget> roadUsers;
+        private List<UsagerWidget> roadUsers;
         private bool bAvancer = false;
         private bool bReculer = false;
         private bool bDroite = false;
@@ -41,17 +41,10 @@ namespace EnVoiture
 
             DoubleBuffered = true;
 
-<<<<<<< HEAD
-            this.roadUsers = new List<RoadUserWidget>();
-            roadUsers.Add(new VoitureWidget(0, 0, 20, 10, 80));
-            roadUsers.Add(new VoitureWidget(150, 150, 20, 10, 80));
-            roadUsers.Add(new VoitureWidget(240, 240, 20, 10, 80));
-=======
             this.roadUsers = new List<UsagerWidget>();
             roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
             roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
             roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
->>>>>>> Joao/master
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
@@ -80,15 +73,11 @@ namespace EnVoiture
             {
                 way.Dessiner(g);
             }
-<<<<<<< HEAD
-            foreach (RoadUserWidget user in roadUsers)
-=======
             if (!ToolsBox.Visible)
->>>>>>> Joao/master
             {
                 foreach (UsagerWidget user in roadUsers)
                 {
-                    user.Dessiner(g);
+                    Usager.Dessiner(g);
                 }
 
             }
@@ -167,12 +156,12 @@ namespace EnVoiture
             }
             if (bGauche)
             {
-                voiture.Gauche();
+                voiture.TournerGauche();
             }
 
             if (bDroite)
             {
-                voiture.Droite();
+                voiture.TournerDroite();
             }
             voiture.Avancer();
 
@@ -189,7 +178,7 @@ namespace EnVoiture
 
         public void OnMouseDown(object sender, MouseEventArgs e)
         {
-            foreach (RoadUserWidget roaduser in roadUsers)
+            foreach (UsagerWidget roaduser in roadUsers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
                 if (voitureCourante.Voiture.IsClicked(e.Location))

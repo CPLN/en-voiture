@@ -102,7 +102,7 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, Obstacle> DictionaireObstacles
+        public Dictionary<Orientation, Obstacle> DictionnaireObstacles
         {
             get
             {
@@ -225,10 +225,10 @@ namespace EnVoiture
             Route clone = new Route();
             clone.Position = new Point(this.Position.X, this.Position.Y);
             clone.Taille = new Size(this.Taille.Width, this.Taille.Height);
-            clone.DictionaireObstacles = new Dictionary<Orientation, Obstacle>();
-            foreach (Orientation orientation in this.DictionaireObstacles.Keys)
+            clone.DictionnaireObstacles = new Dictionary<Orientation, Obstacle>();
+            foreach (Orientation orientation in this.DictionnaireObstacles.Keys)
             {
-                clone.DictionaireObstacles.Add(orientation, this.DictionaireObstacles[orientation]);
+                clone.DictionnaireObstacles.Add(orientation, this.DictionnaireObstacles[orientation]);
             }
             return clone;
         }

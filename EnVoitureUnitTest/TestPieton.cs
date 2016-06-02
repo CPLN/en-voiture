@@ -16,7 +16,11 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestCreatePieton()
         {
+<<<<<<< HEAD
             Pieton pieton1 = new Pieton(30, 30, 10, 10, 0.0F, 150.0F);
+=======
+            Pieton pieton1 = new Pieton(30, 30, 10, 10, 0.0f, 150.0f);
+>>>>>>> upstream/master
             Assert.IsNotNull(pieton1);
         }
     }
