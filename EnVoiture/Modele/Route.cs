@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnVoiture
+namespace EnVoiture.Modele
 {
     public class Route : ICloneable
     {
@@ -27,7 +27,7 @@ namespace EnVoiture
             set;
         }
 
-        public int Left
+        public int Gauche
         {
             get
             {
@@ -38,7 +38,7 @@ namespace EnVoiture
                 Position = new Point(value, Position.Y);
             }
         }
-        public int Top
+        public int Haut
         {
             get
             {

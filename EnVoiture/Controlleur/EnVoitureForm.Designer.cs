@@ -1,4 +1,4 @@
-﻿namespace EnVoiture
+﻿namespace EnVoiture.Controller
 {
     partial class EnVoitureForm
     {
@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.alignment = new System.Windows.Forms.TableLayoutPanel();
-            this.enVoiturePanel = new EnVoiture.EnVoiturePanel();
-            this.toolsBox = new EnVoiture.BoiteAOutils();
+            this.enVoiturePanel = new EnVoiture.Controller.EnVoiturePanel();
+            this.toolsBox = new EnVoiture.Controller.BoiteAOutils();
             this.alignment.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +64,7 @@
             this.enVoiturePanel.Name = "enVoiturePanel";
             this.enVoiturePanel.Size = new System.Drawing.Size(576, 531);
             this.enVoiturePanel.TabIndex = 0;
-            this.enVoiturePanel.ToolsBox = null;
+            this.enVoiturePanel.BoiteAOutils = null;
             this.enVoiturePanel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyDown);
             this.enVoiturePanel.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EnVoitureForm_KeyUp);
             this.enVoiturePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EnVoitureForm_MouseDown);
