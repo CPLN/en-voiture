@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EnVoiture
+namespace EnVoiture.Modele
 {
     public class Pieton : Usager
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EnVoiture;
 using System.Drawing;
+using EnVoiture.Modele;
 
 namespace EnVoitureUnitTest
 {

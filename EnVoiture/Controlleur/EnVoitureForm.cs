@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using EnVoiture.Modele;
+using EnVoiture.Vue;
 
-namespace EnVoiture
+namespace EnVoiture.Controller
 {
     /// <summary>
     /// Classe principale du projet.
@@ -29,7 +31,7 @@ namespace EnVoiture
             VoitureWidget v = new VoitureWidget(0,0,10,20,80);
             this._roadUsers.Add(v);
             this.voiture = v.Voiture;
-            enVoiturePanel.ToolsBox = toolsBox;
+            enVoiturePanel.BoiteAOutils = toolsBox;
         }
 
         /// <summary>
@@ -40,7 +42,7 @@ namespace EnVoiture
         /// <returns></returns>
         public Route CreateWay(int x, int y)
         {
-            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORD });
+            Route RouteBase = new Route(x, y, 100, 100, new List<EnVoiture.Modele.Orientation>() { EnVoiture.Modele.Orientation.NORD });
             return RouteBase;
         }
 
