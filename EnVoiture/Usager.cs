@@ -67,7 +67,7 @@ namespace EnVoiture
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public PointF Localisation
+        public PointF Position
         {
             get
             {
@@ -216,15 +216,15 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Localisation = new PointF(Localisation.X, Localisation.Y - dblVitesse);
+            Position = new PointF(Position.X, Position.Y - dblVitesse);
         }
         public void TournerGauche()
         {
-            Localisation = new PointF(Localisation.X - 1, Localisation.Y);
+            Position = new PointF(Position.X - 1, Position.Y);
         }
         public void TournerDroite()
         {
-            Localisation = new PointF(Localisation.X + 1, Localisation.Y);
+            Position = new PointF(Position.X + 1, Position.Y);
         }
         public void Reculer()
         {
@@ -248,7 +248,7 @@ namespace EnVoiture
         }
         public void Freiner()
         {
-            Localisation = new PointF(Localisation.X, Localisation.Y);
+            Position = new PointF(Position.X, Position.Y);
             dblVitesse -= FREINAGE;
         }
         public void FreinageUrgence()
