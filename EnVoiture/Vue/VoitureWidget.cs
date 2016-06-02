@@ -23,7 +23,7 @@ namespace EnVoiture.Vue
         /// </summary>
         private VoitureWidget()
         {
-            switch (new Random().Next(3))
+            switch (new Random().Next(4))
             {
                 case 0:
                     this._textureVoiture = Properties.Resources.voiture_bleue;
@@ -33,6 +33,9 @@ namespace EnVoiture.Vue
                     break;
                 case 2:
                     this._textureVoiture = Properties.Resources.voiture_rouge;
+                    break;
+                case 3:
+                    this._textureVoiture = Properties.Resources.voiture_violette;
                     break;
                 default:
                     break;
