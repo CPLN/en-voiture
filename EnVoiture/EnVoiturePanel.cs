@@ -12,7 +12,7 @@ namespace EnVoiture
     public class EnVoiturePanel : UserControl
     {
         private Voiture voiture;
-        private List<UsagerWidget> roadUsers;
+        private List<RoadUserWidget> roadUsers;
         private bool bAvancer = false;
         private bool bReculer = false;
         private bool bDroite = false;
@@ -40,10 +40,10 @@ namespace EnVoiture
 
             DoubleBuffered = true;
 
-            this.roadUsers = new List<UsagerWidget>();
-            roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
-            roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
-            roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            this.roadUsers = new List<RoadUserWidget>();
+            roadUsers.Add(new VoitureWidget(0, 0, 20, 10, 80));
+            roadUsers.Add(new VoitureWidget(150, 150, 20, 10, 80));
+            roadUsers.Add(new VoitureWidget(240, 240, 20, 10, 80));
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
             this.Ways = new List<RouteWidget>();
 
@@ -67,7 +67,7 @@ namespace EnVoiture
             {
                 way.Dessiner(g);
             }
-            foreach (UsagerWidget user in roadUsers)
+            foreach (RoadUserWidget user in roadUsers)
             {
                 user.Dessiner(g);
             }
@@ -140,7 +140,7 @@ namespace EnVoiture
             }
             else if(!bReculer && !bAvancer)
             {
-                voiture.Freiner();
+                voiture.Ralentir();
             }
             if (bGauche)
             {
@@ -163,7 +163,7 @@ namespace EnVoiture
 
         public void OnMouseDown(object sender, MouseEventArgs e)
         {
-            foreach (UsagerWidget roaduser in roadUsers)
+            foreach (RoadUserWidget roaduser in roadUsers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
                 if (voitureCourante.Voiture.IsClicked(e.Location))
