@@ -13,7 +13,7 @@ namespace EnVoiture
     public class EnVoiturePanel : UserControl
     {
         private Voiture voiture;
-        private List<UsagerWidget> roadUsers;
+        private List<UsagerWidget> _usagers;
         private bool bAvancer = false;
         private bool bReculer = false;
         private bool bDroite = false;
@@ -41,11 +41,11 @@ namespace EnVoiture
 
             DoubleBuffered = true;
 
-            this.roadUsers = new List<UsagerWidget>();
-            roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
-            roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
-            roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
-            voiture = (roadUsers[0] as VoitureWidget).Voiture;
+            this._usagers = new List<UsagerWidget>();
+            _usagers.Add(new VoitureWidget(0, 0, 10, 20, 80));
+            _usagers.Add(new VoitureWidget(150, 150, 10, 20, 80));
+            _usagers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            voiture = (_usagers[0] as VoitureWidget).Voiture;
             ToolsBox = new BoiteAOutils();
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
@@ -76,7 +76,7 @@ namespace EnVoiture
             }
             if (!ToolsBox.Visible)
             {
-                foreach (UsagerWidget user in roadUsers)
+                foreach (UsagerWidget user in _usagers)
                 {
                     user.Dessiner(g);
                 }
@@ -180,7 +180,7 @@ namespace EnVoiture
 
         public void OnMouseDown(object sender, MouseEventArgs e)
         {
-            foreach (UsagerWidget roaduser in roadUsers)
+            foreach (UsagerWidget roaduser in _usagers)
             {
                 VoitureWidget voitureCourante = roaduser as VoitureWidget;
                 if (voitureCourante.Voiture.estClique(e.Location))
