@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 
-namespace EnVoiture
+namespace EnVoiture.Vue
 {
-    public abstract class RoadUserWidget
+    public abstract class UsagerWidget
     {
         /// <summary>
         /// Permet de dessiner l'usager sur un context graphic.

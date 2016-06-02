@@ -4,25 +4,26 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EnVoiture.Modele;
 
-namespace EnVoiture
+namespace EnVoiture.Vue
 {
-    class PietonWidget : RoadUserWidget
+    class PietonWidget : UsagerWidget
     {
         public Pieton Pieton { get; private set; }
 
-        public PietonWidget(Rectangle rectangle, double v,double vmax)
+        public PietonWidget(Rectangle rectangle, float v, float vmax)
         {
             this.Pieton = new Pieton(rectangle,v,vmax);
         }
 
-        public PietonWidget(int x,int y,int width, int height, double v, double vmax)
+        public PietonWidget(int x, int y, int width, int height, float v, float vmax)
         {
             this.Pieton = new Pieton(x, y, width, height, 15, 30);
         }
         public override void Dessiner(Graphics g)
         {
-            g.FillEllipse(Brushes.Black, Pieton.Bounds);
+            g.FillEllipse(Brushes.Black, Pieton.Bornes);
         }
         
     }

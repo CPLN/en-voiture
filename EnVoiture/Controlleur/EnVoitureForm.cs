@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using EnVoiture.Modele;
+using EnVoiture.Vue;
 
-namespace EnVoiture
+namespace EnVoiture.Controller
 {
     /// <summary>
     /// Classe principale du projet.
@@ -12,7 +14,7 @@ namespace EnVoiture
     public partial class EnVoitureForm : Form
     {
         // Liste des elements qui seront affichés
-        private List<RoadUserWidget> _roadUsers = new List<RoadUserWidget>();
+        private List<UsagerWidget> _roadUsers = new List<UsagerWidget>();
 
         Voiture voiture;
         bool bAvancer = false, bReculer = false, bDroite = false, bGauche = false;
@@ -26,10 +28,10 @@ namespace EnVoiture
         public EnVoitureForm()
         {
             InitializeComponent();
-            VoitureWidget v = new VoitureWidget(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(0,0,10,20,80);
             this._roadUsers.Add(v);
             this.voiture = v.Voiture;
-            enVoiturePanel.ToolsBox = toolsBox;
+            enVoiturePanel.BoiteAOutils = toolsBox;
         }
 
         /// <summary>
@@ -38,9 +40,9 @@ namespace EnVoiture
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public Route CreateWay(int x, int y)
+        public Route creationRoute(int x, int y)
         {
-            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORTH });
+            Route RouteBase = new Route(x, y, 100, 100, new List<EnVoiture.Modele.Orientation>() { EnVoiture.Modele.Orientation.NORD });
             return RouteBase;
         }
 
@@ -67,25 +69,6 @@ namespace EnVoiture
             enVoiturePanel.OnKeyUp(sender, e);
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timerDirection_Tick(object sender, System.EventArgs e)
-        {
-            if (bAvancer)
-                voiture.Avancer();
-            if (bReculer)
-                voiture.Reculer();
-            if (bGauche)
-                voiture.Gauche();
-            if (bDroite)
-                voiture.Droite();
-            enVoiturePanel.Invalidate();
-        }
-
         /// <summary>
         /// est appelé quand on fait: pEnVoiture.Invalidate();
         /// </summary>
@@ -98,15 +81,15 @@ namespace EnVoiture
             if (toolsBox.Visible)
             {
                 // mode edition
-                foreach (RoadUserWidget user in _roadUsers)
+                foreach (UsagerWidget usager in _roadUsers)
                 {
-                    if (!(user is VoitureWidget))
-                        user.Dessiner(g);
+                    if (!(usager is VoitureWidget))
+                        usager.Dessiner(g);
                 }
             }
             else
             {
-                foreach (RoadUserWidget user in _roadUsers)
+                foreach (UsagerWidget user in _roadUsers)
                 {
                     user.Dessiner(g);
                 }

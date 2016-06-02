@@ -1,20 +1,24 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
-namespace EnVoiture
+namespace EnVoiture.Modele
 {
     /// <summary>
     /// Classe représentant un élément mobile de l'application, comme une voiture ou un piéton, par exemple.
     /// </summary>
-    public abstract class RoadUser
+    public abstract class Usager
     {
-        private Rectangle bounds;
-        private double dblVitesse;
-        private double dblVitesseMax;
+        private RectangleF bornes;
+        private float dblVitesse;
+        private float dblVitesseMax;
+        private const float ACCELERATION = 10;
+        private const float DECCELERATION = 2;
+        private const float FREINAGE = 15;
 
         /// <summary>
         /// propriété règlant la vitesse
         /// </summary>
-        public double Vitesse
+        public float Vitesse
         {
             get
             {
@@ -26,13 +30,17 @@ namespace EnVoiture
                 {
                     dblVitesse = value;
                 }
+                else
+                {
+                    dblVitesse = dblVitesseMax;
+                }
             }
         }
 
         /// <summary>
         /// propriété règéant la vitesse maximum 
         /// </summary>
-        public double VitesseMax
+        public float VitesseMax
         {
             get
             {
@@ -43,115 +51,116 @@ namespace EnVoiture
                 dblVitesseMax = value;
             }
         }
-        public Rectangle Bounds
+
+        public RectangleF Bornes
         {
             get
             {
-                return bounds;
+                return bornes;
             }
             set
             {
-                bounds = value;
+                bornes = value;
             }
         }
 
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public Point Location
+        public PointF Position
         {
             get
             {
-                return bounds.Location;
+                return bornes.Location;
             }
             set
             {
-                bounds.Location = value;
+                bornes.Location = value;
             }
         }
-        public Size Size
+        public SizeF Taille
         {
             get
             {
-                return bounds.Size;
+                return bornes.Size;
             }
             set
             {
-                bounds.Size = value;
+                bornes.Size = value;
             }
         }
 
         /// <summary>
         /// Largeur de l'usager
         /// </summary>
-        public int Width
+        public float Largeur
         {
             get
             {
-                return bounds.Width;
+                return bornes.Width;
             }
             set
             {
-                bounds.Width = value;
+                bornes.Width = value;
             }
         }
 
         /// <summary>
         /// Hauteur de l'usager
         /// </summary>
-        public int Height
+        public float Hauteur
         {
             get
             {
-                return bounds.Height;
+                return bornes.Height;
             }
             set
             {
-                bounds.Height = value;
+                bornes.Height = value;
             }
         }
 
         /// <summary>
         /// Position x de la gauche de l'usager
         /// </summary>
-        public int Left
+        public float Gauche
         {
             get
             {
-                return bounds.Left;
+                return bornes.Left;
             }
         }
 
         /// <summary>
         /// Position x de la droite de l'usager
         /// </summary>
-        public int Right
+        public float Droite
         {
             get
             {
-                return bounds.Right;
+                return bornes.Right;
             }
         }
 
         /// <summary>
         /// Position y du haut de l'usager
         /// </summary>
-        public int Top
+        public float Haut
         {
             get
             {
-                return bounds.Top;
+                return bornes.Top;
             }
         }
 
         /// <summary>
         /// Position y du bas de l'usager
         /// </summary>
-        public int Bottom
+        public float Bas
         {
             get
             {
-                return bounds.Bottom;
+                return bornes.Bottom;
             }
         }
 
@@ -164,9 +173,9 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(Rectangle bounds,double v,double vMax)
+        public Usager(RectangleF bounds, float v, float vMax)
         {
-            this.bounds = bounds;
+            this.bornes = bounds;
             VitesseMax = vMax;
             Vitesse = v;
         }
@@ -180,10 +189,10 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
-        public RoadUser(int x, int y, int width, int height, double v, double vMax)
-            : this(new Rectangle(x, y, width, height),v,vMax)
+        public Usager(float x, float y, float width, float height, float v, float vMax)
+            : this(new RectangleF(x, y, width, height), v, vMax)
         {
-           
+
         }
 
         /// <summary>
@@ -191,39 +200,59 @@ namespace EnVoiture
         /// </summary>
         /// <param name="other">L'autre usager</param>
         /// <returns>Si cet usager et l'autre se touchent</returns>
-        public bool Collide(RoadUser other)
+        public bool Heurte(Usager autre)
         {
-            return bounds.IntersectsWith(other.bounds);
+            return bornes.IntersectsWith(autre.bornes);
         }
         /// <summary>
         /// Vérifie si le clique de souris est en contact avec un usager.
         /// </summary>
         /// <param name="other"></param>
         /// <returns>Si le clique de souris à la même position que l'usager</returns>
-        public bool IsClicked(Point cursorPosition)
+        public bool estClique(PointF cursorPosition)
         {
-            return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
+            return bornes.IntersectsWith(new RectangleF(cursorPosition, new SizeF(1, 1)));
         }
 
         public void Avancer()
         {
-            Location = new Point(Location.X, Location.Y - 1);
+            Position = new PointF(Position.X, Position.Y - dblVitesse);
         }
-        public void Gauche()
+        public void TournerGauche()
         {
-            Location = new Point(Location.X - 1, Location.Y);
+            Position = new PointF(Position.X - 1, Position.Y);
         }
-        public void Droite()
+        public void TournerDroite()
         {
-            Location = new Point(Location.X + 1, Location.Y);
+            Position = new PointF(Position.X + 1, Position.Y);
         }
         public void Reculer()
         {
-            Location = new Point(Location.X, Location.Y + 1);
+            dblVitesse -= ACCELERATION;
         }
-        public void StopDeplacement()
+        public void Ralentir()
         {
-            Location = new Point(Location.X, Location.Y);
+            if (Vitesse > 0)
+            {
+                dblVitesse -= DECCELERATION;
+            }
+            else if (Vitesse < 0)
+            {
+                dblVitesse += DECCELERATION;
+            }
+        }
+
+        public void Accelerer()
+        {
+            dblVitesse += ACCELERATION;
+        }
+        public void Freiner()
+        {
+            Position = new PointF(Position.X, Position.Y);
+            dblVitesse -= FREINAGE;
+        }
+        public void FreinageUrgence()
+        {
         }
     }
 }

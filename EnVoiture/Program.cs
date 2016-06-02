@@ -16,7 +16,7 @@ namespace EnVoiture
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EnVoitureForm());
+            Application.Run(new EnVoiture.Controller.EnVoitureForm());
         }
     }
 }
