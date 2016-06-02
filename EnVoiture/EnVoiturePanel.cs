@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnVoiture.Vue;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -23,7 +24,7 @@ namespace EnVoiture
         private GraphicsPath _graphicsPath;
         private Region _region;
 
-        private List<RouteWidget> Ways;
+        private List<RouteWidget> Routes;
 
         public BoiteAOutils ToolsBox
         {
@@ -40,18 +41,30 @@ namespace EnVoiture
 
             DoubleBuffered = true;
 
+<<<<<<< HEAD
             this.roadUsers = new List<RoadUserWidget>();
             roadUsers.Add(new VoitureWidget(0, 0, 20, 10, 80));
             roadUsers.Add(new VoitureWidget(150, 150, 20, 10, 80));
             roadUsers.Add(new VoitureWidget(240, 240, 20, 10, 80));
+=======
+            this.roadUsers = new List<UsagerWidget>();
+            roadUsers.Add(new VoitureWidget(0, 0, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(150, 150, 10, 20, 80));
+            roadUsers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+>>>>>>> Joao/master
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
-            this.Ways = new List<RouteWidget>();
+            this.Routes = new List<RouteWidget>();
+            foreach (Route route in Route.Generer(6,5))
+            {
+                Routes.Add(new RouteWidget(route));
+            }
 
             foreach (Route route in Route.Generer(6,6))
             {
-                Ways.Add(new RouteWidget(route));
+                Routes.Add(new RouteWidget(route));
             }
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
+            InitializeComponent();
         }
 
         /// <summary>
@@ -63,14 +76,24 @@ namespace EnVoiture
         {
             Graphics g = e.Graphics;
 
-            foreach (RouteWidget way in Ways)
+            foreach (RouteWidget way in Routes)
             {
                 way.Dessiner(g);
             }
+<<<<<<< HEAD
             foreach (RoadUserWidget user in roadUsers)
+=======
+            if (!ToolsBox.Visible)
+>>>>>>> Joao/master
             {
-                user.Dessiner(g);
+                foreach (UsagerWidget user in roadUsers)
+                {
+                    user.Dessiner(g);
+                }
+
             }
+            if (ToolsBox.Visible)
+                _hoverWayWidget.Dessiner(g, 50, Color.Black);
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
@@ -156,6 +179,9 @@ namespace EnVoiture
             if (ToolsBox.Visible && _hoverWayWidget != null)
             {
                 Point p = PointToClient(Cursor.Position);
+                Route r = ToolsBox.GenerateurWidget.Generateur.Route;
+                
+                _hoverWayWidget.Route = r;
                 _hoverWayWidget.Route.Position = new Point(p.X / 100, p.Y / 100);
             }
             Invalidate();
@@ -178,7 +204,16 @@ namespace EnVoiture
             {
                 Route w = Route.VersPositionCase(e.X, e.Y, ToolsBox.RouteSelectionnee);
                 if (w != null)
-                    Ways.Add(new RouteWidget(w));
+                {
+                    List<RouteWidget> routes = new List<RouteWidget>();
+                    foreach (RouteWidget r in Routes)
+                    {
+                        if (r.Route.Position != w.Position)
+                            routes.Add(r);
+                    }
+                    routes.Add(new RouteWidget(w));
+                    Routes = routes;
+                }
             }
         }
 

@@ -25,7 +25,7 @@ namespace EnVoitureUnitTest
         {
             Usager car = new Voiture(16, 42, 120, 910, 80);
             Assert.AreEqual(new Point(16, 42), car.Localisation);
-            Assert.AreEqual(new Size(120, 910), car.Taille);
+            Assert.AreEqual(new Size(120, 910), car.Size);
             Assert.AreEqual(120, car.Largeur);
             Assert.AreEqual(910, car.Hauteur);
             Assert.AreEqual(16, car.Gauche);
@@ -144,7 +144,7 @@ namespace EnVoitureUnitTest
         public void TestStopDeplacement()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
-            car.StopDeplacement();
+            car.FreinageUrgence();
             Assert.AreEqual(0, car.Localisation.Y); //teste si la position su l'axe y est restée la même
             Assert.AreEqual(0, car.Localisation.X);//teste si la position su l'axe x est restée la même
         }
