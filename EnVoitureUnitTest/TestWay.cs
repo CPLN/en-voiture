@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using EnVoiture;
 using System.Drawing;
+using EnVoiture.Modele;
 
 namespace EnVoitureUnitTest
 {

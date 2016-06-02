@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EnVoiture.Modele;
+using EnVoiture.Vue;
 
-namespace EnVoiture
+namespace EnVoiture.Controller
 {
     public class EnVoiturePanel : UserControl
     {
@@ -18,7 +20,7 @@ namespace EnVoiture
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
-        private RouteWidget _hoverWayWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<Orientation> { }));
+        private RouteWidget _hoverWayWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<EnVoiture.Modele.Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;

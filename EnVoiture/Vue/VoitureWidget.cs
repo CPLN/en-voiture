@@ -1,6 +1,8 @@
 ﻿
 using System.Drawing;
-namespace EnVoiture
+using EnVoiture.Modele;
+
+namespace EnVoiture.Vue
 {
     /// <summary>
     /// Représentation visuelle d'une voiture dans l'application.
