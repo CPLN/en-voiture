@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnVoiture.Modele;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace EnVoiture
 {
-    public class Route
+    public class Route : ICloneable
     {
-        private Dictionary<Orientation, bool> _orientationsRoutes;
+        private Dictionary<Orientation, Obstacle> _orientationsRoutes = new Dictionary<Orientation, Obstacle>()
+                {
+                    { Orientation.NORD, Obstacle.RIEN },
+                    { Orientation.EST, Obstacle.RIEN },
+                    { Orientation.SUD, Obstacle.RIEN },
+                    { Orientation.OUEST, Obstacle.RIEN }
+                };
 
         /// <summary>
         /// Location of the way
@@ -61,6 +68,11 @@ namespace EnVoiture
             private set;
         }
 
+        private Route()
+        {
+
+        }
+
         /// <summary>
         /// Constructeur utilisant un x, y, largeur, hauteur et une liste d'orientations en paramètres
         /// </summary>
@@ -70,6 +82,7 @@ namespace EnVoiture
         /// <param name="height"></param>
         /// <param name="orientations"></param>
         public Route(int x, int y, int largeur, int hauteur, List<Orientation> orientations)
+            : this()
         {
             this.Position = new Point(x, y);
             this.Taille = new Size(largeur, hauteur);
@@ -84,6 +97,7 @@ namespace EnVoiture
         /// <param name="size">contient Widht et height</param>
         /// <param name="orientations"></param>
         public Route(Point position, Size taille, List<Orientation> orientations)
+            : this()
         {
             this.Position = position;
             this.Taille = taille;
@@ -96,7 +110,7 @@ namespace EnVoiture
         /// <param name="location"></param>
         /// <param name="size"></param>
         /// <param name="_orientsWays"></param>
-        public Route(Point position, Size taille, Dictionary<Orientation, bool> orientationsRoutes)
+        public Route(Point position, Size taille, Dictionary<Orientation, Obstacle> orientationsRoutes)
         {
             this.Position = position;
             this.Taille = taille;
@@ -111,11 +125,15 @@ namespace EnVoiture
         /// <summary>
         /// Get sur Dictionaire
         /// </summary>
-        public Dictionary<Orientation, bool> GetDictionaire
+        public Dictionary<Orientation, Obstacle> DictionnaireObstacles
         {
             get
             {
-                return _orientationsRoutes == null ? new Dictionary<Orientation, bool>() : _orientationsRoutes;
+                return _orientationsRoutes;
+            }
+            set
+            {
+                _orientationsRoutes = value;
             }
         }
 
@@ -130,7 +148,7 @@ namespace EnVoiture
             if (way != null)
             {
                 way.Position = new Point(x / 100, y / 100);
-                return way.MemberwiseClone() as Route;
+                return way.Clone() as Route;
             }
             return null;
         }
@@ -142,7 +160,6 @@ namespace EnVoiture
         /// <returns>Liste de Ways</returns>
         public static List<Route> Generer(int largeurVille, int hauteurVille)
         {
-            
             int nbWays = largeurVille * hauteurVille;
             List<Route> _routesVille = new List<Route>();
 
@@ -152,56 +169,91 @@ namespace EnVoiture
                     int x = n % largeurVille;
                     int y = n / largeurVille;
 
-                    bool sortieN;
-                    bool sortieE;
-                    bool sortieS;
-                    bool sortieW;
+                    Obstacle sortieN;
+                    Obstacle sortieE;
+                    Obstacle sortieS;
+                    Obstacle sortieW;
                     int icpt;
-                    Dictionary<Orientation, bool> _bList = new Dictionary<Orientation, bool>();
+                    Dictionary<Orientation, Obstacle> _bList = new Dictionary<Orientation, Obstacle>();
                     do
                     {
                         icpt = 0;
-                        sortieN = rand.Next(2) == 0;
-                        sortieE = rand.Next(2) == 0;
-                        sortieS = rand.Next(2) == 0;
-                        sortieW = rand.Next(2) == 0;
+                        int quantiteObstacles = Enum.GetNames(typeof(Obstacle)).Length;
+                        sortieN = (Obstacle)rand.Next(quantiteObstacles);
+                        sortieE = (Obstacle)rand.Next(quantiteObstacles);
+                        sortieS = (Obstacle)rand.Next(quantiteObstacles);
+                        sortieW = (Obstacle)rand.Next(quantiteObstacles);
 
                         if (x != 0)
                         {
-                            sortieW = _routesVille[n-1]._orientationsRoutes[Orientation.EAST];
+                            sortieW = _routesVille[n-1]._orientationsRoutes[Orientation.EST];
                         }
 
                         if (y != 0)
                         {
-                            sortieN = _routesVille[n - largeurVille]._orientationsRoutes[Orientation.SOUTH];
+                            sortieN = _routesVille[n - largeurVille]._orientationsRoutes[Orientation.SUD];
                         }
 
-                        if (sortieE)
+                        //if (sortieE)
+                        //{
+                        //    icpt++;
+                        //}
+                        //if (sortieN)
+                        //{
+                        //    icpt++;
+                        //}
+                        //if (sortieS)
+                        //{
+                        //    icpt++;
+                        //}
+                        //if (sortieW)
+                        //{
+                        //    icpt++;
+                        //}
+                        if (sortieE != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-                        if (sortieN)
+                        if (sortieN != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-                        if (sortieS)
+                        if (sortieS != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-                        if (sortieW)
+                        if (sortieW != Obstacle.RIEN)
                         {
                             icpt++;
                         }
-
+                        
                     } while (icpt < 2);
-                    _bList.Add(Orientation.NORTH, sortieN);
-                    _bList.Add(Orientation.EAST, sortieE);
-                    _bList.Add(Orientation.SOUTH, sortieS);
-                    _bList.Add(Orientation.WEST, sortieW);
+                    _bList.Add(Orientation.NORD, sortieN);
+                    _bList.Add(Orientation.EST, sortieE);
+                    _bList.Add(Orientation.SUD, sortieS);
+                    _bList.Add(Orientation.OUEST, sortieW);
 
                     _routesVille.Add(new Route(new Point(x, y), new Size(1, 1), _bList));
             }
             return _routesVille;
+        }
+
+        internal static Route VersPositionCase(int p1, int p2, Vue.GenerateurWidget generateurWidget)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Clone()
+        {
+            Route clone = new Route();
+            clone.Position = new Point(this.Position.X, this.Position.Y);
+            clone.Taille = new Size(this.Taille.Width, this.Taille.Height);
+            clone.DictionnaireObstacles = new Dictionary<Orientation, Obstacle>();
+            foreach (Orientation orientation in this.DictionnaireObstacles.Keys)
+            {
+                clone.DictionnaireObstacles.Add(orientation, this.DictionnaireObstacles[orientation]);
+            }
+            return clone;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EnVoiture
 {
-    public abstract class RoadUserWidget
+    public abstract class UsagerWidget
     {
         /// <summary>
         /// Permet de dessiner l'usager sur un context graphic.

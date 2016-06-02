@@ -28,13 +28,13 @@ namespace EnVoitureUnitTest
         [TestMethod]
         public void TestOppositeOrientationNS()
         {
-            Assert.AreEqual(Orientation.NORTH.getOpposite(), Orientation.SOUTH);
+            Assert.AreEqual(Orientation.NORD.Oppose(), Orientation.SUD);
         }
 
         [TestMethod]
         public void TestOppositeOrientationWE()
         {
-            Assert.AreEqual(Orientation.WEST.getOpposite(), Orientation.EAST);
+            Assert.AreEqual(Orientation.OUEST.Oppose(), Orientation.EST);
         }
 
         [TestMethod]
@@ -42,7 +42,7 @@ namespace EnVoitureUnitTest
         {
             List<Orientation> o = new List<Orientation>();
             Route w1 = new Route(2, 1, 20, 30, o);
-            Assert.AreEqual(2, w1.Position.X);
+            Assert.AreEqual(2, w1.Position.X); 
             Assert.AreEqual(1, w1.Position.Y);
         }
     }

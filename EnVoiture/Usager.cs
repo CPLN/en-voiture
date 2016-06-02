@@ -6,9 +6,9 @@ namespace EnVoiture
     /// <summary>
     /// Classe représentant un élément mobile de l'application, comme une voiture ou un piéton, par exemple.
     /// </summary>
-    public abstract class RoadUser
+    public abstract class Usager
     {
-        private RectangleF bounds;
+        private RectangleF bornes;
         private float dblVitesse;
         private float dblVitesseMax;
         private const float ACCELERATION = 0.10F;
@@ -51,118 +51,119 @@ namespace EnVoiture
                 dblVitesseMax = value;
             }
         }
-        public RectangleF Bounds
+
+        public RectangleF Bornes
         {
             get
             {
-                return bounds;
+                return bornes;
             }
             set
             {
-                bounds = value;
+                bornes = value;
             }
         }
 
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public PointF Location
+        public PointF Position
         {
             get
             {
-                return bounds.Location;
+                return bornes.Location;
             }
             set
             {
-                bounds.Location = value;
+                bornes.Location = value;
             }
         }
         /// <summary>
         /// propriétét automatique défini la taille en float
         /// </summary>
-        public SizeF Size
+        public SizeF Taille
         {
             get
             {
-                return bounds.Size;
+                return bornes.Size;
             }
             set
             {
-                bounds.Size = value;
+                bornes.Size = value;
             }
         }
 
         /// <summary>
         /// Largeur de l'usager
         /// </summary>
-        public float Width
+        public float Largeur
         {
             get
             {
-                return bounds.Width;
+                return bornes.Width;
             }
             set
             {
-                bounds.Width = value;
+                bornes.Width = value;
             }
         }
 
         /// <summary>
         /// Hauteur de l'usager
         /// </summary>
-        public float Height
+        public float Hauteur
         {
             get
             {
-                return bounds.Height;
+                return bornes.Height;
             }
             set
             {
-                bounds.Height = value;
+                bornes.Height = value;
             }
         }
 
         /// <summary>
         /// Position x de la gauche de l'usager
         /// </summary>
-        public float Left
+        public float Gauche
         {
             get
             {
-                return bounds.Left;
+                return bornes.Left;
             }
         }
 
         /// <summary>
         /// Position x de la droite de l'usager
         /// </summary>
-        public float Right
+        public float Droite
         {
             get
             {
-                return bounds.Right;
+                return bornes.Right;
             }
         }
 
         /// <summary>
         /// Position y du haut de l'usager
         /// </summary>
-        public float Top
+        public float Haut
         {
             get
             {
-                return bounds.Top;
+                return bornes.Top;
             }
         }
 
         /// <summary>
         /// Position y du bas de l'usager
         /// </summary>
-        public float Bottom
+        public float Bas
         {
             get
             {
-                return bounds.Bottom;
+                return bornes.Bottom;
             }
         }
 
@@ -175,9 +176,10 @@ namespace EnVoiture
         /// Constructeur permettant de définir la position et la taille d'un usager d'après un rectangle.
         /// </summary>
         /// <param name="bounds">Rectangle sur lequel baser la géométrie de l'usager</param>
-        public RoadUser(RectangleF bounds, float v, float vMax)
+
+        public Usager(RectangleF bounds, float v, float vMax)
         {
-            this.bounds = bounds;
+            this.bornes = bounds;
             VitesseMax = vMax;
             Vitesse = v;
         }
@@ -191,8 +193,9 @@ namespace EnVoiture
         /// <param name="height">Hauteur</param>
         /// <param name="v"> vitesse de base </param>
         /// <param name="vMax">vitesse Max</param>
-        public RoadUser(int x, int y, int width, int height, float v, float vMax)
-            : this(new Rectangle(x, y, width, height), v, vMax)
+
+        public Usager(float x, float y, float width, float height, float v, float vMax)
+            : this(new RectangleF(x, y, width, height), v, vMax)
         {
 
         }
@@ -202,18 +205,18 @@ namespace EnVoiture
         /// </summary>
         /// <param name="other">L'autre usager</param>
         /// <returns>Si cet usager et l'autre se touchent</returns>
-        public bool Collide(RoadUser other)
+        public bool Heurte(Usager autre)
         {
-            return bounds.IntersectsWith(other.bounds);
+            return bornes.IntersectsWith(autre.bornes);
         }
         /// <summary>
         /// Vérifie si le clique de souris est en contact avec un usager.
         /// </summary>
         /// <param name="other"></param>
         /// <returns>Si le clique de souris à la même position que l'usager</returns>
-        public bool IsClicked(Point cursorPosition)
+        public bool estClique(PointF cursorPosition)
         {
-            return bounds.IntersectsWith(new Rectangle(cursorPosition, new Size(1, 1)));
+            return bornes.IntersectsWith(new RectangleF(cursorPosition, new SizeF(1, 1)));
         }
 
         /// <summary>
@@ -221,22 +224,23 @@ namespace EnVoiture
         /// </summary>
         public void Avancer()
         {
-            Location = new PointF((float)(Location.X + dblVitesse * Math.Cos(Angle)), (float)(Location.Y + dblVitesse * Math.Sin(Angle)));
+            Position = new PointF((float)(Position.X + dblVitesse * Math.Cos(Angle)), (float)(Position.Y + dblVitesse * Math.Sin(Angle)));
         }
         /// <summary>
         /// décrémente l'angle de la voiture et nous sert donc a tourner a gauche
         /// </summary>
-        public void Gauche()
+        public void TournerGauche()
         {
             Angle -= Vitesse / 100.0F;
         }
         /// <summary>
         /// incrémente l'angle de la voiture et nous sert donc a tourner a gauche
         /// </summary>
-        public void Droite()
+        public void TournerDroite()
         {
             Angle += Vitesse / 100.0F;
         }
+
         /// <summary>
         /// décrémente la vitesse 
         /// </summary>
@@ -272,6 +276,7 @@ namespace EnVoiture
 
         public void Freiner()
         {
+            Position = new PointF(Position.X, Position.Y);
             dblVitesse -= FREINAGE;
         }
         /// <summary>
@@ -279,7 +284,6 @@ namespace EnVoiture
         /// </summary>
         public void FreinageUrgence()
         {
-
         }
     }
 }
