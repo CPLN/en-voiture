@@ -12,12 +12,7 @@ namespace EnVoiture.Controller
 {
     public class BoiteAOutils : UserControl
     {
-        public GenerateurWidget GenerateurWidget
-        {
-            get;
-            private set;
-        }
-
+        public GenerateurWidget GenerateurWidget { get; private set; }
 
         public Route RouteSelectionnee
         {

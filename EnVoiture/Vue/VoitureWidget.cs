@@ -28,11 +28,11 @@ namespace EnVoiture.Vue
         /// </summary>
         /// <param name="x">Position x du côté gauche</param>
         /// <param name="y">Position y du haut</param>
-        /// <param name="width">Largeur</param>
-        /// <param name="height">Hauteur</param>
-        public VoitureWidget(int x, int y, int width, int height, float vMax)
+        /// <param name="largeur">Largeur</param>
+        /// <param name="hauteur">Hauteur</param>
+        public VoitureWidget(int x, int y, int largeur, int hauteur, float vMax)
         {
-            this.Voiture = new Voiture(x, y, width, height,vMax);
+            this.Voiture = new Voiture(x, y, largeur, hauteur, vMax);
         }
 
         public override void Dessiner(Graphics g)
