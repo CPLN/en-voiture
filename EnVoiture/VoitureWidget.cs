@@ -18,7 +18,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public VoitureWidget(Rectangle rectangle)
         {
-            this.Voiture = new Voiture(rectangle,0.0F);
+            this.Voiture = new Voiture(rectangle, 0.0F);
         }
 
         /// <summary>
@@ -35,7 +35,8 @@ namespace EnVoiture
 
         public override void Dessiner(Graphics g)
         {
-            g.FillRectangle(Brushes.Red, Voiture.Bornes);
+            //g.FillRectangle(Brushes.Red, Voiture.Bornes);
+            g.DrawImage(Properties.Resources.voiture, Voiture.Position);
         }
     }
 }
