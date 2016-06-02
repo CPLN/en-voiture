@@ -4,8 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EnVoiture.Modele;
 
-namespace EnVoiture
+namespace EnVoiture.Vue
 {
     class PietonWidget : UsagerWidget
     {

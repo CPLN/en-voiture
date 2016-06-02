@@ -1,6 +1,8 @@
 ﻿
 using System.Drawing;
-namespace EnVoiture
+using EnVoiture.Modele;
+
+namespace EnVoiture.Vue
 {
     /// <summary>
     /// Représentation visuelle d'une voiture dans l'application.
@@ -18,7 +20,7 @@ namespace EnVoiture
         /// <param name="rectangle">Rectangle sur lequel baser la géométrie de la voiture</param>
         public VoitureWidget(Rectangle rectangle)
         {
-            this.Voiture = new Voiture(rectangle,0.0F);
+            this.Voiture = new Voiture(rectangle, 0.0F);
         }
 
         /// <summary>
