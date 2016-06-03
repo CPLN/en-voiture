@@ -14,8 +14,8 @@ namespace EnVoiture.Modele
         /// </summary>
         /// <param name="x">Position X</param>
         /// <param name="y">Position Y</param>
-        /// <param name="x1">Hauteur</param>
-        /// <param name="y1">Largeur</param>
+        /// <param name="largeur">Hauteur</param>
+        /// <param name="hauteur">Largeur</param>
         /// <param name="v">Vitesse de Base</param>
         /// <param name="vMax">Vitesse Max</param>
         public Pieton(int x, int y, int largeur, int hauteur, float v, float vMax)

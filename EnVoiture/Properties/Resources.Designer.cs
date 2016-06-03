@@ -63,9 +63,39 @@ namespace EnVoiture.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap voiture {
+        internal static System.Drawing.Bitmap voiture_bleue {
             get {
-                object obj = ResourceManager.GetObject("voiture", resourceCulture);
+                object obj = ResourceManager.GetObject("voiture_bleue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voiture_jaune {
+            get {
+                object obj = ResourceManager.GetObject("voiture_jaune", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voiture_rouge {
+            get {
+                object obj = ResourceManager.GetObject("voiture_rouge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voiture_violette {
+            get {
+                object obj = ResourceManager.GetObject("voiture_violette", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

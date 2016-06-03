@@ -1,5 +1,4 @@
-﻿using EnVoiture.Vue;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EnVoiture.Modele;
 using EnVoiture.Vue;
+using Orientation = EnVoiture.Modele.Orientation;
 
 namespace EnVoiture.Controller
 {
@@ -20,7 +20,7 @@ namespace EnVoiture.Controller
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
-        private RouteWidget _prevRouteWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<EnVoiture.Modele.Orientation> { }));
+        private RouteWidget _prevRouteWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
@@ -44,10 +44,10 @@ namespace EnVoiture.Controller
             DoubleBuffered = true;
 
             this._usagers = new List<UsagerWidget>();
-            _usagers.Add(new VoitureWidget(0, 0, 10, 20, 80));
-            _usagers.Add(new VoitureWidget(150, 150, 10, 20, 80));
-            _usagers.Add(new VoitureWidget(240, 240, 10, 20, 80));
-            voiture = (_usagers[0] as VoitureWidget).Voiture;
+            this._usagers.Add(new VoitureWidget(0, 0, 10, 20, 80));
+            this._usagers.Add(new VoitureWidget(150, 150, 10, 20, 80));
+            this._usagers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            this.voiture = (_usagers[0] as VoitureWidget).Voiture;
             BoiteAOutils = new BoiteAOutils();
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))
