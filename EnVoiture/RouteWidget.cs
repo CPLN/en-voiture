@@ -11,11 +11,13 @@ namespace EnVoiture
     public class RouteWidget
     {
         public static int TAILLE = 100;
+        private int LargeurRoute;
         public Route Route { get; set; }
 
         public RouteWidget(Route route)
         {
             Route = route;
+            LargeurRoute = 20;
         }
 
         public void Dessiner(Graphics g, int opacite, Color color)
@@ -105,16 +107,16 @@ namespace EnVoiture
             switch (obstacle)
             {
                 case Obstacle.RIEN:
-                    pen = new Pen(Brushes.Transparent, 20);
+                    pen = new Pen(Brushes.Transparent, LargeurRoute);
                     break;
                 case Obstacle.ROUTE:
-                    pen = new Pen(Brushes.Black, 20);
+                    pen = new Pen(Brushes.Black, LargeurRoute);
                     break;
                 case Obstacle.ROUTETROTTOIR:
-                    pen = new Pen(Brushes.Blue, 20);
+                    pen = new Pen(Brushes.Blue, LargeurRoute);
                     break;
                 default:
-                    pen = new Pen(Brushes.Gainsboro, 20);
+                    pen = new Pen(Brushes.Gainsboro, LargeurRoute);
                     break;
             }
             Point point1;

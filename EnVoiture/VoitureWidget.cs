@@ -12,6 +12,7 @@ namespace EnVoiture
         /// La voiture liée à cet afficheur.
         /// </summary>
         public Voiture Voiture { get; private set; }
+        private EnVoiturePanel voiturePanel;
 
         /// <summary>
         /// Constructeur permettant de définir la position et la taille d'une voiture d'après un rectangle.
@@ -29,9 +30,10 @@ namespace EnVoiture
         /// <param name="y">Position y du haut</param>
         /// <param name="width">Largeur</param>
         /// <param name="height">Hauteur</param>
-        public VoitureWidget(int x, int y, int width, int height, float vMax)
+        public VoitureWidget(int x, int y, int width, int height, float vMax, EnVoiturePanel v)
         {
-            this.Voiture = new Voiture(x, y, width, height,vMax);
+            this.Voiture = new Voiture(x, y, width, height,vMax,this);
+            voiturePanel=v;
         }
 
         public override void Dessiner(Graphics g)
