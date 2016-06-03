@@ -45,38 +45,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modele\Generateur.cs" />
-    <Compile Include="BoiteAOutils.cs">
+    <Compile Include="Controlleur\BoiteAOutils.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Modele\Obstacle.cs" />
-    <Compile Include="Voiture.cs" />
-    <Compile Include="VoitureWidget.cs" />
-    <Compile Include="EnVoitureForm.cs">
+    <Compile Include="Modele\Voiture.cs" />
+    <Compile Include="Vue\VoitureWidget.cs" />
+    <Compile Include="Controlleur\EnVoitureForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EnVoitureForm.Designer.cs">
+    <Compile Include="Controlleur\EnVoitureForm.Designer.cs">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnVoiturePanel.cs">
+    <Compile Include="Controlleur\EnVoiturePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PietonWidget.cs" />
-    <Compile Include="Pieton.cs" />
+    <Compile Include="Vue\PietonWidget.cs" />
+    <Compile Include="Modele\Pieton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usager.cs" />
-    <Compile Include="UsagerWidget.cs" />
+    <Compile Include="Modele\Usager.cs" />
+    <Compile Include="Vue\UsagerWidget.cs" />
     <Compile Include="Vue\GenerateurWidget.cs" />
-    <Compile Include="Route.cs" />
-    <Compile Include="Orientation.cs" />
-    <Compile Include="RouteBouton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RouteWidget.cs" />
-    <EmbeddedResource Include="EnVoitureForm.resx">
+    <Compile Include="Modele\Route.cs" />
+    <Compile Include="Modele\Orientation.cs" />
+    <Compile Include="Vue\RouteWidget.cs" />
+    <EmbeddedResource Include="Controlleur\EnVoitureForm.resx">
       <DependentUpon>EnVoitureForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EnVoiturePanel.resx">
+    <EmbeddedResource Include="Controlleur\EnVoiturePanel.resx">
       <DependentUpon>EnVoiturePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -89,7 +86,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="BoiteAOutils.resx">
+    <EmbeddedResource Include="Controlleur\BoiteAOutils.resx">
       <DependentUpon>BoiteAOutils.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
@@ -107,10 +104,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controlleur\" />
+    <None Include="Resources\voiture_bleue.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\voiture.png" />
+    <None Include="Resources\voiture_jaune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voiture_rouge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\voiture_violette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,11 +1,10 @@
-﻿using EnVoiture.Modele;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using EnVoiture.Modele;
 
 namespace EnVoiture.Vue
 {

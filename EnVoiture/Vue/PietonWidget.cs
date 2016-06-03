@@ -4,8 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EnVoiture.Modele;
 
-namespace EnVoiture
+namespace EnVoiture.Vue
 {
     class PietonWidget : UsagerWidget
     {
@@ -20,6 +21,7 @@ namespace EnVoiture
         {
             this.Pieton = new Pieton(x, y, width, height, 15, 30);
         }
+
         public override void Dessiner(Graphics g)
         {
             g.FillEllipse(Brushes.Black, Pieton.Bornes);
