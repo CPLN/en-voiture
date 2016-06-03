@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using EnVoiture.Modele;
 
 namespace EnVoiture.Vue
@@ -44,7 +43,7 @@ namespace EnVoiture.Vue
         /// Cette fonction reçoit en paramètre un point et permet de le transformer en orientation.
         /// </summary>
         /// <param name="point"></param>
-        public EnVoiture.Modele.Orientation DetectionOrientation(Point point)
+        public Orientation DetectionOrientation(Point point)
         {
             //fonctionne 
             int posGauche = point.X - MARGEX;
@@ -56,23 +55,23 @@ namespace EnVoiture.Vue
             int min = Math.Min(minX, minY);
             if (min == posGauche)
             {
-                return EnVoiture.Modele.Orientation.OUEST;
+                return Orientation.OUEST;
             }
             else
             {
                 if (min == posDroite)
                 {
-                    return EnVoiture.Modele.Orientation.EST;
+                    return Orientation.EST;
                 }
                 else
                 {
                     if (min == posHaut)
                     {
-                        return EnVoiture.Modele.Orientation.NORD;
+                        return Orientation.NORD;
                     }
                     else
                     {
-                        return EnVoiture.Modele.Orientation.SUD;
+                        return Orientation.SUD;
                     }
                 }
             }

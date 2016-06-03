@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using EnVoiture.Modele;
 using EnVoiture.Vue;
+using Orientation = EnVoiture.Modele.Orientation;
 
 namespace EnVoiture.Controller
 {
@@ -42,7 +43,7 @@ namespace EnVoiture.Controller
         /// <returns></returns>
         public Route creationRoute(int x, int y)
         {
-            Route RouteBase = new Route(x, y, 100, 100, new List<EnVoiture.Modele.Orientation>() { EnVoiture.Modele.Orientation.NORD });
+            Route RouteBase = new Route(x, y, 100, 100, new List<Orientation>() { Orientation.NORD });
             return RouteBase;
         }
 

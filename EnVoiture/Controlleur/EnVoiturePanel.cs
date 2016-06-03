@@ -1,5 +1,4 @@
-﻿using EnVoiture.Vue;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -9,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EnVoiture.Modele;
 using EnVoiture.Vue;
+using Orientation = EnVoiture.Modele.Orientation;
 
 namespace EnVoiture.Controller
 {
@@ -20,7 +20,7 @@ namespace EnVoiture.Controller
         private bool bReculer = false;
         private bool bDroite = false;
         private bool bGauche = false;
-        private RouteWidget _prevRouteWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<EnVoiture.Modele.Orientation> { }));
+        private RouteWidget _prevRouteWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<Orientation> { }));
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
