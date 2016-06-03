@@ -143,6 +143,9 @@ namespace EnVoiture
                     break;
             }
         }
-
+        public Route ObtenirPosition()
+        {
+            return Route;
+        }
     }
 }

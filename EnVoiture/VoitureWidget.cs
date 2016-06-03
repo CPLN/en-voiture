@@ -45,5 +45,17 @@ namespace EnVoiture
             g.TranslateTransform(-Voiture.Position.X, -Voiture.Position.Y);
 
         }
+
+        public EnVoiturePanel VoiturePanel
+        {
+            get
+            {
+                return voiturePanel;
+            }
+        }
+        public Route ObtenirPosition()
+        {
+            return voiturePanel.ObtenirPosition();
+        }
     }
 }

@@ -42,9 +42,9 @@ namespace EnVoiture
             DoubleBuffered = true;
 
             this.roadUsers = new List<UsagerWidget>();
-            roadUsers.Add(new VoitureWidget(0, 0, 20, 10, 80));
-            roadUsers.Add(new VoitureWidget(150, 150, 20, 10, 80));
-            roadUsers.Add(new VoitureWidget(240, 240, 20, 10, 80));
+            roadUsers.Add(new VoitureWidget(0, 0, 20, 10, 80,this));
+            roadUsers.Add(new VoitureWidget(150, 150, 20, 10, 80,this));
+            roadUsers.Add(new VoitureWidget(240, 240, 20, 10, 80,this ));
 
 
             voiture = (roadUsers[0] as VoitureWidget).Voiture;
@@ -216,6 +216,10 @@ namespace EnVoiture
             // 
             this.Name = "EnVoiturePanel";
             this.ResumeLayout(false);
+        }
+        public Route ObtenirPosition()
+        {
+            return _hoverWayWidget.ObtenirPosition();
         }
     }    
 }

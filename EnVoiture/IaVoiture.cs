@@ -20,8 +20,12 @@ namespace EnVoiture
         {
             if(Active)
             {
-
+                Route r = ObtenirPosition();
             }
+        }
+        public Route ObtenirPosition()
+        {
+            return voiture.ObtenirPosition();
         }
 
     }

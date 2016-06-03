@@ -32,5 +32,16 @@ namespace EnVoiture
         {
             ia.Bouger();
         }
+        public VoitureWidget voiturewidget
+        {
+            get
+            {
+                return voitureWidget;
+            }
+        }
+        public Route ObtenirPosition()
+        {
+            return voitureWidget.ObtenirPosition();
+        }
     }
 }
