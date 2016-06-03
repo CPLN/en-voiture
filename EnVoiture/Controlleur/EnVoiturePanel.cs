@@ -44,10 +44,10 @@ namespace EnVoiture.Controller
             DoubleBuffered = true;
 
             this._usagers = new List<UsagerWidget>();
-            _usagers.Add(new VoitureWidget(0, 0, 10, 20, 80));
-            _usagers.Add(new VoitureWidget(150, 150, 10, 20, 80));
-            _usagers.Add(new VoitureWidget(240, 240, 10, 20, 80));
-            voiture = (_usagers[0] as VoitureWidget).Voiture;
+            this._usagers.Add(new VoitureWidget(0, 0, 10, 20, 80));
+            this._usagers.Add(new VoitureWidget(150, 150, 10, 20, 80));
+            this._usagers.Add(new VoitureWidget(240, 240, 10, 20, 80));
+            this.voiture = (_usagers[0] as VoitureWidget).Voiture;
             BoiteAOutils = new BoiteAOutils();
             this.Routes = new List<RouteWidget>();
             foreach (Route route in Route.Generer(6,5))

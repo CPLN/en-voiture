@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EnVoiture.Controller;
 
 namespace EnVoiture
 {
@@ -16,7 +17,7 @@ namespace EnVoiture
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EnVoiture.Controller.EnVoitureForm());
+            Application.Run(new EnVoitureForm());
         }
     }
 }
