@@ -11,6 +11,7 @@ namespace EnVoiture.Vue
     /// </summary>
     public class VoitureWidget : UsagerWidget
     {
+        private static Random _random = new Random();
         private Bitmap _textureVoiture;
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace EnVoiture.Vue
         /// </summary>
         private VoitureWidget()
         {
-            switch (new Random().Next(4))
+            switch (_random.Next(4))
             {
                 case 0:
                     this._textureVoiture = Properties.Resources.voiture_bleue;
@@ -40,8 +41,6 @@ namespace EnVoiture.Vue
                 default:
                     break;
             }
-            // Pour que le random soit efficace
-            Thread.Sleep(50);
         }
 
         /// <summary>
