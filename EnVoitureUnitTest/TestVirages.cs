@@ -25,7 +25,8 @@ namespace EnVoitureUnitTest
         [TestMethod]//Test vitesse et angle de la voiture arretee qui accelere à gauche
         public void TestAccelerationGaucheDepartArrete()
         {
-            Usager voiture = new Voiture(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(5, 5, 5, 5, 5, new EnVoiturePanel());
+            Usager voiture = new Voiture(0, 0, 10, 20, 80,v);
             voiture.Accelerer();
             voiture.TournerGauche();
             
@@ -36,7 +37,8 @@ namespace EnVoitureUnitTest
         [TestMethod]//Test vitesse et angle de voiture en mouvement qui accelere à gauche
         public void TestAccelerationGaucheDepartMouvement()
         {
-            Usager voiture = new Voiture(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(5, 5, 5, 5, 5, new EnVoiturePanel());
+            Usager voiture = new Voiture(0, 0, 10, 20, 80,v);
             voiture.Vitesse = 5.0F;
             voiture.Accelerer();
             voiture.TournerGauche();
@@ -48,7 +50,8 @@ namespace EnVoitureUnitTest
         [TestMethod]//Test vitesse et angle de voiture en mouvement negatif qui accelere à gauche
         public void TestAccelerationGaucheDepartVitesseNegative()
         {
-            Usager voiture = new Voiture(0, 0, 10, 20, 80);
+            VoitureWidget v = new VoitureWidget(5, 5, 5, 5, 5, new EnVoiturePanel());
+            Usager voiture = new Voiture(0, 0, 10, 20, 80,v);
             voiture.Vitesse = -5.0F;
             voiture.Accelerer();
             voiture.TournerGauche();
