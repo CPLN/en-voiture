@@ -26,29 +26,6 @@ namespace EnVoiture
             get;
             set;
         }
-
-        public int Left
-        {
-            get
-            {
-                return Position.X;
-            }
-            set
-            {
-                Position = new Point(value, Position.Y);
-            }
-        }
-        public int Top
-        {
-            get
-            {
-                return Position.Y;
-            }
-            set
-            {
-                Position = new Point(Position.X, value);
-            }
-        }
         
         /// <summary>
         /// Taille de la route

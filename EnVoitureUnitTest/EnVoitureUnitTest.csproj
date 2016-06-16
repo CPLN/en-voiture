@@ -57,6 +57,7 @@
     <Compile Include="TestRoadUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestPieton.cs" />
+    <Compile Include="TestVirages.cs" />
     <Compile Include="TestWay.cs" />
     <Compile Include="testAcceleration.cs" />
     <Compile Include="TestGenerateurWidget.cs" />

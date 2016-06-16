@@ -165,7 +165,6 @@ namespace EnVoitureUnitTest
 
         /// <summary>
         /// Test si l'état du sud a changé de rien à route simple
-        /// </summary>
         [TestMethod]
         public void TestEditionRouteSudRienRoute()
         {
