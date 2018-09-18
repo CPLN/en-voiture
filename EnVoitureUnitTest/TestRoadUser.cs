@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
-using EnVoiture;
+using EnVoiture.Modele;
 
 namespace EnVoitureUnitTest
 {
@@ -144,7 +144,7 @@ namespace EnVoitureUnitTest
         public void TestStopDeplacement()
         {
             Usager car = new Voiture(0, 0, 10, 10, 80);
-            car.StopDeplacement();
+            car.FreinageUrgence();
             Assert.AreEqual(0, car.Position.Y); //teste si la position su l'axe y est restée la même
             Assert.AreEqual(0, car.Position.X);//teste si la position su l'axe x est restée la même
         }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
-namespace EnVoiture
+namespace EnVoiture.Modele
 {
     /// <summary>
     /// Classe représentant un élément mobile de l'application, comme une voiture ou un piéton, par exemple.
@@ -12,7 +13,7 @@ namespace EnVoiture
         private float dblVitesse;
         private float dblVitesseMax;
         private const float ACCELERATION = .1f;
-        private const float DECCELERATION = .2f;
+        private const float DECCELERATION = .1f;
         private const float FREINAGE = .15f;
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace EnVoiture
         /// <summary>
         /// Emplacement de l'usager
         /// </summary>
-        public PointF Localisation
+        public PointF Position
         {
             get
             {
@@ -216,15 +217,15 @@ namespace EnVoiture
 
         public void Avancer()
         {
-            Localisation = new PointF(Localisation.X, Localisation.Y - dblVitesse);
+            Position = new PointF(Position.X, Position.Y - dblVitesse);
         }
         public void TournerGauche()
         {
-            Localisation = new PointF(Localisation.X - 1, Localisation.Y);
+            Position = new PointF(Position.X - 1, Position.Y);
         }
         public void TournerDroite()
         {
-            Localisation = new PointF(Localisation.X + 1, Localisation.Y);
+            Position = new PointF(Position.X + 1, Position.Y);
         }
         public void Reculer()
         {
@@ -234,11 +235,27 @@ namespace EnVoiture
         {
             if (Vitesse > 0)
             {
-                dblVitesse -= DECCELERATION;
+                //Met la vitesse à zéro lorsque l'on arrête d'avancer pour éviter que la voiture avance toute seul
+                if (Vitesse < .06f && Vitesse > -.06f)
+                {
+                    dblVitesse = 0;
+                }
+                else
+                {
+                    dblVitesse -= DECCELERATION;
+                }
             }
             else if (Vitesse < 0)
             {
-                dblVitesse += DECCELERATION;
+                //Met la vitesse à zéro lorsque l'on arrête de reculer pour éviter que la voiture recule toute seul
+                if (Vitesse < .06f && Vitesse > -.06f)
+                {
+                    dblVitesse = 0;
+                }
+                else
+                {
+                    dblVitesse += DECCELERATION;
+                }
             }
         }
 
@@ -248,7 +265,7 @@ namespace EnVoiture
         }
         public void Freiner()
         {
-            Localisation = new PointF(Localisation.X, Localisation.Y);
+            Position = new PointF(Position.X, Position.Y);
             dblVitesse -= FREINAGE;
         }
         public void FreinageUrgence()
