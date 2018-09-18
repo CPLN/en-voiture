@@ -9,6 +9,9 @@ using System.Windows.Forms;
 using EnVoiture.Modele;
 using EnVoiture.Vue;
 using Orientation = EnVoiture.Modele.Orientation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace EnVoiture.Controller
 {
@@ -22,6 +25,9 @@ namespace EnVoiture.Controller
         private bool bGauche = false;
         private RouteWidget _prevRouteWidget = new RouteWidget(new Route(0, 0, 1, 1, new List<Orientation> { }));
         private float zoomRate = 1f;
+        savePrefab sauvegarde;
+        private string RunningPath;
+        private string resourcePath;
 
         //Variables de détection de la voiture
         private GraphicsPath _graphicsPath;
@@ -62,6 +68,9 @@ namespace EnVoiture.Controller
             }
             this.Paint += new PaintEventHandler(EnVoiture_Paint);
             InitializeComponent();
+
+            RunningPath = AppDomain.CurrentDomain.BaseDirectory;
+            resourcePath = string.Format("{0}Resources", Path.GetFullPath(Path.Combine(RunningPath, @"..\..\")));
         }
 
         /// <summary>
@@ -81,7 +90,6 @@ namespace EnVoiture.Controller
 
             //Effectue un zoom par rapport au zoomRate
             g.ScaleTransform(this.zoomRate, this.zoomRate);
-
             /*if (bDroite)
             {
                 float angle = (float)this.voiture.Angle + 1;
@@ -151,6 +159,18 @@ namespace EnVoiture.Controller
                 Random r = new Random();
                 this.voiture = (_usagers[r.Next(0, _usagers.Count())] as VoitureWidget).Voiture;
             }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                this.sauvegarder();
+            }
+
+            if (e.KeyCode == Keys.F7)
+            {
+                this.restaurer();
+            }
+
+
         }
         public void OnKeyUp(object sender, KeyEventArgs e)
         {
@@ -260,6 +280,33 @@ namespace EnVoiture.Controller
             // 
             this.Name = "EnVoiturePanel";
             this.ResumeLayout(false);
+        }
+
+        private void sauvegarder()
+        {
+            this.sauvegarde = new savePrefab();
+            sauvegarde.voiture = voiture;
+            sauvegarde.usagers = _usagers;
+            sauvegarde.zoomrate = zoomRate;
+            sauvegarde.routes = Routes;
+
+            using (StreamWriter file = File.CreateText(resourcePath + @"\sauvegarde\save.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //serialize object directly into file stream
+                serializer.Serialize(file, sauvegarde);
+            }
+        }
+
+        private void restaurer()
+        {
+            /*using (StreamReader re = new StreamReader(resourcePath + @"\sauvegarde\save.json"))
+            {
+                JsonTextReader reader = new JsonTextReader(re);
+                JsonSerializer se = new JsonSerializer();
+                object parsedData = se.Deserialize(reader);
+                Console.WriteLine(parsedData);
+            }*/
         }
     }    
 }
