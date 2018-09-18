@@ -111,7 +111,7 @@ namespace EnVoiture.Controller
             else
                 _prevRouteWidget.Dessiner(g, 50, Color.Black);
 
-            g.DrawRectangle(new Pen(Color.Red), voiture.Position.X, voiture.Position.Y, 10, 10);
+            //g.DrawRectangle(new Pen(Color.Red), voiture.Position.X, voiture.Position.Y, 10, 10);
         }
         public void OnKeyDown(object sender, KeyEventArgs e)
         {
